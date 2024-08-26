@@ -1,1 +1,1 @@
-# ICTP-Physics-Without-Frontiers-Physics-for-Bangladesh-QFT-School
+# ICTP-Physics-Without-Frontiers (PWF) | Physics-for-Bangladesh-QFT-School
