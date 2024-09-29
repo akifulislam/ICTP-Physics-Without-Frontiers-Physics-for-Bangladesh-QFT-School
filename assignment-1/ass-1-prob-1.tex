@@ -1,0 +1,79 @@
+\allowdisplaybreaks
+\begin{center}
+	\hrule
+	\vspace{.4cm}
+ \begin{tabular*}{\textwidth}{@{}l@{}|@{\extracolsep{0.6in}}r@{}}%
+\parbox{4.25in}{\raggedright{\includegraphics[width=.9\linewidth]{ictp-pwf.pdf}}} &
+\parbox[c][]{4in}{{\Large\textbf{Md Akiful Islam Zawad} \par}
+                    { Brac University \par}
+                    { KHA 224, Progati Sarani, Merul Badda, \par}
+                    { Dhaka 1212, Bangladesh \par}
+                    { \href{ext.akiful.islam@bracu.ac.bd}{ext.akiful.islam@bracu.ac.bd}} \par}
+\end{tabular*}\vspace{.3in}
+\definecolor{ceruleanblue}{rgb}{0.16, 0.32, 0.6}
+	\LARGE\scshape\textbf{\textcolor{ceruleanblue}{Physics For Bangladesh: School On Quantum Field Theory}}
+\end{center}
+\hrule\vspace{.25in}
+{\large\textbf{Problem Sheet:}\ \textsc{1} \hspace{\hfill} \large\textbf{Submission Date:} \today\\
+	\hline\hline
+ %----------------------------
+\paragraph*{Problem Set 1} %\hfill \newline
+\\
+A Lorentz transformation $x^\mu \rightarrow x'^\mu = \Lambda^\mu_\nu x^\nu$ is such that $\eta_{\mu\nu} x^\mu x^\nu = \eta_{\mu\nu} x'^\mu x'^\nu$ where $\eta_{\mu\nu}$ is the Minkowski metric and $x^\mu$ is any 4-vector.
+
+    Show that this implies that
+    \begin{align*}
+        \eta_{\mu\nu} &= \eta_{\sigma\tau} \Lambda^\sigma_\mu \Lambda^\tau_\nu.
+    \end{align*}
+    Use this result to show that an infinitesimal transformation around identity of the form
+    \begin{align*}
+        \Lambda^\mu_\nu &= \delta^\mu_\nu + \omega^\mu_\nu,
+    \end{align*}
+    ($\omega^\mu_\nu$ is infinitesimally small) is a Lorentz transformation when $\omega_{\mu\nu}$ is antisymmetric: i.e. $\omega_{\mu\nu} = -\omega_{\nu\mu}$.
+    
+\bigskip\bigskip\hline\hline\bigskip
+
+\section*{Solution}
+We start with the given condition that the Minkowski metric is preserved under the Lorentz transformation:
+\begin{align}
+    \eta_{\mu\nu} x^\mu x^\nu &= \eta_{\mu\nu} x'^\mu x'^\nu.\label{eq:minkowski-metric-conserved}
+\end{align}
+Substitute the transformed coordinates \(x'^\mu = \Lambda^\mu_\sigma x^\sigma\) into the right-hand side of (\ref{eq:minkowski-metric-conserved}):
+\begin{align}
+    \eta_{\mu\nu} x^\mu x^\nu &= \eta_{\mu\nu} \Lambda^\mu_\sigma x^\sigma \Lambda^\nu_\tau x^\tau\notag\\
+    &= \eta_{\sigma\tau} \Lambda^\sigma_\mu \Lambda^\tau_\nu x^\mu x^\nu.
+\end{align}
+Since this must hold for any 4-vector \(x^\mu\), we conclude that:
+\begin{align}
+    \eta_{\mu\nu} &= \eta_{\sigma\tau} \Lambda^\sigma_\mu \Lambda^\tau_\nu,\label{eq:desired-result}
+\end{align}
+which is the desired result.
+
+Consider an infinitesimal Lorentz transformation of the form:
+\begin{align}
+    \Lambda^\mu_\nu &= \delta^\mu_\nu + \omega^\mu_\nu,\label{eq:infinitesimal-lorentz}
+\end{align}
+where \(\omega^\mu_\nu\) is infinitesimally small.
+
+Substitute this into (\ref{eq:minkowski-metric-conserved}):
+\begin{align*}
+    \eta_{\mu\nu} &= \eta_{\sigma\tau} \Lambda^\sigma_\mu \Lambda^\tau_\nu.\label{eq:minkowski-metric-conserved-2}
+\end{align*}
+Expanding \(\Lambda^\sigma_\mu \Lambda^\tau_\nu\) to first order in \(\omega\), we get:
+\begin{align}
+    \Lambda^\sigma_\mu \Lambda^\tau_\nu &= (\delta^\sigma_\mu + \omega^\sigma_\mu)(\delta^\tau_\nu + \omega^\tau_\nu) \notag \\
+    &= \delta^\sigma_\mu \delta^\tau_\nu + \delta^\sigma_\mu \omega^\tau_\nu + \omega^\sigma_\mu \delta^\tau_\nu + \mathcal{O}(\omega^2)\notag\\
+    &= \delta^\sigma_\mu \delta^\tau_\nu + \omega^\tau_\nu \delta^\sigma_\mu + \omega^\sigma_\mu \delta^\tau_\nu + \mathcal{O}(\omega^2).
+\end{align}
+Substitute this into (\ref{eq:minkowski-metric-conserved-2}):
+\begin{align}
+    \eta_{\mu\nu} &= \eta_{\sigma\tau} \left(\delta^\sigma_\mu \delta^\tau_\nu + \omega^\tau_\nu \delta^\sigma_\mu + \omega^\sigma_\mu \delta^\tau_\nu \right)\notag\\
+    &= \eta_{\sigma\tau} \delta^\sigma_\mu \delta^\tau_\nu + \eta_{\sigma\tau} \delta^\sigma_\mu \omega^\tau_\nu + \eta_{\sigma\tau} \omega^\sigma_\mu \delta^\tau_\nu\notag\\
+    &= \eta_{\mu\nu} + \eta_{\mu\tau} \omega^\tau_\nu + \eta_{\sigma\nu} \omega^\sigma_\mu\notag\\
+    0 &= \eta_{\mu\tau} \omega^\tau_\nu + \eta_{\sigma\nu} \omega^\sigma_\mu.
+\end{align}
+Since \(\eta_{\mu\tau}\) is the Minkowski metric and is symmetric, this equation implies that:
+\begin{align}
+    \omega_{\mu\nu} &= -\omega_{\nu\mu},
+\end{align}
+which shows that \(\omega_{\mu\nu}\) must be antisymmetric.

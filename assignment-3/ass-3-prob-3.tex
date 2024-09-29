@@ -1,0 +1,259 @@
+\allowdisplaybreaks
+\begin{center}
+	\hrule
+	\vspace{.4cm}
+ \begin{tabular*}{\textwidth}{@{}l@{}|@{\extracolsep{0.6in}}r@{}}%
+\parbox{4.25in}{\raggedright{\includegraphics[width=.9\linewidth]{ictp-pwf.pdf}}} &
+\parbox[c][]{4in}{{\Large\textbf{Md Akiful Islam Zawad} \par}
+                    { Brac University \par}
+                    { KHA 224, Progati Sarani, Merul Badda, \par}
+                    { Dhaka 1212, Bangladesh \par}
+                    { \href{ext.akiful.islam@bracu.ac.bd}{ext.akiful.islam@bracu.ac.bd}} \par}
+\end{tabular*}\vspace{.3in}
+\definecolor{ceruleanblue}{rgb}{0.16, 0.32, 0.6}
+	\LARGE\scshape\textbf{\textcolor{ceruleanblue}{Physics for Bangladesh QFT School}}
+\end{center}
+\hrule\vspace{.25in}
+{\large\textbf{Problem Sheet:}\ \textsc{3} \hspace{\hfill} \large\textbf{Due Date:} \today\\
+	\hrule}
+ %----------------------------
+\paragraph*{Problem Set 3} %\hfill \newline
+\\
+In the lecture, we saw that the $A_\mu$ field has two degrees of freedom. In the Coulomb gauge, this is easy to see since we have the constraints
+\begin{align}
+    A_0 = 0 \quad \& \quad \nabla \cdot \mathbf{A} = 0.
+\end{align}
+The second constraint, in momentum space, gives the condition
+\begin{align}
+    \mathbf{p} \cdot \boldsymbol{\epsilon}(\mathbf{p}) = 0,\label{eq:question-4}
+\end{align}
+where $\boldsymbol{\epsilon}(\mathbf{p})$ is called the polarization vector. This means that only the components transverse to the momentum $\mathbf{p}$ will survive. Therefore, we can pick two orthonormal basis vectors $\boldsymbol{\epsilon}_a(\mathbf{p})$ ($a = 1, 2$) satisfying Eq. (\ref{eq:question-4}) and
+\begin{align}
+    \boldsymbol{\epsilon}_a(\mathbf{p}) \cdot \boldsymbol{\epsilon}_b(\mathbf{p}) = \delta_{ab}.
+\end{align}
+
+Let the momentum of the photon be $\mathbf{p} = |\mathbf{p}|
+\begin{pmatrix}
+    \sin \theta \cos \phi \\
+    \sin \theta \sin \phi \\
+    \cos \theta
+\end{pmatrix}$. This momentum can be obtained from the momentum $\mathbf{p}^\prime =
+\begin{pmatrix}
+    0 \\
+    0 \\
+    |\mathbf{p}|
+\end{pmatrix}$ by a rotation
+\begin{align}
+    R(\theta, \phi) =
+    \begin{pmatrix}
+        \cos \phi & -\sin \phi & 0 \\
+        \sin \phi & \cos \phi & 0 \\
+        0 & 0 & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+        \cos \theta & 0 & \sin \theta \\
+        0 & 1 & 0 \\
+        -\sin \theta & 0 & \cos \theta
+    \end{pmatrix}.
+\end{align}
+
+In the primed frame, one can choose the two polarization basis vectors as
+\begin{align}
+    \boldsymbol{\epsilon}^\prime_1(\mathbf{p}^\prime) =
+    \begin{pmatrix}
+        1 \\
+        0 \\
+        0
+    \end{pmatrix} \quad \& \quad \boldsymbol{\epsilon}^\prime_2(\mathbf{p}^\prime) =
+    \begin{pmatrix}
+        0 \\
+        1 \\
+        0
+    \end{pmatrix}.
+\end{align}
+
+\begin{itemize}
+    \item[(a)] Obtain the two polarization vectors $\boldsymbol{\epsilon}_1(\mathbf{p})$ and $\boldsymbol{\epsilon}_2(\mathbf{p})$ in the unprimed frame by applying the rotation.
+
+    Let us define $\boldsymbol{\epsilon}_3(\mathbf{p}) = \hat{p}$. One can easily see that $\boldsymbol{\epsilon}_r(\mathbf{p})$ ($r = 1, 2, 3$) forms a complete set of orthonormal basis for three-dimensional momentum space. Therefore, they should obey the completeness relation:
+    \begin{align}
+        \sum_{r=1}^3 \epsilon_i^r(\mathbf{p}) \epsilon_j^r(\mathbf{p}) = \delta_{ij}.
+    \end{align}
+
+    \item[(b)] From this, obtain the completeness relation for the two transverse polarization vectors
+    \begin{align}
+        \sum_{r=1}^2 \epsilon_i^r(\mathbf{p}) \epsilon_j^r(\mathbf{p}) = \delta_{ij} - \frac{p_i p_j}{|\mathbf{p}|^2}.
+    \end{align}
+\end{itemize}
+\bigskip\bigskip\hline\hline\bigskip
+\subsection*{Solution:}
+\begin{enumerate}
+\item [(a)] We start by finding the two polarization vectors in the unprimed frame by applying the rotation matrix.
+
+The momentum of the photon is given as:
+\begin{align*}
+    \mathbf{p} = |\mathbf{p}|
+    \begin{pmatrix}
+        \sin \theta \cos \phi \\
+        \sin \theta \sin \phi \\
+        \cos \theta
+    \end{pmatrix}.
+\end{align*}
+This momentum can be obtained from the momentum in the primed frame:
+\begin{align*}
+    \mathbf{p}' =
+    \begin{pmatrix}
+        0 \\
+        0 \\
+        |\mathbf{p}|
+    \end{pmatrix},
+\end{align*}
+by a rotation matrix \( R(\theta, \phi) \) which is defined as:
+\begin{align*}
+    R(\theta, \phi) = 
+    \begin{pmatrix}
+        \cos \phi & -\sin \phi & 0 \\
+        \sin \phi & \cos \phi & 0 \\
+        0 & 0 & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+        \cos \theta & 0 & \sin \theta \\
+        0 & 1 & 0 \\
+        -\sin \theta & 0 & \cos \theta
+    \end{pmatrix}.
+\end{align*}
+In the primed frame, we can choose the polarization basis vectors as:
+\begin{align}
+    \boldsymbol{\epsilon}'_1(\mathbf{p}') =
+    \begin{pmatrix}
+        1 \\
+        0 \\
+        0
+    \end{pmatrix}, \quad \boldsymbol{\epsilon}'_2(\mathbf{p}') =
+    \begin{pmatrix}
+        0 \\
+        1 \\
+        0
+    \end{pmatrix}.
+\end{align}
+To obtain the polarization vectors in the unprimed frame, we apply the rotation matrix \( R(\theta, \phi) \) to these vectors:
+\begin{align}
+    \boldsymbol{\epsilon}_1(\mathbf{p}) &= R(\theta, \phi) \boldsymbol{\epsilon}'_1(\mathbf{p}'),\\
+    \boldsymbol{\epsilon}_2(\mathbf{p}) &= R(\theta, \phi) \boldsymbol{\epsilon}'_2(\mathbf{p}').
+\end{align}
+We now apply the rotation matrix to each polarization vector. First, let’s calculate \( \boldsymbol{\epsilon}_1(\mathbf{p}) \):
+\begin{align*}
+    \boldsymbol{\epsilon}_1(\mathbf{p}) &= 
+    \begin{pmatrix}
+        \cos \phi & -\sin \phi & 0 \\
+        \sin \phi & \cos \phi & 0 \\
+        0 & 0 & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+        \cos \theta & 0 & \sin \theta \\
+        0 & 1 & 0 \\
+        -\sin \theta & 0 & \cos \theta
+    \end{pmatrix}
+    \begin{pmatrix}
+        1 \\
+        0 \\
+        0
+    \end{pmatrix}, \nonumber \\
+    &= 
+    \begin{pmatrix}
+        \cos \phi & -\sin \phi & 0 \\
+        \sin \phi & \cos \phi & 0 \\
+        0 & 0 & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+        \cos \theta \\
+        0 \\
+        -\sin \theta
+    \end{pmatrix}, \nonumber \\
+    &= 
+    \begin{pmatrix}
+        \cos \theta \cos \phi \\
+        \cos \theta \sin \phi \\
+        -\sin \theta
+    \end{pmatrix}.
+\end{align*}
+Now, let’s calculate \( \boldsymbol{\epsilon}_2(\mathbf{p}) \):
+\begin{align*}
+    \boldsymbol{\epsilon}_2(\mathbf{p}) &= 
+    \begin{pmatrix}
+        \cos \phi & -\sin \phi & 0 \\
+        \sin \phi & \cos \phi & 0 \\
+        0 & 0 & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+        \cos \theta & 0 & \sin \theta \\
+        0 & 1 & 0 \\
+        -\sin \theta & 0 & \cos \theta
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 \\
+        1 \\
+        0
+    \end{pmatrix}, \nonumber \\
+    &= 
+    \begin{pmatrix}
+        \cos \phi & -\sin \phi & 0 \\
+        \sin \phi & \cos \phi & 0 \\
+        0 & 0 & 1
+    \end{pmatrix}
+    \begin{pmatrix}
+        0 \\
+        1 \\
+        0
+    \end{pmatrix}, \nonumber \\
+    &= 
+    \begin{pmatrix}
+        -\sin \phi \\
+        \cos \phi \\
+        0
+    \end{pmatrix}.
+\end{align*}
+
+Thus, the two polarization vectors in the unprimed frame are:
+\begin{align}
+    \boldsymbol{\epsilon}_1(\mathbf{p}) &= 
+    \begin{pmatrix}
+        \cos \theta \cos \phi \\
+        \cos \theta \sin \phi \\
+        -\sin \theta
+    \end{pmatrix}, \\
+    \boldsymbol{\epsilon}_2(\mathbf{p}) &= 
+    \begin{pmatrix}
+        -\sin \phi \\
+        \cos \phi \\
+        0
+    \end{pmatrix}.
+\end{align}
+\item [(b)] Let us define the third polarization vector as:
+\begin{align}
+    \boldsymbol{\epsilon}_3(\mathbf{p}) = \hat{p} = \frac{\mathbf{p}}{|\mathbf{p}|}.
+\end{align}
+The three polarization vectors $\boldsymbol{\epsilon}_r(\mathbf{p})$ ($r = 1, 2, 3$) form a complete orthonormal basis for the three-dimensional momentum space. Therefore, they obey the completeness relation:
+\begin{align}
+    \sum_{r=1}^3 \epsilon_i^r(\mathbf{p}) \epsilon_j^r(\mathbf{p}) = \delta_{ij}. \label{eq:completeness-relation}
+\end{align}
+The vector $\displaystyle \boldsymbol{\epsilon}_3(\mathbf{p}) = \hat{p}$ represents the longitudinal component along the direction of momentum. Therefore, the completeness relation for the transverse polarization vectors is obtained by subtracting the contribution of $\boldsymbol{\epsilon}_3(\mathbf{p})$ from (\ref{eq:completeness-relation}).
+
+We have:
+\begin{align*}
+    \epsilon_i^3(\mathbf{p}) = \hat{p}_i = \frac{p_i}{|\mathbf{p}|}.
+\end{align*}
+Now, subtract the longitudinal component from the completeness relation:
+\begin{align*}
+    \sum_{r=1}^2 \epsilon_i^r(\mathbf{p}) \epsilon_j^r(\mathbf{p}) = \delta_{ij} - \epsilon_i^3(\mathbf{p}) \epsilon_j^3(\mathbf{p}).
+\end{align*}
+Substitute $\displaystyle\epsilon_i^3(\mathbf{p}) = \frac{p_i}{|\mathbf{p}|}$:
+\begin{align*}
+    \sum_{r=1}^2 \epsilon_i^r(\mathbf{p}) \epsilon_j^r(\mathbf{p}) = \delta_{ij} - \frac{p_i p_j}{|\mathbf{p}|^2}.
+\end{align*}
+Thus, the completeness relation for the two transverse polarization vectors is:
+\begin{align}
+    \sum_{r=1}^2 \epsilon_i^r(\mathbf{p}) \epsilon_j^r(\mathbf{p}) = \delta_{ij} - \frac{p_i p_j}{|\mathbf{p}|^2}.
+\end{align}
+\end{enumerate}
+\bigskip\bigskip\hline\hline\bigskip

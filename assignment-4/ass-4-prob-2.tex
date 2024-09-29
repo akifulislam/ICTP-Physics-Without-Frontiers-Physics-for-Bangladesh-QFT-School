@@ -1,0 +1,111 @@
+\allowdisplaybreaks
+\begin{center}
+	\hrule
+	\vspace{.4cm}
+ \begin{tabular*}{\textwidth}{@{}l@{}|@{\extracolsep{0.6in}}r@{}}%
+\parbox{4.25in}{\raggedright{\includegraphics[width=.9\linewidth]{ictp-pwf.pdf}}} &
+\parbox[c][]{4in}{{\Large\textbf{Md Akiful Islam Zawad} \par}
+                    { Brac University \par}
+                    { KHA 224, Progati Sarani, Merul Badda, \par}
+                    { Dhaka 1212, Bangladesh \par}
+                    { \href{ext.akiful.islam@bracu.ac.bd}{ext.akiful.islam@bracu.ac.bd}} \par}
+\end{tabular*}\vspace{.3in}
+\definecolor{ceruleanblue}{rgb}{0.16, 0.32, 0.6}
+	\LARGE\scshape\textbf{\textcolor{ceruleanblue}{Physics for Bangladesh QFT School}}
+\end{center}
+\hrule\vspace{.25in}
+{\large\textbf{Problem Sheet:}\ \textsc{4} \hspace{\hfill} \large\textbf{Due Date:} \today\\
+	\hrule}
+ %----------------------------
+\paragraph*{Problem Set 2} %\hfill \newline
+\\
+Use the properties 
+\begin{align}
+    \{ \gamma^\mu, \gamma^\nu \} = 2\eta^{\mu\nu} \quad \text{and} \quad \text{(ii) cyclic property of trace},\label{eq:given-properties}
+\end{align}
+to do the following:
+
+\begin{itemize}
+    \item[(a)] Show that the trace of any odd number of $\gamma^\mu$ ($\mu = 0, 1, 2, 3$) is zero.
+    \item[(b)] Find an expression for $\text{Tr}(\gamma^\mu \gamma^\nu \gamma^\rho \gamma^\sigma)$ in terms of the Minkowski metric.
+    \item[(c)] Find an expression for $\text{Tr}(\gamma^\mu \gamma^\nu \gamma^\rho \gamma^\sigma \gamma^\alpha \gamma^\beta)$.
+    \item[(d)] Can you guess how many additive terms it will have in the expression for the trace of eight $\gamma^\mu$ matrices?
+\end{itemize}
+\bigskip\bigskip\hline\hline\bigskip
+\begin{enumerate}
+    \item [(a)] We are only given to use (\ref{eq:given-properties}) to solve this question. The cyclic property of the trace, is 
+    \begin{align}
+        tr\left(A\ldots BC\right)=tr\left(CA\ldots B\right)
+    \end{align}
+    We also get to use $\displaystyle\gamma_5^2=1$ and $\left\{\gamma_5,\gamma^\alpha\right\}=0$
+    \begin{align}
+        tr\left(\underbrace{\gamma^\alpha\ldots\gamma^\beta}_{2n+1}\right)&=tr\left(1\gamma^\alpha\ldots\gamma^\beta\right)\notag\\
+        &=tr\left(\gamma_5\gamma_5\gamma^\alpha\ldots\gamma^\beta\right)\notag\\
+        &=-tr\left(\gamma_5\gamma^\alpha\gamma_5\ldots\gamma^\beta\right)\notag\\
+        &=(-1)^{2n+1}tr\left(\gamma_5\gamma^\alpha\ldots\gamma^\beta\gamma_5\right)\notag\\
+        &=(-1)^{2n+1}\left(\gamma_5\gamma_5\gamma^\alpha\ldots\gamma^\beta\right)\notag\\
+        &=-tr\left(\gamma^\alpha\ldots\gamma^\beta\right)\notag\\
+        &=0
+    \end{align}
+    \item [(b)] We start with the trace product of $2$ gamma matrices.
+    \begin{align}
+        tr\left(\gamma^\mu\gamma^\nu\right)&=tr\left(-\gamma^\nu\gamma^\mu+2\eta^{\mu\nu}1\right)\notag\\
+        &=-tr\left(\gamma^\nu\gamma^\mu\right)+2\eta^{\mu\nu}tr(1)\notat\\
+        &=-tr\left(\gamma^\mu\gamma^\nu\right)+8\eta^{\mu\nu}\notag\\
+        &=4\eta^{\mu\nu}.
+    \end{align}
+    We can use this to evaluate the trace products of $4$ gamma matrices.
+    \begin{align}
+        tr\left(\gamma^\mu\gamma^\nu\gamma^\rho\gamma^\sigma\right)&=tr\left(\left(-\gamma^\nu\gamma^\mu+2\eta^{\mu\nu}1\right)\gamma^\rho\gamma^\sigma\right)\notag\\
+        &=-tr\left(\gamma^\nu\gamma^\mu\gamma^\rho\gamma^\sigma\right)+2\eta^{\mu\nu}tr\left(\gamma^\rho\gamma^\sigma\right)\notag\\
+        &=-tr\left(\gamma^\nu\left(-\gamma^\rho\gamma^\mu+2\eta^{\mu\rho}\gamma^\sigma\right)\right)+2\eta^{\mu\nu}tr\left(\gamma^\rho\gamma^\sigma\right)\notag\\
+        &=tr\left(\gamma^\nu\gamma^\rho\gamma^\mu\gamma^\sigma\right)-2\eta^{\mu\rho}tr\left(\gamma^\nu\gamma^\sigma\right)+2\eta^{\mu\nu}tr\left(\gamma^\rho\gamma^\sigma\right)\notag\\
+        &=tr\left(\gamma^\nu\gamma^\rho\left(-\gamma^\sigma\gamma^\mu\right)+2\eta^{\sigma\mu}\right)-2\eta^{\mu\rho}tr\left(\gamma^\nu\gamma^\sigma\right)+2\eta^{\mu\nu}tr\left(\gamma^\rho\gamma^\sigma\right)\notag\\
+        &=-tr\left(\gamma^\nu\gamma^\rho\gamma^\sigma\gamma^\mu\right)+2\eta^{\sigma\mu}tr\left(\gamma^\nu\gamma^\rho\right)-2\eta^{\mu\rho}tr\left(\gamma^\nu\gamma^\sigma\right)+2\eta^{\mu\nu}tr\left(\gamma^\rho\gamma^\sigma\right)\notag\\
+        2tr\left(\gamma^\mu\gamma^\nu\gamma^\rho\gamma^\sigma\right)&=2\eta^{\sigma\mu}tr\left(\gamma^\nu\gamma^\rho\right)-2\eta^{\mu\rho}tr\left(\gamma^\nu\gamma^\sigma\right)+2\eta^{\mu\nu}tr\left(\gamma^\rho\gamma^\sigma\right)\notag\\
+        \therefore tr\left(\gamma^\mu\gamma^\nu\gamma^\rho\gamma^\sigma\right)&=4\eta^{\sigma\mu}\eta^{\nu\rho}-4\eta^{\mu\rho}\eta^{\nu\sigma}+4\eta^{\mu\nu}\eta^{\rho\sigma}\label{eq:4-gamma-matrices-mu-nu}
+    \end{align}
+    \item [(c)] For a trace product of six gamma matrices, we use (\ref{eq:4-gamma-matrices-mu-nu}) to speed up the process:
+    \begin{align}
+        tr\left(\gamma^\mu\gamma^\nu\gamma^\rho\gamma^\sigma\gamma^\alpha\gamma^\beta\right)&=tr\left(\left(-\gamma^\nu\gamma^\mu+2\eta^{\mu\nu}1\right)\gamma^\rho\gamma^\sigma\gamma^\alpha\gamma^\beta\right)\notag\\
+        &=tr\left(-\gamma^\nu\left(2\eta^{\mu\rho}-\gamma^\rho\gamma^\mu\right)\gamma^\sigma\gamma^\alpha\gamma^\beta+2\eta^{\mu\nu}\gamma^\rho\gamma^\sigma\gamma^\alpha\gamma^\beta\right)\notag\\
+        &=tr\left(-\gamma^\nu\gamma^\rho\gamma^\sigma\gamma^\alpha\gamma^\beta\gamma^\mu+2\eta^{\mu\rho}\gamma^\nu\gamma^\sigma\gamma^\alpha\gamma^\beta-2\eta^{\mu\sigma}\gamma^\nu\gamma^\rho\gamma^\alpha\gamma^\beta\right.\notag\\
+        &\left.\hspace{50pt}+2\eta^{\mu\alpha}\gamma^\nu\gamma^\rho\gamma^\sigma\gamma^\beta-2\eta^{\mu\beta}\gamma^\nu\gamma^\rho\gamma^\sigma\gamma^\alpha+2\eta^{\mu\nu}\gamma^\rho\gamma^\sigma\gamma^\alpha\gamma^\beta\right)\notat\\
+        &=tr\left(\eta^{\mu\sigma}\gamma^\nu\gamma^\rho\gamma^\alpha\gamma^\beta-\eta^{\mu\alpha}\gamma^\nu\gamma^\rho\gamma^\sigma\gamma^\beta+\eta^{\mu\rho}\gamma^\nu\gamma^\sigma\gamma^\alpha\gamma^\beta-\eta^{\mu\beta}\gamma^\nu\gamma^\rho\gamma^\sigma\gamma^\alpha+\eta^{\mu\nu}\gamma^\rho\gamma^\sigma\gamma^\alpha\gamma^\beta\right)\notag\\
+        &=4\eta^{\mu\alpha}\left(\eta^{\nu\rho}\eta^{\sigma\beta}-\eta^{\nu\sigma}\eta^{\rho\beta}+\eta^{\beta\nu}\eta^{\rho\sigma}\right)-4\eta^{\mu\sigma}\left(\eta^{\nu\rho}\eta^{\alpha\beta}-\eta^{\nu\alpha}\eta^{\rho\beta}+\eta^{\beta\nu}\eta^{\rho\alpha}\right)\notag\\
+        &\hspace{40pt}4\eta^{\mu\rho}\left(\eta^{\nu\sigma}\eta^{\alpha\beta}-\eta^{\nu\alpha}\eta^{\sigma\beta}+\eta^{\beta\sigma}\eta^{\nu\alpha}\right)-4\eta^{\mu\alpha}\left(\eta^{\nu\rho}\eta^{\sigma\beta}-\eta^{\nu\beta}\eta^{\rho\sigma}\right)\notag\\
+        &\hspace{60pt}4\eta^{\mu\nu}\left(\eta^{\rho\sigma}\eta^{\alpha\beta}-\eta^{\rho\alpha}\eta^{\beta\sigma}+\eta^{\rho\beta}\eta^{\alpha\sigma}\right)\label{eq:six-matrices}
+    \end{align}
+    \item [(d)] Now move on to the trace of the product of 8 gamma matrices $\gamma^\mu \gamma^\nu \gamma^\rho \gamma^\sigma \gamma^\alpha \gamma^\beta \gamma^\delta \gamma^\epsilon$. Using the strategy from previous calculations, we use the anticommutation relations to reduce the number of gamma matrices.
+    \begin{align}
+        tr\left(\gamma^\mu \gamma^\nu \gamma^\rho \gamma^\sigma \gamma^\alpha \gamma^\beta \gamma^\delta \gamma^\epsilon\right) &= tr\left(\left(-\gamma^\nu \gamma^\mu + 2 \eta^{\mu\nu}1\right) \gamma^\rho \gamma^\sigma \gamma^\alpha \gamma^\beta \gamma^\delta \gamma^\epsilon\right)\notag\\
+        &= tr\left(-\gamma^\nu \left( -\gamma^\rho \gamma^\mu + 2 \eta^{\mu\rho} \right) \gamma^\sigma \gamma^\alpha \gamma^\beta \gamma^\delta \gamma^\epsilon + 2 \eta^{\mu\nu} \gamma^\rho \gamma^\sigma \gamma^\alpha \gamma^\beta \gamma^\delta \gamma^\epsilon \right)\notag\\
+        &= tr\left( -\gamma^\nu \gamma^\rho \gamma^\sigma \gamma^\alpha \gamma^\beta \gamma^\delta \gamma^\epsilon \gamma^\mu + 2 \eta^{\mu\rho} \gamma^\nu \gamma^\sigma \gamma^\alpha \gamma^\beta \gamma^\delta \gamma^\epsilon + 2 \eta^{\mu\nu} \gamma^\rho \gamma^\sigma \gamma^\alpha \gamma^\beta \gamma^\delta \gamma^\epsilon \right)\notag\\
+        &= tr\left( -\gamma^\nu \gamma^\rho \gamma^\sigma \gamma^\alpha \gamma^\beta \gamma^\delta \gamma^\epsilon \gamma^\mu \right) + 2 \eta^{\mu\rho} tr\left( \gamma^\nu \gamma^\sigma \gamma^\alpha \gamma^\beta \gamma^\delta \gamma^\epsilon \right) + 2 \eta^{\mu\nu} tr\left( \gamma^\rho \gamma^\sigma \gamma^\alpha \gamma^\beta \gamma^\delta \gamma^\epsilon \right)\notag
+    \end{align}
+    From here on ahead, we apply the same procedure iteratively to further reduce the number of gamma matrices. When working with gamma matrices, we use the anticommutation relation to replace the product of two gamma matrices by the Minkowski metric (\ref{eq:given-properties}). Each time we apply this relation, we reduce the number of gamma matrices by 2 and introduce a term proportional to the Minkowski metric $\eta^{\mu\nu}$.  
+    
+    For 8 gamma matrices, we can apply the anticommutation relation iteratively until all gamma matrices are paired off. Any unpaired gamma matrices will vanish because the trace of an odd number of gamma matrices is zero.
+    \begin{align}
+        tr\left(\gamma^\mu \gamma^\nu \gamma^\rho \gamma^\sigma \gamma^\alpha \gamma^\beta \gamma^\delta \gamma^\epsilon\right) &= 4 \left( \eta^{\mu\nu} \eta^{\rho\sigma} \eta^{\alpha\beta} \eta^{\delta\epsilon} - \eta^{\mu\rho} \eta^{\nu\sigma} \eta^{\alpha\beta} \eta^{\delta\epsilon} + \eta^{\mu\sigma} \eta^{\nu\rho} \eta^{\alpha\beta} \eta^{\delta\epsilon} + \dots \right) \notag
+    \end{align}
+    The next step is to count how many ways we can contract the 8 indices into pairs. We start with the indices $\mu, \nu, \rho, \sigma, \alpha, \beta, \delta, \epsilon$. Each pair of indices corresponds to a factor of the Minkowski metric $\eta^{\mu\nu}$. We can pair the first index, $\mu$, with any of the remaining 7 indices: $\nu, \rho, \sigma, \alpha, \beta, \delta, \epsilon$. This gives us 7 possible choices for the first pair. After making the first pair, we are left with 6 indices. The second index can be paired with any of the remaining 5 indices, giving us 5 choices for the second pair.
+    
+    We continue this process until all indices are paired off. After making 4 pairs, all the indices will be contracted.
+    
+    The total number of ways to pair off 8 indices is given by the combinatorial formula:
+    \begin{align}
+        \text{Number of pairings} &= \frac{8!}{4! 2^4}\notag\\
+        &= \frac{40320}{24 \times 16} \notag\\
+        &= \frac{40320}{384} \notag\\
+        &= 105.
+    \end{align}
+    This formula accounts for the following factors:
+    \begin{itemize}
+        \item The term $8!$ counts all possible ways to permute the 8 indices.
+        \item The term $4!$ corrects for the fact that the order of the 4 pairs does not matter.
+        \item The term $2^4$ corrects for the fact that within each pair, the order of the two indices does not matter (i.e., $\eta^{\mu\nu} = \eta^{\nu\mu}$).
+    \end{itemize}
+    Thus, there are 105 distinct ways to fully contract the 8 indices using the Minkowski metric.
+\end{enumerate}
+\bigskip\bigskip\hline\hline\bigskip

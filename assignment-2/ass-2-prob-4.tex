@@ -1,0 +1,130 @@
+\allowdisplaybreaks
+\begin{center}
+	\hrule
+	\vspace{.4cm}
+ \begin{tabular*}{\textwidth}{@{}l@{}|@{\extracolsep{0.6in}}r@{}}%
+\parbox{4.25in}{\raggedright{\includegraphics[width=.9\linewidth]{ictp-pwf.pdf}}} &
+\parbox[c][]{4in}{{\Large\textbf{Md Akiful Islam Zawad} \par}
+                    { Brac University \par}
+                    { KHA 224, Progati Sarani, Merul Badda, \par}
+                    { Dhaka 1212, Bangladesh \par}
+                    { \href{ext.akiful.islam@bracu.ac.bd}{ext.akiful.islam@bracu.ac.bd}} \par}
+\end{tabular*}\vspace{.3in}
+\definecolor{ceruleanblue}{rgb}{0.16, 0.32, 0.6}
+	\LARGE\scshape\textbf{\textcolor{ceruleanblue}{Physics For Bangladesh: School On Quantum Field Theory}}
+\end{center}
+\hrule\vspace{.25in}
+{\large\textbf{Problem Sheet:}\ \textsc{2} \hspace{\hfill} \large\textbf{Submission Date:} \today\\
+	\hline\hline
+ %----------------------------
+\paragraph*{Problem Set 4} %\hfill \newline
+\\
+The purpose of this question is to give you a glimpse into the spin-statistics theorem. This theorem roughly says that if you try to quantize a field with the wrong statistics, bad things will happen. Here we'll see what goes wrong if you try to quantize a spin $\displaystyle\frac{1}{2}$ field as a boson. Let us start with the field decomposition, but this time we choose bosonic commutation relations for the annihilation and creation operators:
+\begin{align}
+    [b^r_{\mathbf{p}}, b^{s\dagger}_{\mathbf{q}}] &= (2\pi)^3 \delta^{rs} \delta^{(3)}(\mathbf{p} - \mathbf{q})\\
+    [c^r_{\mathbf{p}}, c^{s\dagger}_{\mathbf{q}}] &= -(2\pi)^3 \delta^{rs} \delta^{(3)}(\mathbf{p} - \mathbf{q}),
+\end{align}
+with all other commutators vanishing. Note the strange minus sign for the $c$ operators. Now, show that these are equivalent to the commutation relations:
+\begin{align}
+    [\psi_\alpha(\mathbf{x}), \psi_\beta(\mathbf{y})] &= [\psi^\dagger_\alpha(\mathbf{x}), \psi^\dagger_\beta(\mathbf{y})] = 0\\
+    [\psi_\alpha(\mathbf{x}), \psi^\dagger_\beta(\mathbf{y})] &= \delta_{\alpha\beta} \delta^{(3)}(\mathbf{x} - \mathbf{y}).
+\end{align}
+Now repeat the calculations similar to the problem above to show that, after normal ordering, the Hamiltonian is given by:
+\begin{align}
+    H = \bigints\frac{d^3p}{(2\pi)^3} E_{\mathbf{p}} \sum_{s=1}^2 \left[ b^{s\dagger}_{\mathbf{p}} b^s_{\mathbf{p}} - c^{s\dagger}_{\mathbf{p}} c^s_{\mathbf{p}} \right].
+\end{align}
+This Hamiltonian is not bounded below: you can lower the energy indefinitely by creating more and more $c$ particles. This is the reason a theory of bosonic spin $\displaystyle\frac{1}{2}$ particles is sick.
+\bigskip\bigskip\hline\hline\bigskip
+\subsection*{Solution:}
+Given:
+   \begin{align}
+       \psi(\mathbf{x}) &= \sum_{s=1}^2 \bigints\frac{d^3p}{(2\pi)^3} \frac{1}{\sqrt{2E_{\mathbf{p}}}} \left[ b^s_{\mathbf{p}} u^s(\mathbf{p}) e^{i \mathbf{p} \cdot \mathbf{x}} + c^{s\dagger}_{\mathbf{p}} v^s(\mathbf{p}) e^{-i \mathbf{p} \cdot \mathbf{x}} \right]\\
+       \psi^\dagger(\mathbf{y}) &= \sum_{s=1}^2 \bigints\frac{d^3p}{(2\pi)^3} \frac{1}{\sqrt{2E_{\mathbf{p}}}} \left[ b^{s\dagger}_{\mathbf{p}} u^{s\dagger}(\mathbf{p}) e^{-i \mathbf{p} \cdot \mathbf{y}} + c^s_{\mathbf{p}} v^{s\dagger}(\mathbf{p}) e^{i \mathbf{p} \cdot \mathbf{y}} \right].
+   \end{align}
+   Consider the product $\psi(\mathbf{x}) \psi^\dagger(\mathbf{y})$:
+   \begin{align*}
+       \psi(\mathbf{x}) \psi^\dagger(\mathbf{y}) &= \left[ \sum_{r=1}^2 \bigints\frac{d^3p}{(2\pi)^3} \frac{1}{\sqrt{2E_{\mathbf{p}}}} \left( b^r_{\mathbf{p}} u^r(\mathbf{p}) e^{i \mathbf{p} \cdot \mathbf{x}} + c^{r\dagger}_{\mathbf{p}} v^r(\mathbf{p}) e^{-i \mathbf{p} \cdot \mathbf{x}} \right) \right] \\
+       &\hspace{50pt}\cdot\left[ \sum_{s=1}^2 \bigints\frac{d^3q}{(2\pi)^3} \frac{1}{\sqrt{2E_{\mathbf{q}}}} \left( b^{s\dagger}_{\mathbf{q}} u^{s\dagger}(\mathbf{q}) e^{-i \mathbf{q} \cdot \mathbf{y}} + c^s_{\mathbf{q}} v^{s\dagger}(\mathbf{q}) e^{i \mathbf{q} \cdot \mathbf{y}} \right) \right]\notag\\
+       &= \sum_{r,s=1}^2 \bigints\frac{d^3p \, d^3q}{(2\pi)^6} \frac{1}{\sqrt{2E_{\mathbf{p}} 2E_{\mathbf{q}}}} \Bigg[ b^r_{\mathbf{p}} b^{s\dagger}_{\mathbf{q}} u^r(\mathbf{p}) u^{s\dagger}(\mathbf{q}) e^{i \mathbf{p} \cdot \mathbf{x}} e^{-i \mathbf{q} \cdot \mathbf{y}} + b^r_{\mathbf{p}} c^s_{\mathbf{q}} u^r(\mathbf{p}) v^{s\dagger}(\mathbf{q}) e^{i \mathbf{p} \cdot \mathbf{x}} e^{i \mathbf{q} \cdot \mathbf{y}} \\
+       &\hspace{50pt} + c^{r\dagger}_{\mathbf{p}} b^{s\dagger}_{\mathbf{q}} v^r(\mathbf{p}) u^{s\dagger}(\mathbf{q}) e^{-i \mathbf{p} \cdot \mathbf{x}} e^{-i \mathbf{q} \cdot \mathbf{y}} + c^{r\dagger}_{\mathbf{p}} c^s_{\mathbf{q}} v^r(\mathbf{p}) v^{s\dagger}(\mathbf{q}) e^{-i \mathbf{p} \cdot \mathbf{x}} e^{i \mathbf{q} \cdot \mathbf{y}} \Bigg].
+   \end{align*}
+Similarly, compute $\psi^\dagger(\mathbf{y}) \psi(\mathbf{x})$
+   \begin{align*}
+       \psi^\dagger(\mathbf{y}) \psi(\mathbf{x}) &= \left[ \sum_{s=1}^2 \bigints\frac{d^3q}{(2\pi)^3} \frac{1}{\sqrt{2E_{\mathbf{q}}}} \left( b^{s\dagger}_{\mathbf{q}} u^{s\dagger}(\mathbf{q}) e^{-i \mathbf{q} \cdot \mathbf{y}} + c^s_{\mathbf{q}} v^{s\dagger}(\mathbf{q}) e^{i \mathbf{q} \cdot \mathbf{y}} \right) \right] \notag\\
+       &\hspace{50pt}\cdot \left[ \sum_{r=1}^2 \bigints\frac{d^3p}{(2\pi)^3} \frac{1}{\sqrt{2E_{\mathbf{p}}}} \left( b^r_{\mathbf{p}} u^r(\mathbf{p}) e^{i \mathbf{p} \cdot \mathbf{x}} + c^{r\dagger}_{\mathbf{p}} v^r(\mathbf{p}) e^{-i \mathbf{p} \cdot \mathbf{x}} \right) \right]\notag\\
+       \psi^\dagger(\mathbf{y}) \psi(\mathbf{x}) &= \sum_{r,s=1}^2 \bigints\frac{d^3p \, d^3q}{(2\pi)^6} \frac{1}{\sqrt{2E_{\mathbf{p}} 2E_{\mathbf{q}}}} \Bigg[ b^{s\dagger}_{\mathbf{q}} b^r_{\mathbf{p}} u^{s\dagger}(\mathbf{q}) u^r(\mathbf{p}) e^{-i \mathbf{q} \cdot \mathbf{y}} e^{i \mathbf{p} \cdot \mathbf{x}} + b^{s\dagger}_{\mathbf{q}} c^{r\dagger}_{\mathbf{p}} u^{s\dagger}(\mathbf{q}) v^r(\mathbf{p}) e^{-i \mathbf{q} \cdot \mathbf{y}} e^{-i \mathbf{p} \cdot \mathbf{x}} \\
+       &\hspace{150pt} + c^s_{\mathbf{q}} b^r_{\mathbf{p}} v^{s\dagger}(\mathbf{q}) u^r(\mathbf{p}) e^{i \mathbf{q} \cdot \mathbf{y}} e^{i \mathbf{p} \cdot \mathbf{x}} + c^s_{\mathbf{q}} c^{r\dagger}_{\mathbf{p}} v^{s\dagger}(\mathbf{q}) v^r(\mathbf{p}) e^{i \mathbf{q} \cdot \mathbf{y}} e^{-i \mathbf{p} \cdot \mathbf{x}} \Bigg].
+   \end{align*}
+Now evaluate the commutator:
+   \begin{align*}
+       [\psi(\mathbf{x}), \psi^\dagger(\mathbf{y})] &= \psi(\mathbf{x}) \psi^\dagger(\mathbf{y}) - \psi^\dagger(\mathbf{y}) \psi(\mathbf{x}) \\
+       &= \sum_{r,s=1}^2 \bigints\frac{d^3p \, d^3q}{(2\pi)^6} \frac{1}{\sqrt{2E_{\mathbf{p}} 2E_{\mathbf{q}}}} \Bigg[ b^r_{\mathbf{p}} b^{s\dagger}_{\mathbf{q}} u^r(\mathbf{p}) u^{s\dagger}(\mathbf{q}) e^{i \mathbf{p} \cdot \mathbf{x}} e^{-i \mathbf{q} \cdot \mathbf{y}} + b^r_{\mathbf{p}} c^s_{\mathbf{q}} u^r(\mathbf{p}) v^{s\dagger}(\mathbf{q}) e^{i \mathbf{p} \cdot \mathbf{x}} e^{i \mathbf{q} \cdot \mathbf{y}} \\
+       &\hspace{30pt} + c^{r\dagger}_{\mathbf{p}} b^{s\dagger}_{\mathbf{q}} v^r(\mathbf{p}) u^{s\dagger}(\mathbf{q}) e^{-i \mathbf{p} \cdot \mathbf{x}} e^{-i \mathbf{q} \cdot \mathbf{y}} + c^{r\dagger}_{\mathbf{p}} c^s_{\mathbf{q}} v^r(\mathbf{p}) v^{s\dagger}(\mathbf{q}) e^{-i \mathbf{p} \cdot \mathbf{x}} e^{i \mathbf{q} \cdot \mathbf{y}} \Bigg] \\
+       &\hspace{40pt} - \sum_{r,s=1}^2 \bigints\frac{d^3p \, d^3q}{(2\pi)^6} \frac{1}{\sqrt{2E_{\mathbf{p}} 2E_{\mathbf{q}}}} \Bigg[ b^{s\dagger}_{\mathbf{q}} b^r_{\mathbf{p}} u^{s\dagger}(\mathbf{q}) u^r(\mathbf{p}) e^{-i \mathbf{q} \cdot \mathbf{y}} e^{i \mathbf{p} \cdot \mathbf{x}} + b^{s\dagger}_{\mathbf{q}} c^{r\dagger}_{\mathbf{p}} u^{s\dagger}(\mathbf{q}) v^r(\mathbf{p}) e^{-i \mathbf{q} \cdot \mathbf{y}} e^{-i \mathbf{p} \cdot \mathbf{x}} \\
+       &\hspace{50pt} + c^s_{\mathbf{q}} b^r_{\mathbf{p}} v^{s\dagger}(\mathbf{q}) u^r(\mathbf{p}) e^{i \mathbf{q} \cdot \mathbf{y}} e^{i \mathbf{p} \cdot \mathbf{x}}+ c^s_{\mathbf{q}} c^{r\dagger}_{\mathbf{p}} v^{s\dagger}(\mathbf{q}) v^r(\mathbf{p}) e^{i \mathbf{q} \cdot \mathbf{y}} e^{-i \mathbf{p} \cdot \mathbf{x}} \Bigg]\notag\\
+       &= \sum_{r,s=1}^2 \bigints\frac{d^3p \, d^3q}{(2\pi)^6} \frac{1}{\sqrt{2E_{\mathbf{p}} 2E_{\mathbf{q}}}} \Bigg[ (b^r_{\mathbf{p}} b^{s\dagger}_{\mathbf{q}} - b^{s\dagger}_{\mathbf{q}} b^r_{\mathbf{p}}) u^r_\alpha(\mathbf{p}) u^{s\dagger}_\beta(\mathbf{q}) e^{i(\mathbf{p} \cdot \mathbf{x} - \mathbf{q} \cdot \mathbf{y})} +(c^s_{\mathbf{q}} c^{r\dagger}_{\mathbf{p}} - c^{r\dagger}_{\mathbf{p}} c^s_{\mathbf{q}}) v^s_\alpha(\mathbf{q}) v^{r\dagger}_\beta(\mathbf{p}) e^{i(\mathbf{q} \cdot \mathbf{y} - \mathbf{p} \cdot \mathbf{x})} \Bigg]\\
+       &=\sum_{r,s} \bigints\frac{d^3p \, d^3q}{(2\pi)^6} \frac{1}{\sqrt{2E_{\mathbf{p}} 2E_{\mathbf{q}}}} \bigg[b^r_{\mathbf{p}}, b^s_{\mathbf{q}}] u^r_\alpha(\mathbf{p}) u^s_\beta(\mathbf{q}) e^{+i(\mathbf{p}\cdot\mathbf{x} + \mathbf{q}\cdot\mathbf{y})}+[c^{r\dagger}_{\mathbf{p}}, c^{s\dagger}_{\mathbf{q}}] v^r_\alpha(\mathbf{p}) v^s_\beta(\mathbf{q}) e^{-i(\mathbf{p}\cdot\mathbf{x} + \mathbf{q}\cdot\mathbf{y})}\bigg]\\
+       &=0
+   \end{align*}
+Thus, we find:
+\begin{align}
+    [\psi_\alpha(\mathbf{x}), \psi_\beta(\mathbf{y})] = 0.~~~~~\text{(\bf Showed)}
+\end{align}
+Now we compute $[\psi_\alpha(\mathbf{x}), \psi^\dagger_\beta(\mathbf{y})]$. 
+
+We have:
+\begin{align*}
+    \psi^\dagger(\mathbf{y}) = \sum_{s=1}^2 \bigints\frac{d^3q}{(2\pi)^3} \frac{1}{\sqrt{2E_{\mathbf{q}}}} \left[ b^{s\dagger}_{\mathbf{q}} u^{s\dagger}(\mathbf{q}) e^{-i\mathbf{q}\cdot\mathbf{y}} + c^s_{\mathbf{q}} v^{s\dagger}(\mathbf{q}) e^{+i\mathbf{q}\cdot\mathbf{y}} \right].
+\end{align*}
+The commutator is:
+\begin{align}
+    [\psi_\alpha(\mathbf{x}), \psi^\dagger_\beta(\mathbf{y})] = \sum_{r,s} \bigints\frac{d^3p \, d^3q}{(2\pi)^6} \frac{1}{\sqrt{2E_{\mathbf{p}} 2E_{\mathbf{q}}}} [b^r_{\mathbf{p}}, b^{s\dagger}_{\mathbf{q}}] u^r_\alpha(\mathbf{p}) u^{s\dagger}_\beta(\mathbf{q}) e^{i(\mathbf{p}\cdot\mathbf{x} - \mathbf{q}\cdot\mathbf{y})}.
+\end{align}
+Using the commutation relation $[b^r_{\mathbf{p}}, b^{s\dagger}_{\mathbf{q}}] = (2\pi)^3 \delta^{rs} \delta^{(3)}(\mathbf{p} - \mathbf{q})$, we have:
+\begin{align*}
+    \bigints\frac{d^3p}{(2\pi)^3} \frac{1}{2E_{\mathbf{p}}} u^r_\alpha(\mathbf{p}) u^{r\dagger}_\beta(\mathbf{p}) e^{i\mathbf{p}\cdot(\mathbf{x} - \mathbf{y})}.
+\end{align*}
+The sum over spins $r$ gives the completeness relation for the spinors:
+\begin{align*}
+    \sum_r u^r_\alpha(\mathbf{p}) u^{r\dagger}_\beta(\mathbf{p}) = \delta_{\alpha\beta}.
+\end{align*}
+Thus, we are left with:
+\begin{align*}
+    [\psi_\alpha(\mathbf{x}), \psi^\dagger_\beta(\mathbf{y})] = \delta_{\alpha\beta} \bigints\frac{d^3p}{(2\pi)^3} \frac{1}{2E_{\mathbf{p}}} e^{i\mathbf{p}\cdot(\mathbf{x} - \mathbf{y})}.
+\end{align*}
+The integral is the Fourier transform of $\displaystyle\frac{1}{2E_{\mathbf{p}}}$, which gives the delta function:
+\begin{align*}
+    \bigints\frac{d^3p}{(2\pi)^3} \frac{1}{2E_{\mathbf{p}}} e^{i\mathbf{p}\cdot(\mathbf{x} - \mathbf{y})} = \delta^{(3)}(\mathbf{x} - \mathbf{y}).
+\end{align*}
+Therefore:
+\begin{align}
+    [\psi_\alpha(\mathbf{x}), \psi^\dagger_\beta(\mathbf{y})] = \delta_{\alpha\beta} \delta^{(3)}(\mathbf{x} - \mathbf{y}).~~~~~\text{(\bf Showed)}
+\end{align}
+We now move on to the second part of the question. We are given the field decomposition with bosonic commutation relations for the annihilation and creation operators:
+\begin{align}
+    [b^r_{\mathbf{p}}, b^{s\dagger}_{\mathbf{q}}] = (2\pi)^3 \delta^{rs} \delta^{(3)}(\mathbf{p} - \mathbf{q}),
+\end{align}
+\begin{align}
+    [c^r_{\mathbf{p}}, c^{s\dagger}_{\mathbf{q}}] = -(2\pi)^3 \delta^{rs} \delta^{(3)}(\mathbf{p} - \mathbf{q}),
+\end{align}
+with all other commutators vanishing:
+\begin{align}
+    [b^r_{\mathbf{p}}, b^s_{\mathbf{q}}] = [c^r_{\mathbf{p}}, c^s_{\mathbf{q}}] = [b^r_{\mathbf{p}}, c^{s\dagger}_{\mathbf{q}}] = [b^r_{\mathbf{p}}, c^s_{\mathbf{q}}] = 0\label{eq:all-other-commutator}
+\end{align}
+We now begin with free classical Dirac theory, where we canonically quantize with bosonic commutation relations as
+\begin{align}
+    \bigg[b_\mathbf{p}^r,b_\mathbf{q}^{s\dagger}\bigg]&=(2\pi)^3\delta^{rs}\delta^{(3)}\left(\mathbf{p}-\mathbf{q}\right)\\
+    \bigg[c_\mathbf{p}^r,c_\mathbf{q}^{s\dagger}\bigg]&=-(2\pi)^3\delta^{rs}\delta^{(3)}\left(\mathbf{p}-\mathbf{q}\right)
+\end{align}
+We have from (\ref{eq:hamilton-step}):
+\begin{align}
+    H&=\sum_{r,s}\bigints\frac{d^3p}{(2\pi)^3}\frac{1}{2}\bigg[b_\mathbf{p}^{s\dagger}b_\mathbf{p}^{r}u^{s\dagger}(\mathbf{p})u^r(\mathbf{p})-b_{\mathbf{p}}^sb_{-\mathbf{p}}^rv_s(\mathbf{p})^\dagger u_r(-\mathbf{p})e^{-2ix^0E_\mathbf{p}}\notag\\
+    &\qquad~~~~~+b_\mathbf{p}^{s\dagger}c_{-\mathbf{p}}^{r\dagger}u^{s}(\mathbf{p})^\dagger v^r(-\mathbf{p})e^{2ix^0E_\mathbf{p}}-c_\mathbf{p}^{s}c_{\mathbf{p}}^{r\dagger}v^{s}(\mathbf{p})^\dagger v^r(\mathbf{p})\bigg]\notag\\
+    &=\sum_s\bigints\frac{d^3p}{(2\pi)^3}E_\mathbf{p}\bigg[b_\mathbf{p}^{s\dagger}b_\mathbf{p}^s-c_\mathbf{p}^sc_\mathbf{p}^{s\dagger}\bigg]\notag\\
+    &=\sum_s\bigints\frac{d^3p}{(2\pi)^3}E_\mathbf{p}\bigg[b_\mathbf{p}^{s\dagger}b_\mathbf{p}^s-c_\mathbf{p}^{s\dagger}c_\mathbf{p}^s-(2\pi)^3\delta^{(3)}(\mathbf{0})\bigg].
+\end{align}
+Upon normal ordering, we obtain
+\begin{align}
+    :H:=\sum_{s=1}^2\bigints\frac{d^3p}{(2\pi)^3}E_\mathbf{p}\bigg[b_\mathbf{p}^{s\dagger}b_\mathbf{p}^s-c_\mathbf{p}^{s\dagger}c_\mathbf{p}^s\bigg]
+\end{align}
+which is not bounded below: one can lower the energy indefinitely by creating more and more $c$ particles. This is the reason a theory of bosonic spin $\displaystyle\frac{1}{2}$ particles is problematic.

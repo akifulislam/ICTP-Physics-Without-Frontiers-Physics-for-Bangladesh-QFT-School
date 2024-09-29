@@ -1,0 +1,125 @@
+\allowdisplaybreaks
+\begin{center}
+	\hrule
+	\vspace{.4cm}
+ \begin{tabular*}{\textwidth}{@{}l@{}|@{\extracolsep{0.6in}}r@{}}%
+\parbox{4.25in}{\raggedright{\includegraphics[width=.9\linewidth]{ictp-pwf.pdf}}} &
+\parbox[c][]{4in}{{\Large\textbf{Md Akiful Islam Zawad} \par}
+                    { Brac University \par}
+                    { KHA 224, Progati Sarani, Merul Badda, \par}
+                    { Dhaka 1212, Bangladesh \par}
+                    { \href{ext.akiful.islam@bracu.ac.bd}{ext.akiful.islam@bracu.ac.bd}} \par}
+\end{tabular*}\vspace{.3in}
+\definecolor{ceruleanblue}{rgb}{0.16, 0.32, 0.6}
+	\LARGE\scshape\textbf{\textcolor{ceruleanblue}{Physics For Bangladesh: School On Quantum Field Theory}}
+\end{center}
+\hrule\vspace{.25in}
+\large\textbf{Problem Sheet:}\ \textsc{2} \hspace{\hfill} \large\textbf{Submission Date:} \today\\
+	\hline\hline
+ %----------------------------
+\paragraph*{Problem Set 1} %\hfill \newline
+\\
+The Weyl representation of the Clifford algebra is given by:
+\begin{align*}
+    \gamma^0 &= \begin{pmatrix}
+                    0 & \mathds{1} \\
+                    \mathds{1} & 0 
+                \end{pmatrix}, 
+    &
+    \gamma^i &= \begin{pmatrix}
+                    0 & \sigma^i \\
+                    -\sigma^i & 0 
+                \end{pmatrix},
+\end{align*}
+where $\sigma^i$ are the Pauli matrices. 
+
+Show that if $\{\gamma^\mu, \gamma^\nu\} = 2\eta^{\mu\nu}$, then:
+\begin{align}
+    [\gamma^\kappa\gamma^\lambda, \gamma^\mu\gamma^\nu] 
+    &= 2\eta^{\lambda\mu}\gamma^\kappa\gamma^\nu - 2\eta^{\kappa\mu}\gamma^\lambda\gamma^\nu + 2\eta^{\lambda\nu}\gamma^\mu\gamma^\kappa - 2\eta^{\kappa\nu}\gamma^\mu\gamma^\lambda.\label{eq:anti-commutation-gamma-matrices}
+\end{align}
+\subsection*{Solution}
+We just directly use the definition of the commutator, and then use (\ref{eq:anti-commutation-gamma-matrices}) repeatedly to get the two terms in the same form, picking up factors of the metric with each anticommutation:
+\begin{align*}
+    [\gamma^\kappa\gamma^\lambda, \gamma^\mu\gamma^\nu]&=\gamma^\kappa\gamma^\lambda\gamma^\mu\gamma^\nu - \gamma^\mu\gamma^\nu\gamma^\kappa\gamma^\lambda\notag\\
+    &=\gamma^\kappa\left\{\gamma^\lambda,\gamma^\mu\right\}\gamma^\nu - \gamma^\kappa\gamma^\mu\gamma^\lambda\gamma^\nu - \gamma^\mu\gamma^\nu\gamma^\kappa\gamma^\lambda\notag\\
+    &=2\eta^{\lambda\mu}\gamma^\kappa\gamma^\nu - \left\{\gamma^\kappa,\gamma^\mu\right\}\gamma^\lambda\gamma^\nu + \gamma^\mu\gamma^\kappa\gamma^\lambda\gamma^\nu - \gamma^\mu\gamma^\nu\gamma^\kappa\gamma^\lambda\notag\\
+    &=2\eta^{\lambda\mu}\gamma^\kappa\gamma^\nu -2\eta^{\kappa\mu}\gamma^\lambda\gamma^\nu + \gamma^\mu\gamma^\kappa\left\{\gamma^\lambda,\gamma^\nu\right\} - \gamma^\mu\gamma^\kappa\gamma^\nu\gamma^\lambda - \gamma^\mu\gamma^\nu\gamma^\kappa\gamma^\lambda\notag\\
+    &=2\eta^{\lambda\mu}\gamma^\kappa\gamma^\nu -2\eta^{\kappa\mu}\gamma^\lambda\gamma^\nu+2\eta^{\lambda\nu}\gamma^\mu\gamma^\kappa - \gamma^\mu\left\{\gamma^\kappa,\gamma^\nu\right\}\gamma^\lambda\notag\\
+    &=2\eta^{\lambda\mu}\gamma^\kappa\gamma^\nu -2\eta^{\kappa\mu}\gamma^\lambda\gamma^\nu+2\eta^{\lambda\nu}\gamma^\mu\gamma^\kappa - 2\eta^{\kappa\nu}\gamma^\mu\gamma^\lambda
+\end{align*}
+\subsection*{Prove the Following Identities}
+
+\begin{itemize}
+    \item[(a)] $\text{Tr}(\gamma^\mu) = 0$
+    Take $\mu=\nu$, then $\left\{\gamma^\nu,\gamma^\nu\right\}=2\eta^{\nu\nu}$4.
+    \item[(b)] $\text{Tr}(\gamma^\mu\gamma^\nu) = 4\eta^{\mu\nu}$
+    \item[(c)] $\text{Tr}(\gamma^\mu\gamma^\nu\gamma^\rho) = 0$
+    \item[(d)] $(\gamma^5)^2 = 1$
+    \item[(e)] $\text{Tr}(\gamma^5) = 0$
+\end{itemize}
+\subsection*{Solution:}
+\begin{enumerate}
+    \item [(a)] $\text{Tr}(\gamma^\mu) = 0$:
+
+To compute $\text{Tr}(\gamma^\mu)$, recall that the trace of a matrix is the sum of its diagonal elements. In the Weyl representation:
+\begin{align*}
+    \gamma^0 =
+    \begin{pmatrix}
+    0 & \mathds{1} \\
+    \mathds{1} & 0
+    \end{pmatrix}
+    ,\quad \gamma^i =
+    \begin{pmatrix}
+    0 & \sigma^i \\
+    -\sigma^i & 0
+    \end{pmatrix}.
+\end{align*}
+Both these matrices have zero diagonal elements, hence:
+\begin{align*}
+    \text{Tr}(\gamma^\mu) = 0.
+\end{align*}
+
+\item [(b)] $\text{Tr}(\gamma^\mu \gamma^\nu) = 4\eta^{\mu\nu}$:
+
+To compute $\text{Tr}(\gamma^\mu \gamma^\nu)$, use the Clifford algebra $\{\gamma^\mu, \gamma^\nu\} = 2\eta^{\mu\nu}$. Taking the trace of both sides:
+\begin{align*}
+    \text{Tr}(\gamma^\mu \gamma^\nu + \gamma^\nu \gamma^\mu) = 2\eta^{\mu\nu} \text{Tr}(\mathds{1}).
+\end{align*}
+Since $\text{Tr}(\gamma^\nu \gamma^\mu) = \text{Tr}(\gamma^\mu \gamma^\nu)$, we have:
+\begin{align*}
+    2\text{Tr}(\gamma^\mu \gamma^\nu) = 8 \eta^{\mu\nu}.
+\end{align*}
+Thus:
+\begin{align*}
+    \text{Tr}(\gamma^\mu \gamma^\nu) = 4\eta^{\mu\nu}.
+\end{align*}
+
+\item [(c)] $\text{Tr}(\gamma^\mu \gamma^\nu \gamma^\rho) = 0$:
+
+Since the product of three gamma matrices is antisymmetric in the indices $\mu, \nu, \rho$, its trace must vanish in four-dimensional space. Therefore:
+\begin{align*}
+    \text{Tr}(\gamma^\mu \gamma^\nu \gamma^\rho) = 0.
+\end{align*}
+\item [(d)] $(\gamma^5)^2 = 1$:
+
+The matrix $\gamma^5$ is defined as:
+\begin{align*}
+    \gamma^5 = i \gamma^0 \gamma^1 \gamma^2 \gamma^3.
+\end{align*}
+Squaring this:
+\begin{align*}
+    (\gamma^5)^2 = i^2 (\gamma^0 \gamma^1 \gamma^2 \gamma^3)^2.
+\end{align*}
+Using the Clifford algebra properties, we know that $\gamma^0 \gamma^1 \gamma^2 \gamma^3$ squares to $-\mathds{1}$, so:
+\begin{align*}
+    (\gamma^5)^2 = 1.
+\end{align*}
+
+\item [(e)] $\text{Tr}(\gamma^5) = 0$:
+
+Since $\gamma^5$ involves the product of four gamma matrices, and any odd number of gamma matrices has zero trace, we conclude:
+\begin{align*}
+    \text{Tr}(\gamma^5) = 0.
+\end{align*}
+\end{enumerate}

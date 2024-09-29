@@ -1,0 +1,210 @@
+\allowdisplaybreaks
+\begin{center}
+	\hrule
+	\vspace{.4cm}
+ \begin{tabular*}{\textwidth}{@{}l@{}|@{\extracolsep{0.6in}}r@{}}%
+\parbox{4.25in}{\raggedright{\includegraphics[width=.9\linewidth]{ictp-pwf.pdf}}} &
+\parbox[c][]{4in}{{\Large\textbf{Md Akiful Islam Zawad} \par}
+                    { Brac University \par}
+                    { KHA 224, Progati Sarani, Merul Badda, \par}
+                    { Dhaka 1212, Bangladesh \par}
+                    { \href{ext.akiful.islam@bracu.ac.bd}{ext.akiful.islam@bracu.ac.bd}} \par}
+\end{tabular*}\vspace{.3in}
+\definecolor{ceruleanblue}{rgb}{0.16, 0.32, 0.6}
+	\LARGE\scshape\textbf{\textcolor{ceruleanblue}{Physics for Bangladesh QFT School}}
+\end{center}
+\hrule\vspace{.25in}
+{\large\textbf{Problem Sheet:}\ \textsc{4} \hspace{\hfill} \large\textbf{Due Date:} \today\\
+	\hrule}
+ %----------------------------
+\paragraph*{Problem Set 3} %\hfill \newline
+\\
+The Lagrangian for QED is given by
+\begin{align}
+    L = -\frac{1}{4} F_{\mu\nu} F^{\mu\nu} + \bar{\psi}(i\not{\partial} - m)\psi - e \bar{\psi} \gamma^\mu A_\mu \psi. 
+\end{align}
+Using the Feynman rules stated in the lecture, please find the leading order scattering amplitude for the following:
+\begin{itemize}
+    \item[(a)] Compton Scattering: $e^- \gamma \rightarrow e^- \gamma$
+    \item[(b)] Bhabha Scattering: $e^- e^+ \rightarrow e^- e^+$
+\end{itemize}
+\bigskip\bigskip\hline\hline\bigskip
+The Feynman rules for the photon, electron, and the interaction between them from this Lagrangian.
+
+The photon part of the Lagrangian is:
+\begin{align*}
+    L_{\text{photon}} = -\frac{1}{4} F_{\mu\nu} F^{\mu\nu}.
+\end{align*}
+We express $F_{\mu\nu}$ in terms of the photon field $A_\mu$:
+\begin{align*}
+    F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu.
+\end{align*}
+Substituting this into the Lagrangian, we get:
+\begin{align*}
+    L_{\text{photon}} = -\frac{1}{4} \left( \partial_\mu A_\nu - \partial_\nu A_\mu \right) \left( \partial^\mu A^\nu - \partial^\nu A^\mu \right). 
+\end{align*}
+This is a quadratic term in $A_\mu$, so we can extract the photon propagator from this part of the Lagrangian. The propagator for the photon is given by:
+\begin{align}
+    \frac{-i g_{\mu\nu}}{q^2 + i \epsilon},\label{eq:photon-propagator}
+\end{align}
+where $q$ is the photon 4-momentum and $g_{\mu\nu}$ is the Minkowski metric.
+
+The electron part of the Lagrangian is:
+\begin{align*}
+    L_{\text{electron}} = \bar{\psi} (i \slashed{\partial} - m) \psi. 
+\end{align*}
+This is a quadratic term in the spinor field $\psi$. The electron propagator is obtained from the equation of motion derived from this term. The propagator for the electron (or positron) is:
+\begin{align}
+    \frac{i (\slashed{p} + m)}{p^2 - m^2 + i \epsilon}, \label{eq:electron-propagator}
+\end{align}
+where $p$ is the electron 4-momentum and $m$ is the electron mass.
+
+The interaction term in the Lagrangian is:
+\begin{align}
+    L_{\text{int}} = - e \bar{\psi} \gamma^\mu A_\mu \psi. \label{eq:interaction-lagrangian}
+\end{align}
+This describes the interaction between the electron and the photon. From this term, we can directly extract the Feynman rule for the vertex involving one incoming electron, one outgoing electron, and one photon.
+
+The Feynman rule for the vertex corresponding to this interaction is:
+\begin{align}
+    \text{Vertex factor: } -i e \gamma^\mu,\label{eq:vertex-factor}
+\end{align}
+\begin{enumerate}
+    \item [(a)] Compton Scattering: $e^- \gamma \rightarrow e^- \gamma$
+At leading order, the process $e^- \gamma \rightarrow e^- \gamma$ occurs via two Feynman diagrams:
+\begin{itemize}
+    \item s-channel: An electron is annihilated by the incoming photon and then propagates before emitting a photon and becoming the outgoing electron.
+    \item t-channel: The incoming electron absorbs the photon, becomes an intermediate electron, and then emits the photon to become the outgoing electron.
+\end{itemize}
+The diagrams are:
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{feynman}
+                \diagram [horizontal=a to b] {
+                    i1 [particle=\(e^-(p_1)\)] -- [fermion] a -- [fermion] f1 [particle=\(e^-(p_2)\)],
+                    a -- [photon, edge label=\(\gamma(k_1)\)] b,
+                    i2 [particle=\(\gamma(k_2)\)] -- [photon] b -- [photon] f2 [particle=\(\gamma(k_3)\)],
+                };
+            \end{feynman}
+        \end{tikzpicture}
+        \caption{s-channel for Compton scattering}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{feynman}
+                \diagram [horizontal=a to b] {
+                    i1 [particle=\(e^-(p_1)\)] -- [fermion] a -- [fermion] f1 [particle=\(e^-(p_2)\)],
+                    i2 [particle=\(\gamma(k_1)\)] -- [photon] b -- [photon] f2 [particle=\(\gamma(k_2)\)],
+                    a -- [fermion, edge label=\(e^-\)] b,
+                };
+            \end{feynman}
+        \end{tikzpicture}
+        \caption{t-channel for Compton scattering}
+    \end{subfigure}
+    \caption{Feynman diagrams for Compton scattering: s-channel and t-channel.}
+\end{figure}
+From the QED Lagrangian, we recall the Feynman rules (\ref{eq:photon-propagator}), (\ref{eq:electron-propagator}), (\ref{eq:vertex-factor}).
+
+In the s-channel, an electron is annihilated by a photon, propagates as an intermediate electron, and emits a photon. The total amplitude for this diagram is:
+\begin{align}
+    \mathcal{M}_s &= (-ie) \bar{u}(p_2) \gamma^\mu \frac{i(\slashed{p} + m)}{p^2 - m^2 + i\epsilon} (-ie) \gamma^\nu u(p_1) \varepsilon_\mu(k_1) \varepsilon^*_\nu(k_2), \label{eq:s-channel}
+\end{align}
+where $p = p_1 + k_1$ is the intermediate electron momentum, and $\varepsilon_\mu(k_1)$ and $\varepsilon^*_\nu(k_2)$ are the polarization vectors of the incoming and outgoing photons, respectively.
+
+Simplifying:
+\begin{align}
+    \mathcal{M}_s &= \frac{e^2}{p^2 - m^2 + i\epsilon} \bar{u}(p_2) \gamma^\mu (\slashed{p} + m) \gamma^\nu u(p_1) \varepsilon_\mu(k_1) \varepsilon^*_\nu(k_2).
+\end{align}
+In the t-channel, the electron absorbs a photon, propagates as an intermediate electron, and emits a photon. The amplitude for this diagram is:
+\begin{align}
+    \mathcal{M}_t &= (-ie) \bar{u}(p_2) \gamma^\nu \frac{i(\slashed{p'} + m)}{p'^2 - m^2 + i\epsilon} (-ie) \gamma^\mu u(p_1) \varepsilon_\mu(k_1) \varepsilon^*_\nu(k_2), \label{eq:t-channel}
+\end{align}
+where $p' = p_1 - k_2$ is the intermediate electron momentum.
+
+Simplifying:
+\begin{align}
+    \mathcal{M}_t &= \frac{e^2}{p'^2 - m^2 + i\epsilon} \bar{u}(p_2) \gamma^\nu (\slashed{p'} + m) \gamma^\mu u(p_1) \varepsilon_\mu(k_1) \varepsilon^*_\nu(k_2).
+\end{align}
+The total amplitude for Compton scattering is the sum of the s-channel (\ref{eq:s-channel}) and t-channel (\ref{eq:t-channel}) amplitudes:
+\begin{align*}
+    \mathcal{M} = \mathcal{M}_s + \mathcal{M}_t.
+\end{align*}
+Thus, the leading order scattering amplitude for Compton scattering is given by:
+\begin{align}
+    \mathcal{M} &= \frac{e^2}{(p_1 + k_1)^2 - m^2 + i\epsilon} \bar{u}(p_2) \gamma^\mu (\slashed{p_1 + k_1} + m) \gamma^\nu u(p_1) \varepsilon_\mu(k_1) \varepsilon^*_\nu(k_2) \nonumber \\
+    &\quad + \frac{e^2}{(p_1 - k_2)^2 - m^2 + i\epsilon} \bar{u}(p_2) \gamma^\nu (\slashed{p_1 - k_2} + m) \gamma^\mu u(p_1) \varepsilon_\mu(k_1) \varepsilon^*_\nu(k_2).
+\end{align}
+\item [(b)] Bhabha Scattering: $e^- e^+ \rightarrow e^- e^+$
+At leading order, the process $e^- e^+ \rightarrow e^- e^+$ occurs via two Feynman diagrams:
+\begin{itemize}
+    \item s-channel: The electron and positron annihilate into a photon, which decays into an electron-positron pair.
+    \item t-channel: The electron exchanges a photon with the positron.
+\end{itemize}
+The diagrams are:
+\begin{figure}[h!]
+    \centering
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{feynman}
+                \diagram [horizontal=a to b] {
+                    i1 [particle=\(e^-(p_1)\)] -- [fermion] a -- [fermion] f1 [particle=\(e^-(p_2)\)],
+                    i2 [particle=\(e^+(p_3)\)] -- [anti fermion] b -- [anti fermion] f2 [particle=\(e^+(p_4)\)],
+                    a -- [photon, edge label=\(\gamma(q)\)] b,
+                };
+            \end{feynman}
+        \end{tikzpicture}
+        \caption{s-channel for Bhabha scattering}
+    \end{subfigure}
+    \hfill
+    \begin{subfigure}[b]{0.45\textwidth}
+        \centering
+        \begin{tikzpicture}
+            \begin{feynman}
+                \diagram [horizontal=a to b] {
+                    i1 [particle=\(e^-(p_1)\)] -- [fermion] a -- [fermion] f2 [particle=\(e^+(p_4)\)],
+                    i2 [particle=\(e^+(p_3)\)] -- [anti fermion] b -- [anti fermion] f1 [particle=\(e^-(p_2)\)],
+                    a -- [photon, edge label=\(\gamma(q)\)] b,
+                };
+            \end{feynman}
+        \end{tikzpicture}
+        \caption{t-channel for Bhabha scattering}
+    \end{subfigure}
+    \caption{Feynman diagrams for Bhabha scattering: s-channel and t-channel.}
+\end{figure}
+In the s-channel, the electron and positron annihilate into a photon, which decays into an electron-positron pair. The amplitude for this diagram is:
+\begin{align}
+    \mathcal{M}_s &= (-ie) \bar{v}(p_2) \gamma^\mu u(p_1) \frac{-ig_{\mu\nu}}{q^2 + i\epsilon} (-ie) \bar{u}(p_3) \gamma^\nu v(p_4), \label{eq:s-channel-bhabha}
+\end{align}
+where $q = p_1 + p_2$ is the photon momentum in the s-channel.
+
+Simplifying:
+\begin{align}
+    \mathcal{M}_s &= \frac{e^2}{q^2 + i\epsilon} \bar{v}(p_2) \gamma^\mu u(p_1) \bar{u}(p_3) \gamma_\mu v(p_4).
+\end{align}
+In the t-channel, the electron and positron exchange a photon. The amplitude for this diagram is:
+\begin{align}
+    \mathcal{M}_t &= (-ie)^2 \bar{u}(p_3) \gamma^\mu \frac{i(\slashed{p} + m)}{p^2 - m^2 + i\epsilon} \gamma^\nu u(p_1) \bar{v}(p_2) \gamma_\mu v(p_4), \label{eq:t-channel-bhabha}
+\end{align}
+where $p = p_1 - p_3$ is the momentum exchanged in the t-channel.
+
+Simplifying:
+\begin{align}
+    \mathcal{M}_t &= \frac{e^2}{p^2 - m^2 + i\epsilon} \bar{u}(p_3) \gamma^\mu (\slashed{p} + m) \gamma^\nu u(p_1) \bar{v}(p_2) \gamma_\mu v(p_4).
+\end{align}
+The total amplitude for Bhabha scattering is the sum of the s-channel (\ref{eq:s-channel-bhabha}) and t-channel (\ref{eq:t-channel-bhabha}) amplitudes:
+\begin{align*}
+    \mathcal{M} = \mathcal{M}_s + \mathcal{M}_t.
+\end{align*}
+Thus, the leading order scattering amplitude for Bhabha scattering is given by:
+\begin{align}
+    \mathcal{M} &= \frac{e^2}{(p_1 + p_2)^2 + i\epsilon} \bar{v}(p_2) \gamma^\mu u(p_1) \bar{u}(p_3) \gamma_\mu v(p_4) \nonumber \\
+    &\quad + \frac{e^2}{(p_1 - p_3)^2 - m^2 + i\epsilon} \bar{u}(p_3) \gamma^\mu (\slashed{p_1 - p_3} + m) \gamma^\nu u(p_1) \bar{v}(p_2) \gamma_\mu v(p_4).
+\end{align}
+\end{enumerate}
+\bigskip\bigskip\hline\hline\bigskip

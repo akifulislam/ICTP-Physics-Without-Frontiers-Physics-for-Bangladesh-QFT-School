@@ -1,0 +1,373 @@
+\allowdisplaybreaks
+\begin{center}
+	\hrule
+	\vspace{.4cm}
+ \begin{tabular*}{\textwidth}{@{}l@{}|@{\extracolsep{0.6in}}r@{}}%
+\parbox{4.25in}{\raggedright{\includegraphics[width=.9\linewidth]{ictp-pwf.pdf}}} &
+\parbox[c][]{4in}{{\Large\textbf{Md Akiful Islam Zawad} \par}
+                    { Brac University \par}
+                    { KHA 224, Progati Sarani, Merul Badda, \par}
+                    { Dhaka 1212, Bangladesh \par}
+                    { \href{ext.akiful.islam@bracu.ac.bd}{ext.akiful.islam@bracu.ac.bd}} \par}
+\end{tabular*}\vspace{.3in}
+\definecolor{ceruleanblue}{rgb}{0.16, 0.32, 0.6}
+	\LARGE\scshape\textbf{\textcolor{ceruleanblue}{Physics For Bangladesh: School On Quantum Field Theory}}
+\end{center}
+\hrule\vspace{.25in}
+\large\textbf{Problem Sheet:}\ \textsc{2} \hspace{\hfill} \large\textbf{Submission Date:} \today
+	\bigskip\bigskip\hline\hline\bigskip
+ %----------------------------
+\paragraph*{Problem Set 5} %\hfill \newline
+\\
+The Dirac equation for a free Dirac field is given by:
+    \begin{align}
+        (i\gamma^\mu \partial_\mu - m)\psi(x) = 0.\label{eq:dirac-equation}
+    \end{align}
+\begin{enumerate}
+    \item [(a)] The Weyl representation for the gamma matrices is:
+    \begin{align}
+        \gamma^0 =
+        \begin{pmatrix}
+        0 & \mathds{1} \\
+        \mathds{1} & 0
+        \end{pmatrix}
+        ,\quad \gamma^i =
+        \begin{pmatrix}
+        0 & \sigma^i \\
+        -\sigma^i & 0
+        \end{pmatrix}
+        ,
+    \end{align}
+    where $\sigma^i$ are the Pauli matrices.
+    
+    First, expand the first term of (\ref{eq:dirac-equation}). The summation over $\mu$ runs from 0 to 3 (time and space components), and we can break the equation down into:
+    \begin{align}
+        i\gamma^0 \partial_0 \psi + i\gamma^i \partial_i \psi &= m\psi\notag\\[6pt]
+        i
+        \begin{pmatrix}
+        0 & 1 \\
+        1 & 0
+        \end{pmatrix}\frac{\partial}{\partial t} \psi+i
+        \begin{pmatrix}
+        0 & \sigma^i \\
+        -\sigma^i & 0
+        \end{pmatrix}
+        \frac{\partial}{\partial x^i} \psi&=m\psi\notag\\[6pt]
+        i
+        \begin{pmatrix}
+        0 & \displaystyle\frac{\partial}{\partial t} \psi \\
+        \displaystyle\frac{\partial}{\partial t} \psi & 0
+        \end{pmatrix}+i
+        \begin{pmatrix}
+        0 & \displaystyle\sigma^i \frac{\partial}{\partial x^i} \psi \\
+        \displaystyle-\sigma^i \frac{\partial}{\partial x^i} \psi & 0
+        \end{pmatrix}&=m\psi\notag\\[6pt]
+        i \begin{pmatrix}
+        0 & \displaystyle\left( \frac{\partial}{\partial t} + \sigma^i \frac{\partial}{\partial x^i} \right) \psi \\
+        \displaystyle\left( \frac{\partial}{\partial t} - \sigma^i \frac{\partial}{\partial x^i} \right) \psi & 0
+        \end{pmatrix}
+        &= m \psi.
+    \end{align}
+    This is the explicit matrix form of the Dirac equation in the Weyl representation. 
+
+    The Dirac equation can also be rewritten in Feynman slash notation as:
+    \begin{align}
+        (i\not{\partial} - m)\psi(x) = 0,\label{eq:feynmann-slashed}
+    \end{align}
+    where $\not{\partial} = \gamma^\mu \partial_\mu$ and represents the contraction of the gamma matrices with the derivatives. 
+    \bigskip\bigskip\hline\hline\bigskip
+    \item [(b)] Assume a plane wave solution $\psi(x) = u(p)e^{-ip \cdot x}$, substituting in Dirac equation show that:
+    \begin{align}
+    (\not{p} - m)u(p) = 0,
+    \end{align}
+    where $p^\mu = (\sqrt{\vec{p}^2 + m^2}, \vec{p})$ is the four-momentum and $\not{p} = \gamma^\mu p_\mu$.
+    
+    In Weyl representation, express above equation as:
+    \begin{align}
+    (\gamma^\mu p_\mu - m)u(p) =
+    \begin{pmatrix}
+    -m & p_\mu \sigma^\mu \\
+    p_\mu \bar{\sigma}^\mu & -m
+    \end{pmatrix}
+    u(p) = 0,
+    \end{align}
+    $\sigma^\mu = (1, \sigma^1, \sigma^2, \sigma^3)$, $\bar{\sigma}^\mu = (1, -\sigma^1, -\sigma^2, -\sigma^3)$.
+    \bigskip\bigskip\hline\hline\bigskip
+    \subsection*{Solution:} Assume a plane wave solution of the form:
+    \begin{align}
+        \psi(x) = u(p)e^{-ip \cdot x},\label{eq:assumed-solution}
+    \end{align}
+    where $p^\mu$ is the four-momentum.
+    
+    Substitute $\psi(x) = u(p)e^{-ip \cdot x}$ into the Dirac equation (\ref{eq:dirac-equation}):
+    \begin{align*}
+        (i\gamma^\mu \partial_\mu - m)(u(p)e^{-ip \cdot x}) = 0.
+    \end{align*}
+    Since $u(p)$ is independent of $x$, the derivative only acts on the exponential $e^{-ip \cdot x}$. The derivative of $e^{-ip \cdot x}$ with respect to $x^\mu$ is:
+    \begin{align*}
+        \partial_\mu e^{-ip \cdot x} = -ip_\mu e^{-ip \cdot x}.
+    \end{align*}
+    Thus, the Dirac equation becomes:
+    \begin{align*}
+        (i\gamma^\mu \partial_\mu)(u(p)e^{-ip \cdot x}) = i\gamma^\mu (-ip_\mu) u(p) e^{-ip \cdot x} = \gamma^\mu p_\mu u(p) e^{-ip \cdot x}.
+    \end{align*}
+    Now, we substitute this back into (\ref{eq:dirac-equation}):
+    \begin{align*}
+        (\gamma^\mu p_\mu - m) u(p) e^{-ip \cdot x} &= 0\notag\\
+        (\gamma^\mu p_\mu - m) u(p) &= 0\notag\\
+        (\not{p} - m)u(p) &= 0,
+    \end{align*}
+    where $\not{p} = \gamma^\mu p_\mu$ is the Feynman slash notation.
+    
+    In the Weyl representation, $\gamma^\mu p_\mu$ is written as:
+    \begin{align}
+        \gamma^\mu p_\mu &= \gamma^0 p_0 + \gamma^i p_i \notag\\
+        &= 
+        \begin{pmatrix}
+        0 & 1 \\
+        1 & 0
+        \end{pmatrix}
+        p_0 + \begin{pmatrix}
+        0 & \sigma^i \\
+        -\sigma^i & 0
+        \end{pmatrix}
+        p_i\notag\\
+        &= \begin{pmatrix}
+            0 & p_0 + \sigma^i p_i \\
+            p_0 - \sigma^i p_i & 0
+            \end{pmatrix}.
+    \end{align}
+    Next, substitute this into the Dirac equation:
+    \begin{align}
+        (\gamma^\mu p_\mu - m)u(p) = 
+        \begin{pmatrix}
+        0 & p_0 + \sigma^i p_i \\
+        p_0 - \sigma^i p_i & 0
+        \end{pmatrix}
+        u(p) - m u(p) &= 0\notag\\
+        \begin{pmatrix}
+        -m & p_0 + \sigma^i p_i \\
+        p_0 - \sigma^i p_i & -m
+        \end{pmatrix}
+        u(p) &= 0.
+    \end{align}
+    Express $p_0$ and $p_i$ using the notation $p_\mu = (\sqrt{\vec{p}^2 + m^2}, \vec{p})$. Define the following matrices:
+    \begin{align*}
+        \sigma^\mu = (\mathds{1}, \sigma^1, \sigma^2, \sigma^3), \quad \bar{\sigma}^\mu = (\mathds{1}, -\sigma^1, -\sigma^2, -\sigma^3).
+    \end{align*}
+    Therefore, the Dirac equation becomes:
+    \begin{align*}
+        (\gamma^\mu p_\mu - m)u(p) = 
+        \begin{pmatrix}
+        -m & p_\mu \sigma^\mu \\
+        p_\mu \bar{\sigma}^\mu & -m
+        \end{pmatrix}
+        u(p) = 0.
+    \end{align*}
+    \bigskip\bigskip\hline\hline\bigskip
+    \item[(c)] Take trial solutions as
+    \begin{align*}
+        u_r(p) =
+        \begin{pmatrix}
+        a p_\mu \sigma^\mu \chi^r \\
+        b \chi^r
+        \end{pmatrix}
+        , \quad \chi^1 =
+        \begin{pmatrix}
+        1 \\
+        0
+        \end{pmatrix}
+        , \quad \chi^2 =
+        \begin{pmatrix}
+        0 \\
+        1
+        \end{pmatrix}
+        .
+    \end{align*}
+    Show that the two constants are related as $b = ma$. Then in order to normalize $u_r(p)$ as discussed in lecture, $a$ can be fixed.
+    \bigskip\bigskip\hline\hline\bigskip
+    \subsection*{Solution:}
+    Start with the Dirac equation in Weyl representation:
+    \begin{align}
+        (\gamma^\mu p_\mu - m) u(p) = 0.
+    \end{align}
+    We will now substitute the trial solution for $u_r(p)$ into this equation. In the Weyl representation, the Dirac equation takes the form:
+    \begin{align*}
+        \begin{pmatrix}
+        -m & p_\mu \sigma^\mu \\
+        p_\mu \bar{\sigma}^\mu & -m
+        \end{pmatrix}
+        \begin{pmatrix}
+        a p_\nu \sigma^\nu \chi^r \\
+        b \chi^r
+        \end{pmatrix}
+        &= 0\notag\\
+        \begin{pmatrix}
+        -m (a p_\nu \sigma^\nu \chi^r) + p_\mu \sigma^\mu (b \chi^r) \\
+        p_\mu \bar{\sigma}^\mu (a p_\nu \sigma^\nu \chi^r) - m b \chi^r 
+        \end{pmatrix}&= 0\notag\\
+        \begin{pmatrix}
+        a (-m p_\nu \sigma^\nu \chi^r) + b (p_\mu \sigma^\mu \chi^r) \\
+        p_\mu \bar{\sigma}^\mu (a p_\nu \sigma^\nu \chi^r) - m b \chi^r 
+        \end{pmatrix}&= 0.
+    \end{align*}
+    For the first row equation to hold, we must have:
+    \begin{align*}
+        -m a p_\nu \sigma^\nu \chi^r + b p_\mu \sigma^\mu \chi^r = 0.
+    \end{align*}
+    This simplifies to:
+    \begin{align*}
+        (m a - b) p_\mu \sigma^\mu \chi^r = 0.
+    \end{align*}
+    Since $p_\mu \sigma^\mu \chi^r$ is non-zero, we conclude that:
+    \begin{align*}
+        b = ma.
+    \end{align*}
+    Next, we simplify the terms in the second row:
+    \begin{align*}
+        p_\mu \bar{\sigma}^\mu (a p_\nu \sigma^\nu \chi^r) - m b \chi^r.
+    \end{align*}
+    Substituting $b = ma$, this becomes:
+    \begin{align*}
+        p_\mu \bar{\sigma}^\mu (a p_\nu \sigma^\nu \chi^r) - m(ma) \chi^r = a p_\mu \bar{\sigma}^\mu p_\nu \sigma^\nu \chi^r - m^2 a \chi^r.
+    \end{align*}
+    We can use the identity for Pauli matrices:
+    \begin{align*}
+        p_\mu \bar{\sigma}^\mu p_\nu \sigma^\nu = p^\mu p_\mu I = m^2 I,
+    \end{align*}
+    where $p^\mu p_\mu = m^2$ is the invariant mass of the particle. Thus, the second row becomes:
+    \begin{align}
+        a m^2 \chi^r - m^2 a \chi^r = 0.
+    \end{align}
+    This confirms that $b = ma$ satisfies both rows of the equation.
+    \bigskip\bigskip\hline\hline\bigskip
+    \item[(d)] Check that there are two independent solutions $v_r(p)e^{+ip \cdot x}$, $r = 1, 2$ given by
+    \begin{align}
+    v_r(p) =
+    \begin{pmatrix}
+    a p_\mu \sigma^\mu \chi^r \\
+    -b \chi^r
+    \end{pmatrix}
+    , \quad \chi^1 =
+    \begin{pmatrix}
+    1 \\
+    0
+    \end{pmatrix}
+    , \quad \chi^2 =
+    \begin{pmatrix}
+    0 \\
+    1
+    \end{pmatrix}
+    ,
+    \end{align}
+    which satisfy $(\not{p} + m)v_r(p) = 0$ for $b = ma$ and $p^\mu = (\sqrt{\vec{p}^2 + m^2}, \vec{p})$. Again $a$ can be fixed requiring normalizations for $v_r$.
+    \bigskip\bigskip\hline\hline\bigskip
+    \subsection*{Solution:} We start with the Dirac equation for $v_r(p)$:
+    \begin{align}
+        (\not{p} + m)v_r(p) = 0,
+    \end{align}
+    where $\not{p} = \gamma^\mu p_\mu$, and we want to check if this holds true for the trial solution $v_r(p)$.
+    
+    In the Weyl representation, the gamma matrices are given by:
+    \begin{align*}
+        \gamma^0 =
+        \begin{pmatrix}
+        0 & 1 \\
+        1 & 0
+        \end{pmatrix}
+        ,\quad \gamma^i =
+        \begin{pmatrix}
+        0 & \sigma^i \\
+        -\sigma^i & 0
+        \end{pmatrix},
+    \end{align*}
+    where $\sigma^i$ are the Pauli matrices.
+    
+    Thus, the Dirac operator $\not{p} = \gamma^\mu p_\mu$ is:
+    \begin{align*}
+        \not{p} = \gamma^0 p_0 + \gamma^i p_i = 
+        \begin{pmatrix}
+        0 & p_0 + \sigma^i p_i \\
+        p_0 - \sigma^i p_i & 0
+        \end{pmatrix}.
+    \end{align*}
+    Substitute the trial solution $v_r(p)$ into $(\not{p} + m)v_r(p)$:
+    \begin{align}
+        (\not{p} + m) v_r(p) &= 
+        \begin{pmatrix}
+        0 & p_0 + \sigma^i p_i \\
+        p_0 - \sigma^i p_i & 0
+        \end{pmatrix}
+        \begin{pmatrix}
+        a p_\mu \sigma^\mu \chi^r \\
+        -b \chi^r
+        \end{pmatrix}
+        + m
+        \begin{pmatrix}
+        a p_\mu \sigma^\mu \chi^r \\
+        -b \chi^r
+        \end{pmatrix}.\notag\\
+        &=
+        \begin{pmatrix}
+        0 & p_0 + \sigma^i p_i \\
+        p_0 - \sigma^i p_i & 0
+        \end{pmatrix}
+        \begin{pmatrix}
+        a p_\mu \sigma^\mu \chi^r \\
+        -b \chi^r
+        \end{pmatrix}
+        +
+        \begin{pmatrix}
+        m a p_\mu \sigma^\mu \chi^r \\
+        -m b \chi^r
+        \end{pmatrix}\notag\\
+        &=\begin{pmatrix}
+        (p_0 + \sigma^i p_i)(-b \chi^r) \\
+        (p_0 - \sigma^i p_i)(a p_\mu \sigma^\mu \chi^r)
+        \end{pmatrix}+
+        \begin{pmatrix}
+        m a p_\mu \sigma^\mu \chi^r \\
+        -m b \chi^r
+        \end{pmatrix}\notag\\
+        &=\begin{pmatrix}
+        -b p_\mu \sigma^\mu \chi^r \\
+        (p_0 - \sigma^i p_i)(a p_\mu \sigma^\mu \chi^r)
+        \end{pmatrix}+
+        \begin{pmatrix}
+        m a p_\mu \sigma^\mu \chi^r \\
+        -m b \chi^r
+        \end{pmatrix}\notag\\
+        &=\begin{pmatrix}
+        -b p_\mu \sigma^\mu \chi^r \\
+        a m^2 \chi^r
+        \end{pmatrix}+
+        \begin{pmatrix}
+        m a p_\mu \sigma^\mu \chi^r \\
+        -m b \chi^r
+        \end{pmatrix}\notag\\
+        &=\begin{pmatrix}
+        -b p_\mu \sigma^\mu \chi^r + m a p_\mu \sigma^\mu \chi^r \\
+        a m^2 \chi^r - m b \chi^r
+        \end{pmatrix}\notag\\
+        &=\begin{pmatrix}
+        -b p_\mu \sigma^\mu \chi^r + m a p_\mu \sigma^\mu \chi^r \\
+        a m^2 \chi^r - m b \chi^r
+        \end{pmatrix}\notag\\
+        &=
+        \begin{pmatrix}
+        -ma p_\mu \sigma^\mu \chi^r + m a p_\mu \sigma^\mu \chi^r \\
+        a m^2 \chi^r - m (ma) \chi^r
+        \end{pmatrix}\qquad~~~[b=ma]\notag\\
+        &=
+        \begin{pmatrix}
+        0 \\
+        0
+        \end{pmatrix}.
+    \end{align}
+    Thus, we have verified that the trial solution $v_r(p)$ satisfies the Dirac equation:
+    \begin{align*}
+        (\not{p} + m)v_r(p) = 0.
+    \end{align*}
+    
+    There are two independent solutions corresponding to $r = 1$ and $r = 2$, as the spinor $\chi^r$ can take two independent values.
+\end{enumerate}

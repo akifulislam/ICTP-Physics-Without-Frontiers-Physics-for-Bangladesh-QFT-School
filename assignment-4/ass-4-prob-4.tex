@@ -1,0 +1,105 @@
+\allowdisplaybreaks
+\begin{center}
+	\hrule
+	\vspace{.4cm}
+ \begin{tabular*}{\textwidth}{@{}l@{}|@{\extracolsep{0.6in}}r@{}}%
+\parbox{4.25in}{\raggedright{\includegraphics[width=.9\linewidth]{ictp-pwf.pdf}}} &
+\parbox[c][]{4in}{{\Large\textbf{Md Akiful Islam Zawad} \par}
+                    { Brac University \par}
+                    { KHA 224, Progati Sarani, Merul Badda, \par}
+                    { Dhaka 1212, Bangladesh \par}
+                    { \href{ext.akiful.islam@bracu.ac.bd}{ext.akiful.islam@bracu.ac.bd}} \par}
+\end{tabular*}\vspace{.3in}
+\definecolor{ceruleanblue}{rgb}{0.16, 0.32, 0.6}
+	\LARGE\scshape\textbf{\textcolor{ceruleanblue}{Physics for Bangladesh QFT School}}
+\end{center}
+\hrule\vspace{.25in}
+{\large\textbf{Problem Sheet:}\ \textsc{4} \hspace{\hfill} \large\textbf{Due Date:} \today\\
+	\hrule}
+ %----------------------------
+\paragraph*{Problem Set 4} %\hfill \newline
+\\
+The Lagrangian for Scalar QED (complex scalar field $\varphi$ interacting with field $A_\mu$) is given by
+\begin{align}
+    L = -\frac{1}{4} F_{\mu\nu}^2 + (D_\mu \varphi)^* (D^\mu \varphi) - m^2 \varphi^* \varphi, 
+\end{align}
+where $D_\mu = \partial_\mu + ieA_\mu$ is the usual gauge-covariant derivative.
+\begin{itemize}
+    \item[(a)] Compute the Interaction Lagrangian.
+    \item[(b)] Derive the Feynman rules for the vertices and propagators of the above theory.
+\end{itemize}
+\bigskip\bigskip\hline\hline\bigskip
+\begin{enumerate}
+    \item [(a)] Compute the Interaction Lagrangian
+
+The covariant derivative $D_\mu = \partial_\mu + ie A_\mu$ is used to describe how the scalar field $\varphi$ interacts with the photon field $A_\mu$. The kinetic term in the Lagrangian is written as:
+\begin{align}
+    (D_\mu \varphi)^* (D^\mu \varphi) &= \left( \partial_\mu \varphi^* - ie A_\mu \varphi^* \right) \left( \partial^\mu \varphi + ie A^\mu \varphi \right).
+\end{align}
+This expression expands into four terms, representing the kinetic energy of the scalar field, the interaction between the scalar field and the photon, and a photon-photon-scalar interaction.
+
+We now expand the expression for $(D_\mu \varphi)^* (D^\mu \varphi)$ to reveal all the terms:
+\begin{align}
+    (D_\mu \varphi)^* (D^\mu \varphi) &= \left( \partial_\mu \varphi^* \partial^\mu \varphi \right) 
+    + ie \left( \varphi^* A_\mu \partial^\mu \varphi \right)
+    - ie \left( \partial_\mu \varphi^* A^\mu \varphi \right)
+    + e^2 \left( A_\mu A^\mu \varphi^* \varphi \right).
+\end{align}
+Each of these terms has a specific physical meaning:
+\begin{itemize}
+    \item $\partial_\mu \varphi^* \partial^\mu \varphi$: This term describes the usual kinetic energy of the complex scalar field $\varphi$.
+    \item $ie \varphi^* A_\mu \partial^\mu \varphi$: This is an interaction term between the scalar field $\varphi$ and the photon field $A_\mu$. It represents the emission or absorption of a photon by the scalar field.
+    \item $-ie \partial_\mu \varphi^* A^\mu \varphi$: This is another interaction term, similar to the previous one, but involving the complex conjugate field $\varphi^*$.
+    \item $e^2 A_\mu A^\mu \varphi^* \varphi$: This term represents the interaction between two photons and the scalar field. It describes processes in which two photons interact with the scalar field simultaneously.
+\end{itemize}
+
+Now that we have expanded the covariant derivative terms, we can substitute them into the original Lagrangian. The full expression for the Lagrangian becomes:
+\begin{align}
+    L &= -\frac{1}{4} F_{\mu\nu}^2 + \partial_\mu \varphi^* \partial^\mu \varphi - m^2 \varphi^* \varphi \nonumber \\
+    &\quad + ie \varphi^* A_\mu \partial^\mu \varphi - ie \partial_\mu \varphi^* A^\mu \varphi + e^2 A_\mu A^\mu \varphi^* \varphi.
+\end{align}
+Here, the first term describes the dynamics of the photon field $A_\mu$, the second and third terms describe the dynamics of the scalar field $\varphi$, and the remaining terms represent the interactions between the scalar field and the photon field.
+
+The interaction Lagrangian consists of the terms that describe the interactions between the scalar field and the photon field. These terms are:
+\begin{align}
+    L_{\text{int}} &= ie \varphi^* A_\mu \partial^\mu \varphi - ie \partial_\mu \varphi^* A^\mu \varphi + e^2 A_\mu A^\mu \varphi^* \varphi. 
+\end{align}
+This interaction Lagrangian contains two main types of interactions:
+\begin{itemize}
+    \item The first two terms describe the interaction between the scalar field and a single photon.
+    \item The last term describes the interaction between the scalar field and two photons.
+\end{itemize}
+\item [(b)] Derive the Feynman Rules for Vertices and Propagators
+
+The propagator for the scalar field $\varphi$ can be derived from the free part of the Lagrangian:
+\begin{align}
+    L_{\text{free}}(\varphi) = \partial_\mu \varphi^* \partial^\mu \varphi - m^2 \varphi^* \varphi.
+\end{align}
+This is the standard Lagrangian for a complex scalar field. The propagator for the scalar field is given by:
+\begin{align}
+    \frac{i}{p^2 - m^2 + i\epsilon},
+\end{align}
+where $p$ is the 4-momentum of the scalar particle, and $m$ is its mass.
+
+The photon propagator is derived from the free part of the Lagrangian for the photon field:
+\begin{align}
+    L_{\text{free}}(A_\mu) = -\frac{1}{4} F_{\mu\nu}^2,
+\end{align}
+which gives the propagator for the photon field:
+\begin{align}
+    \frac{-ig_{\mu\nu}}{q^2 + i\epsilon},
+\end{align}
+where $q$ is the 4-momentum of the photon.
+
+The terms $ie \varphi^* A_\mu \partial^\mu \varphi$ and $-ie \partial_\mu \varphi^* A^\mu \varphi$ describe the interaction between the scalar field and a single photon. The Feynman rule for the vertex involving one incoming photon and one incoming/outgoing scalar particle is given by:
+\begin{align}
+    \text{Vertex factor: } \quad ie (p_1^\mu + p_2^\mu), 
+\end{align}
+where $p_1^\mu$ and $p_2^\mu$ are the 4-momenta of the incoming and outgoing scalar fields.
+
+The term $e^2 A_\mu A^\mu \varphi^* \varphi$ describes the interaction between two photons and the scalar field. The Feynman rule for this vertex, involving two incoming photons and two scalar fields, is given by:
+\begin{align}
+    \text{Vertex factor: } \quad 2ie^2 g_{\mu\nu},
+\end{align}
+where $g_{\mu\nu}$ is the metric tensor for the photon-photon interaction.
+\end{enumerate}

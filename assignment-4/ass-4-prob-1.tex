@@ -1,0 +1,94 @@
+\allowdisplaybreaks
+\begin{center}
+	\hrule
+	\vspace{.4cm}
+ \begin{tabular*}{\textwidth}{@{}l@{}|@{\extracolsep{0.6in}}r@{}}%
+\parbox{4.25in}{\raggedright{\includegraphics[width=.9\linewidth]{ictp-pwf.pdf}}} &
+\parbox[c][]{4in}{{\Large\textbf{Md Akiful Islam Zawad} \par}
+                    { Brac University \par}
+                    { KHA 224, Progati Sarani, Merul Badda, \par}
+                    { Dhaka 1212, Bangladesh \par}
+                    { \href{ext.akiful.islam@bracu.ac.bd}{ext.akiful.islam@bracu.ac.bd}} \par}
+\end{tabular*}\vspace{.3in}
+\definecolor{ceruleanblue}{rgb}{0.16, 0.32, 0.6}
+	\LARGE\scshape\textbf{\textcolor{ceruleanblue}{Physics for Bangladesh QFT School}}
+\end{center}
+\hrule\vspace{.25in}
+{\large\textbf{Problem Sheet:}\ \textsc{4} \hspace{\hfill} \large\textbf{Due Date:} \today\\
+	\hrule}
+ %----------------------------
+\paragraph*{Problem Set 1} %\hfill \newline
+\\
+The scalar Yukawa Lagrangian, as discussed in the lecture, is given by
+\begin{align}
+    L = \partial_\mu \psi^* \partial^\mu \psi + \frac{1}{2} \partial_\mu \varphi \partial^\mu \varphi - M^2 \psi^* \psi - \frac{1}{2} m^2 \varphi^2 - g \psi^* \psi \varphi,
+\end{align}
+where $\psi$ and $\varphi$ are, respectively, complex and real scalar fields. With the Feynman rules stated in the lecture, find the leading order scattering amplitude for the processes:
+\begin{itemize}
+    \item[(a)] $\psi \varphi \rightarrow \psi \varphi$
+    \item[(b)] $\psi \psi^* \rightarrow \varphi \varphi$
+\end{itemize}
+\bigskip\bigskip\hline\hline\bigskip
+\begin{enumerate}
+    \item [(a)] Scattering Amplitude for $\psi \varphi \rightarrow \psi \varphi$
+
+At leading order, the process $\psi \varphi \rightarrow \psi \varphi$ occurs via a single $\varphi$ exchange (t-channel process):
+\[
+\psi(p_1) + \varphi(k_1) \rightarrow \psi(p_2) + \varphi(k_2)
+\]
+The relevant diagram is:
+\begin{center}
+\begin{tikzpicture}
+    \begin{feynman}
+        \diagram [vertical=a to b] {
+            i1 [particle=\(\psi(p_1)\)] -- [fermion] a -- [fermion] i2 [particle=\(\psi(p_2)\)],
+            a -- [scalar, edge label=\(\varphi(q)\)] b,
+            f1 [particle=\(\varphi(k_1)\)] -- [scalar] b -- [scalar] f2 [particle=\(\varphi(k_2)\)],
+        };
+    \end{feynman}
+\end{tikzpicture}
+\end{center}
+From the interaction term $L_{\text{int}} = -g \psi^* \psi \varphi$, the vertex factor is $-ig$. The propagator for the exchanged $\varphi$ field is given by:
+\begin{align}
+    \frac{i}{q^2 - m^2 + i\epsilon}, \label{eq:var-phi-propagator}
+\end{align}
+where $q = p_1 - p_2$ is the momentum transfer.
+
+The total scattering amplitude $\mathcal{M}$ for this process is given by the product of the vertex factors and the propagator:
+\begin{align}
+    \mathcal{M} &= (-ig)^2 \cdot \frac{i}{q^2 - m^2 + i\epsilon} \nonumber \\
+    &= \frac{-g^2 i}{q^2 - m^2 + i\epsilon}, \label{eq:total-amplitude}
+\end{align}
+where $q^2 = (p_1 - p_2)^2$ is the Mandelstam variable for the momentum transfer.
+\item [(b)] Scattering Amplitude for $\psi \psi^* \rightarrow \varphi \varphi$.
+
+At leading order, the process $\psi \psi^* \rightarrow \varphi \varphi$ occurs via a $\varphi$ exchange in the s-channel:
+\[
+\psi(p_1) + \psi^*(p_2) \rightarrow \varphi(k_1) + \varphi(k_2)
+\]
+The Feynman diagram is:
+\begin{center}
+\begin{tikzpicture}
+    \begin{feynman}
+        \diagram [horizontal=a to b] {
+            i1 [particle=\(\psi(p_1)\)] -- [fermion] a -- [anti fermion] i2 [particle=\(\psi^*(p_2)\)],
+            a -- [scalar, edge label=\(\varphi(q)\)] b,
+            f1 [particle=\(\varphi(k_1)\)] -- [scalar] b -- [scalar] f2 [particle=\(\varphi(k_2)\)],
+        };
+    \end{feynman}
+\end{tikzpicture}
+\end{center}
+As before, the vertex factor is $-ig$, and the propagator for the exchanged $\varphi$ field is:
+\begin{align}
+    \frac{i}{q^2 - m^2 + i\epsilon}, 
+\end{align}
+where $q = p_1 + p_2 = k_1 + k_2$ is the total energy in the center-of-mass frame.
+
+The scattering amplitude $\mathcal{M}$ for this process is:
+\begin{align}
+    \mathcal{M} &= (-ig)^2 \cdot \frac{i}{q^2 - m^2 + i\epsilon} \nonumber \\
+    &= \frac{-g^2 i}{q^2 - m^2 + i\epsilon},
+\end{align}
+where $q^2 = (p_1 + p_2)^2$ is the Mandelstam variable in the s-channel.
+\end{enumerate}
+\bigskip\bigskip\hline\hline\bigskip

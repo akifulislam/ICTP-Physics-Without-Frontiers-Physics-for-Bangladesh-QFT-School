@@ -1,0 +1,123 @@
+\allowdisplaybreaks
+\begin{center}
+	\hrule
+	\vspace{.4cm}
+ \begin{tabular*}{\textwidth}{@{}l@{}|@{\extracolsep{0.6in}}r@{}}%
+\parbox{4.25in}{\raggedright{\includegraphics[width=.9\linewidth]{ictp-pwf.pdf}}} &
+\parbox[c][]{4in}{{\Large\textbf{Md Akiful Islam Zawad} \par}
+                    { Brac University \par}
+                    { KHA 224, Progati Sarani, Merul Badda, \par}
+                    { Dhaka 1212, Bangladesh \par}
+                    { \href{ext.akiful.islam@bracu.ac.bd}{ext.akiful.islam@bracu.ac.bd}} \par}
+\end{tabular*}\vspace{.3in}
+\definecolor{ceruleanblue}{rgb}{0.16, 0.32, 0.6}
+	\LARGE\scshape\textbf{\textcolor{ceruleanblue}{Physics For Bangladesh: School On Quantum Field Theory}}
+\end{center}
+\hrule\vspace{.25in}
+{\large\textbf{Problem Sheet:}\ \textsc{1} \hspace{\hfill} \large\textbf{Submission Date:} \today\\
+	\hline\hline
+ %----------------------------
+\paragraph*{Problem Set 2} %\hfill \newline
+\\
+The Lagrangian density for a complex scalar field $\displaystyle\Phi(x) = \phi_1(x) + i\phi_2(x)$ is given by
+    \begin{align*}
+        \mathcal{L} = \partial_\mu \Phi^* \partial^\mu \Phi - m^2 \Phi^* \Phi - \frac{\lambda}{2} (\Phi^* \Phi)^2.
+    \end{align*}
+    \begin{enumerate}
+        \item Write down the Euler-Lagrange equations of motion (EOM). Verify that the Lagrangian is invariant under the infinitesimal transformations
+    \begin{align*}
+        \delta \Phi = i\alpha \Phi, \quad \delta \Phi^* = -i\alpha \Phi^*
+    \end{align*}
+    which is an infinitesimal version of $\displaystyle\Phi \rightarrow e^{i\alpha} \Phi$.
+    \item Derive the Noether current associated with this transformation and verify explicitly that it is conserved using the field equations satisfied by $\phi$.
+    \item It is also instructive to write $\mathcal{L}$ in terms of the two real scalar fields $\phi_1, \phi_2$. Can you justify the numerical factors that appeared in the Lagrangian?
+    \end{enumerate}
+\bigskip\bigskip\hline\hline\bigskip
+\section*{Solution}
+\subsection*{\scshape\bf 1. Invariance of Lagrangian}
+The Lagrangian density for a complex scalar field $\Phi(x)$ is given by
+\begin{align}
+    \mathcal{L} &= \partial_\mu \Phi^* \partial^\mu \Phi - m^2 \Phi^* \Phi - \frac{\lambda}{2} (\Phi^* \Phi)^2. \label{eq:lagrangian-density-complex-scalar}
+\end{align}
+The Euler-Lagrange equation for a field $\Phi(x)$ is given by:
+\begin{align}
+    \frac{\partial \mathcal{L}}{\partial \Phi} - \partial_\mu \left( \frac{\partial \mathcal{L}}{\partial (\partial_\mu \Phi)} \right) &= 0.\label{eq:euler-lagrange-for-fields}
+\end{align}
+Let's first compute each term:
+
+Partial derivative of $\mathcal{L}$ with respect to $\Phi$:
+  \begin{align*}
+      \frac{\partial \mathcal{L}}{\partial \Phi} &= - m^2 \Phi^* - \lambda \Phi^* (\Phi^* \Phi).
+  \end{align*}
+Partial derivative of $\mathcal{L}$ with respect to $\partial_\mu \Phi$:
+  \begin{align*}
+      \frac{\partial \mathcal{L}}{\partial (\partial_\mu \Phi)} &= \partial^\mu \Phi^*.
+  \end{align*}
+Derivative with respect to $x^\mu$:
+  \begin{align*}
+      \partial_\mu \left( \frac{\partial \mathcal{L}}{\partial (\partial_\mu \Phi)} \right) &= \partial_\mu \partial^\mu \Phi^*.
+  \end{align*}
+Now, substituting these into (\ref{eq:euler-lagrange-for-fields}):
+\begin{align}
+    - m^2 \Phi^* - \lambda \Phi^* (\Phi^* \Phi) - \partial_\mu \partial^\mu \Phi^* &= 0\notag\\
+    \partial_\mu\partial^\mu \Phi^* + m^2 \Phi^* + \lambda \Phi^* (\Phi^* \Phi)\label{eq:conjugate-euler-lagrange}
+\end{align}
+Taking the complex conjugate of (\ref{eq:conjugate-euler-lagrange}) gives the equation of motion for $\Phi$:
+\begin{align}
+    \partial_\mu \partial^\mu \Phi + m^2 \Phi + \lambda (\Phi^* \Phi) \Phi &= 0. \label{eq:EOM}
+\end{align}
+We now need to verify that the Lagrangian is invariant under the infinitesimal transformations:
+\begin{align*}
+    \delta \Phi &= i\alpha \Phi, \quad \delta \Phi^* = -i\alpha \Phi^*,
+\end{align*}
+where $\alpha$ is an infinitesimally small constant.
+
+The change in the Lagrangian $\delta \mathcal{L}$ (\ref{eq:lagrangian-density-complex-scalar}) under this transformation is given by:
+\begin{align}
+    \delta \mathcal{L} &= \frac{\partial \mathcal{L}}{\partial \Phi} \delta \Phi + \frac{\partial \mathcal{L}}{\partial \Phi^*} \delta \Phi^*.
+\end{align}
+Substitute the given transformations:
+\begin{align}
+    \delta \mathcal{L} &= \frac{\partial \mathcal{L}}{\partial \Phi} (i\alpha \Phi) + \frac{\partial \mathcal{L}}{\partial \Phi^*} (-i\alpha \Phi^*) \notag \\
+    &= i\alpha \Phi \frac{\partial \mathcal{L}}{\partial \Phi} - i\alpha \Phi^* \frac{\partial \mathcal{L}}{\partial \Phi^*}\notag\\
+    &= i\alpha \Phi \left[-m^2 \Phi^* - \lambda \Phi^* (\Phi^* \Phi)\right] - i\alpha \Phi^* \left[-m^2 \Phi - \lambda \Phi (\Phi^* \Phi)\right]\notag\\[6pt]
+    &= 0,\notag
+\end{align}
+which shows that the Lagrangian is indeed invariant under the given transformations.
+\subsection*{\scshape\bf 2. Noether Current}
+Noether's theorem states that for every continuous symmetry of the action, there is a corresponding conserved current. The conserved current $J^\mu$ associated with the symmetry is given by:
+\begin{align}
+    J^\mu &= \frac{\partial \mathcal{L}}{\partial (\partial_\mu \Phi)} \delta \Phi + \frac{\partial \mathcal{L}}{\partial (\partial_\mu \Phi^*)} \delta \Phi^*.\label{eq:noether-current}\notag\\
+    &= \partial^\mu \Phi^* (i\alpha \Phi) + \partial^\mu \Phi (-i\alpha \Phi^*) \notag \\[6pt]
+    &= i\alpha (\Phi \partial^\mu \Phi^* - \Phi^* \partial^\mu \Phi).
+\end{align}
+Thus, the Noether current is:
+\begin{align}
+    J^\mu &= \alpha (\Phi \partial^\mu \Phi^* - \Phi^* \partial^\mu \Phi). \label{eq:Noether-Current}
+\end{align}
+To verify that this current is conserved, we compute its divergence:
+\begin{align}
+    \partial_\mu J^\mu &= \alpha \partial_\mu (\Phi \partial^\mu \Phi^* - \Phi^* \partial^\mu \Phi).\label{eq:noether-current-divergence}
+\end{align}
+Using the equations of motion (EOM) (\ref{eq:EOM}):
+\begin{align*}
+    \partial_\mu \partial^\mu \Phi &= -m^2 \Phi - \lambda (\Phi^* \Phi) \Phi, \notag \\
+    \partial_\mu \partial^\mu \Phi^* &= -m^2 \Phi^* - \lambda (\Phi^* \Phi) \Phi^*,
+\end{align*}
+we can see that:
+\begin{align}
+    \partial_\mu J^\mu &= 0,
+\end{align}
+confirming that $J^\mu$ is indeed conserved.
+\subsection*{\scshape\bf 3. Lagrangian in Terms of Real Scalar Fields}
+We can express the complex scalar field $\Phi(x)$ in terms of two real scalar fields $\phi_1(x)$ and $\phi_2(x)$ as:
+\begin{align*}
+    \Phi(x) &= \phi_1(x) + i \phi_2(x), \\
+    \Phi^*(x) &= \phi_1(x) - i \phi_2(x).
+\end{align*}
+Substituting into the Lagrangian (\ref{eq:lagrangian-density-complex-scalar}):
+\begin{align*}
+    \mathcal{L} &= \partial_\mu (\phi_1 - i\phi_2) \partial^\mu (\phi_1 + i\phi_2) - m^2 (\phi_1^2 + \phi_2^2) - \frac{\lambda}{2} (\phi_1^2 + \phi_2^2)^2\notag\\
+    &= (\partial_\mu \phi_1 \partial^\mu \phi_1 + \partial_\mu \phi_2 \partial^\mu \phi_2) - m^2 (\phi_1^2 + \phi_2^2) - \frac{\lambda}{2} (\phi_1^2 + \phi_2^2)^2.
+\end{align*}
+This is the Lagrangian density expressed in terms of the real scalar fields $\phi_1(x)$ and $\phi_2(x)$. The numerical factors appear due to the standard normalization and the structure of the interaction terms.

@@ -1,0 +1,117 @@
+\allowdisplaybreaks
+\begin{center}
+	\hrule
+	\vspace{.4cm}
+ \begin{tabular*}{\textwidth}{@{}l@{}|@{\extracolsep{0.6in}}r@{}}%
+\parbox{4.25in}{\raggedright{\includegraphics[width=.9\linewidth]{ictp-pwf.pdf}}} &
+\parbox[c][]{4in}{{\Large\textbf{Md Akiful Islam Zawad} \par}
+                    { Brac University \par}
+                    { KHA 224, Progati Sarani, Merul Badda, \par}
+                    { Dhaka 1212, Bangladesh \par}
+                    { \href{ext.akiful.islam@bracu.ac.bd}{ext.akiful.islam@bracu.ac.bd}} \par}
+\end{tabular*}\vspace{.3in}
+\definecolor{ceruleanblue}{rgb}{0.16, 0.32, 0.6}
+	\LARGE\scshape\textbf{\textcolor{ceruleanblue}{Physics for Bangladesh QFT School}}
+\end{center}
+\hrule\vspace{.25in}
+{\large\textbf{Problem Sheet:}\ \textsc{3} \hspace{\hfill} \large\textbf{Due Date:} \today\\
+	\hrule}
+ %----------------------------
+\paragraph*{Problem Set 1} %\hfill \newline
+\\
+The Lagrangian for the electromagnetic vector potential $A_\mu$, in the presence of a source current $j_\mu$, is given by
+\begin{align}
+    L = -\frac{1}{4} F_{\mu\nu} F^{\mu\nu} - j_\mu A^\mu, \label{eq:lagrangian-em-vector}
+\end{align}
+where $F_{\mu\nu} \equiv \partial_\mu A_\nu - \partial_\nu A_\mu$ is called the electromagnetic field strength tensor.
+\begin{itemize}
+    \item[(a)] Find the Euler-Lagrange equation corresponding to this Lagrangian.
+    \item[(b)] The Euler-Lagrange equation will give rise to two of Maxwell’s equations. Recast these equations into Maxwell’s equations of electrodynamics.
+\end{itemize}
+\bigskip\bigskip\hline\hline\bigskip
+\subsection*{Solution}
+\begin{itemize}
+\item [(a)] To find the Euler-Lagrange equation, we will use the following formula for a field theory:
+\begin{align}
+    \frac{\partial L}{\partial A^\mu} - \partial_\nu \left( \frac{\partial L}{\partial (\partial_\nu A^\mu)} \right) = 0.\label{eq:euler-lagrangian}
+\end{align}
+Compute the first term for the given Lagrangian (\ref{eq:lagrangian-em-vector}):
+
+From the Lagrangian:
+\begin{align*}
+    L = -\frac{1}{4} F_{\mu\nu} F^{\mu\nu} - j_\mu A^\mu,
+\end{align*}
+the term involving $A^\mu$ explicitly is $-j_\mu A^\mu$. Thus,
+\begin{align}
+    \frac{\partial L}{\partial A^\mu} = -j_\mu.\label{eq:step-1}
+\end{align}
+Now compute the second term of (\ref{eq:euler-lagrangian}) for the given Lagrangian in (\ref{eq:lagrangian-em-vector}):
+
+The derivative $\partial_\nu A_\mu$ only appears in $F_{\mu\nu}$. We need to express the Lagrangian in terms of $\partial_\nu A_\mu$. The Lagrangian contains the term:
+\begin{align*}
+    \frac{1}{4}F_{\mu\nu} F^{\mu\nu} = \frac{1}{4}(\partial_\mu A_\nu - \partial_\nu A_\mu)(\partial^\mu A^\nu - \partial^\nu A^\mu).
+\end{align*}
+Thus, $L$ depends on $\partial_\nu A_\mu$. To compute $\displaystyle\frac{\partial L}{\partial (\partial_\nu A_\mu)}$, let's focus on the first term:
+\begin{align}
+    -\frac{1}{4} F_{\mu\nu} F^{\mu\nu}= -\frac{1}{4} (\partial_\mu A_\nu - \partial_\nu A_\mu)(\partial^\mu A^\nu - \partial^\nu A^\mu).
+\end{align}
+We are interested in $\displaystyle\frac{\partial L}{\partial (\partial_\nu A_\mu)}$. Observe that:
+\begin{align}
+    \frac{\partial}{\partial (\partial_\nu A_\mu)} F_{\alpha\beta} = \delta^\nu_\alpha \delta^\mu_\beta - \delta^\nu_\beta \delta^\mu_\alpha.\label{eq:step-2}
+\end{align}
+Therefore:
+\begin{align}
+    \frac{\partial L}{\partial (\partial_\nu A^\mu)} = - F^{\nu\mu}.
+\end{align}
+Now we can plug (\ref{eq:step-1}) and (\ref{eq:step-2}) into (\ref{eq:euler-lagrangian}):
+\begin{align}
+    \frac{\partial L}{\partial A^\mu} - \partial_\nu \left( \frac{\partial L}{\partial (\partial_\nu A^\mu)} \right) &= 0\notag\\
+    -j_\mu - \partial_\nu (-F^{\nu\mu}) &= 0,
+\end{align}
+which simplifies to:
+\begin{align}
+    \partial_\nu F^{\nu\mu} = j^\mu.
+\end{align}
+This is the Euler-Lagrange equation corresponding to the Lagrangian
+
+\item [(b)] We will now show that this Euler-Lagrange equation corresponds to two of Maxwell’s equations.
+
+Maxwell's equations in the presence of a current are:
+\begin{align}
+    \partial_\nu F^{\nu\mu} = j^\mu,
+\end{align}
+which we derived from the Euler-Lagrange equation.
+
+Recall the components of $F_{\mu\nu}$:
+\begin{align}
+    F_{0i} &= E_i \quad &\text{(electric field components)}\label{eq:e-field-components}\\
+    F_{ij} &= -\epsilon_{ijk} B_k\label{eq:b-field-components} \quad &\text{(magnetic field components)}
+\end{align}
+Let’s decompose this equation into its temporal and spatial components.
+
+\textbf{Temporal component:} $\mu = 0$
+\begin{align*}
+    \partial_\nu F^{\nu 0} &= j^0\notag\\
+    \partial_i F^{i0} &= j^0,
+\end{align*}
+or, using $F^{i0} = -E^i$:
+\begin{align}
+    \mathbf{\nabla} \cdot \mathbf{E} = j^0,
+\end{align}
+which is Gauss's law for Electric fields.
+
+\textbf{Spatial component:} $\mu = i$
+\begin{align*}
+    \partial_\nu F^{\nu i} &= j^i\notag\\
+    \partial_0 F^{0i} + \partial_j F^{ji} &= j^i.
+\end{align*}
+Using $F^{0i} = -E^i$ and $F^{ji} = \epsilon_{ijk} B^k$, this becomes:
+\begin{align*}
+    -\frac{\partial E^i}{\partial t} + \epsilon_{ijk} \partial_j B^k = j^i.
+\end{align*}
+This is the Ampère-Maxwell law:
+\begin{align}
+    \mathbf{\nabla} \times \mathbf{B} - \frac{\partial \mathbf{E}}{\partial t} = \mathbf{j}.
+\end{align}
+\end{itemize}
+\bigskip\bigskip\hline\hline\bigskip

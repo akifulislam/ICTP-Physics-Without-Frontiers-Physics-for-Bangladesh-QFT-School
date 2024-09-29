@@ -1,0 +1,161 @@
+\allowdisplaybreaks
+\begin{center}
+	\hrule
+	\vspace{.4cm}
+ \begin{tabular*}{\textwidth}{@{}l@{}|@{\extracolsep{0.6in}}r@{}}%
+\parbox{4.25in}{\raggedright{\includegraphics[width=.9\linewidth]{ictp-pwf.pdf}}} &
+\parbox[c][]{4in}{{\Large\textbf{Md Akiful Islam Zawad} \par}
+                    { Brac University \par}
+                    { KHA 224, Progati Sarani, Merul Badda, \par}
+                    { Dhaka 1212, Bangladesh \par}
+                    { \href{ext.akiful.islam@bracu.ac.bd}{ext.akiful.islam@bracu.ac.bd}} \par}
+\end{tabular*}\vspace{.3in}
+\definecolor{ceruleanblue}{rgb}{0.16, 0.32, 0.6}
+	\LARGE\scshape\textbf{\textcolor{ceruleanblue}{Physics For Bangladesh: School On Quantum Field Theory}}
+\end{center}
+\hrule\vspace{.25in}
+{\large\textbf{Problem Sheet:}\ \textsc{2} \hspace{\hfill} \large\textbf{Submission Date:} \today\\
+	\hline\hline
+ %----------------------------
+\paragraph*{Problem Set 2} %\hfill \newline
+\\
+The Fourier decomposition of the Dirac operator $\psi(\mathbf{x})$ and the conjugate field $\psi^\dagger(\mathbf{x})$ is given by:
+\begin{align}
+    \psi(\mathbf{x}) &= \sum_{s=1}^2 \bigints\frac{d^3p}{(2\pi)^3} \frac{1}{\sqrt{2E_{\mathbf{p}}}} \left[ b^s_{\mathbf{p}} u^s(\mathbf{p}) e^{+i\mathbf{p}\cdot\mathbf{x}} + c^{s\dagger}_{\mathbf{p}} v^s(\mathbf{p}) e^{-i\mathbf{p}\cdot\mathbf{x}} \right], \\
+    \psi^\dagger(\mathbf{x}) &= \sum_{s=1}^2 \bigints\frac{d^3p}{(2\pi)^3} \frac{1}{\sqrt{2E_{\mathbf{p}}}} \left[ b^{s\dagger}_{\mathbf{p}} u^{s\dagger}(\mathbf{p}) e^{-i\mathbf{p}\cdot\mathbf{x}} + c^s_{\mathbf{p}} v^{s\dagger}(\mathbf{p}) e^{+i\mathbf{p}\cdot\mathbf{x}} \right].
+\end{align}
+We are given the following commutation relations for the creation and annihilation operators:
+\begin{align}
+    \left\{b^r_{\mathbf{p}}, b^{s\dagger}_{\mathbf{q}}\right\} &= (2\pi)^3 \delta^{rs} \delta^{(3)}(\mathbf{p} - \mathbf{q})\notag\\
+    \left\{c^r_{\mathbf{p}}, c^{s\dagger}_{\mathbf{q}}\right\} &= (2\pi)^3 \delta^{rs} \delta^{(3)}(\mathbf{p} - \mathbf{q}),
+\end{align}
+with all other anticommutators vanishing:
+\begin{align}
+    \left\{b^r_{\mathbf{p}}, b^s_{\mathbf{q}}\right\} = \left\{c^r_{\mathbf{p}}, c^s_{\mathbf{q}}\right\} = \left\{b^r_{\mathbf{p}}, c^{s\dagger}_{\mathbf{q}}\right\} = \left\{b^r_{\mathbf{p}}, c^s_{\mathbf{q}}\right\} = \dots = 0.
+\end{align}
+Show that these imply the following anticommutation relations for the field and its conjugate:
+\begin{align}
+    \left\{\psi_\alpha(\mathbf{x}), \psi_\beta(\mathbf{y})\right\} &= \left\{\psi^\dagger_\alpha(\mathbf{x}), \psi^\dagger_\beta(\mathbf{y})\right\} = 0\notag\\
+    \left\{\psi_\alpha(\mathbf{x}), \psi^\dagger_\beta(\mathbf{y})\right\} &= \delta_{\alpha\beta} \delta^{(3)}(\mathbf{x} - \mathbf{y}).
+\end{align}
+Show that the quantum Hamiltonian
+\begin{align}
+    H = \int d^3x \, \bar{\psi}(-i\gamma^i \partial_i + m)\psi,
+\end{align}
+can be written, after normal ordering, as
+\begin{align}
+    H = \int \frac{d^3p}{(2\pi)^3} E_{\mathbf{p}} \sum_{s=1}^2 \left[ b^{s\dagger}_{\mathbf{p}} b^s_{\mathbf{p}} + c^{s\dagger}_{\mathbf{p}} c^s_{\mathbf{p}} \right].
+\end{align}
+\bigskip\bigskip\hline\hline\bigskip
+\subsection*{Solution:}
+We first compute $\left\{\psi_\alpha(\mathbf{x}), \psi_\beta(\mathbf{y})\right\}$}:
+
+The field $\psi(\mathbf{x})$ is given by:
+\begin{align*}
+    \psi(\mathbf{x}) = \sum_{s=1}^2 \bigints\frac{d^3p}{(2\pi)^3} \frac{1}{\sqrt{2E_{\mathbf{p}}}} \left[ b^s_{\mathbf{p}} u^s(\mathbf{p}) e^{+i\mathbf{p}\cdot\mathbf{x}} + c^{s\dagger}_{\mathbf{p}} v^s(\mathbf{p}) e^{-i\mathbf{p}\cdot\mathbf{x}} \right].
+\end{align*}
+Similarly, $\psi(\mathbf{y})$ is:
+\begin{align*}
+    \psi(\mathbf{y}) = \sum_{s=1}^2 \bigints\frac{d^3q}{(2\pi)^3} \frac{1}{\sqrt{2E_{\mathbf{q}}}} \left[ b^s_{\mathbf{q}} u^s(\mathbf{q}) e^{+i\mathbf{q}\cdot\mathbf{y}} + c^{s\dagger}_{\mathbf{q}} v^s(\mathbf{q}) e^{-i\mathbf{q}\cdot\mathbf{y}} \right].
+\end{align*}
+Now, compute the anticommutator $\left\{\psi_\alpha(\mathbf{x}), \psi_\beta(\mathbf{y})\right\}$:
+\begin{align*}
+    \left\{\psi_\alpha(\mathbf{x}), \psi_\beta(\mathbf{y})\right\} = \sum_{r,s} \bigints\frac{d^3p \, d^3q}{(2\pi)^6} \frac{1}{\sqrt{2E_{\mathbf{p}} 2E_{\mathbf{q}}}} \left( \left\{b^r_{\mathbf{p}}, b^s_{\mathbf{q}}\right\} u^r_\alpha(\mathbf{p}) u^s_\beta(\mathbf{q}) e^{+i(\mathbf{p}\cdot\mathbf{x} + \mathbf{q}\cdot\mathbf{y})} \right).
+\end{align*}
+Since $\left\{b^r_{\mathbf{p}}, b^s_{\mathbf{q}}\right\} = 0$, we find:
+\begin{align*}
+    \left\{\psi_\alpha(\mathbf{x}), \psi_\beta(\mathbf{y})\right\} = 0.
+\end{align*}
+Similarly, for $c$-operators, we have:
+\begin{align*}
+    \left\{\psi_\alpha(\mathbf{x}), \psi_\beta(\mathbf{y})\right\} = \sum_{r,s} \bigints\frac{d^3p \, d^3q}{(2\pi)^6} \frac{1}{\sqrt{2E_{\mathbf{p}} 2E_{\mathbf{q}}}} \left\{c^{r\dagger}_{\mathbf{p}}, c^{s\dagger}_{\mathbf{q}}\right\} v^r_\alpha(\mathbf{p}) v^s_\beta(\mathbf{q}) e^{-i(\mathbf{p}\cdot\mathbf{x} + \mathbf{q}\cdot\mathbf{y})}.
+\end{align*}
+Since $\left\{c^{r\dagger}_{\mathbf{p}}, c^{s\dagger}_{\mathbf{q}}\right\} = 0$, we get:
+\begin{align}
+    \left\{\psi_\alpha(\mathbf{x}), \psi_\beta(\mathbf{y})\right\} = 0.~~~~~\text{(\bf Showed)}
+\end{align}
+Now compute $\left\{\psi_\alpha(\mathbf{x}), \psi^\dagger_\beta(\mathbf{y})\right\}$
+
+Now we compute the anticommutator $\left\{\psi_\alpha(\mathbf{x}), \psi^\dagger_\beta(\mathbf{y})\right\}$. We have:
+\begin{align*}
+    \psi^\dagger(\mathbf{y}) = \sum_{s=1}^2 \bigints\frac{d^3q}{(2\pi)^3} \frac{1}{\sqrt{2E_{\mathbf{q}}}} \left[ b^{s\dagger}_{\mathbf{q}} u^{s\dagger}(\mathbf{q}) e^{-i\mathbf{q}\cdot\mathbf{y}} + c^s_{\mathbf{q}} v^{s\dagger}(\mathbf{q}) e^{+i\mathbf{q}\cdot\mathbf{y}} \right].
+\end{align*}
+The anticommutator is:
+\begin{align*}
+    \left\{\psi_\alpha(\mathbf{x}), \psi^\dagger_\beta(\mathbf{y})\right\} = \sum_{r,s} \bigints\frac{d^3p \, d^3q}{(2\pi)^6} \frac{1}{\sqrt{2E_{\mathbf{p}} 2E_{\mathbf{q}}}} \left( \left\{b^r_{\mathbf{p}}, b^{s\dagger}_{\mathbf{q}}\right\} u^r_\alpha(\mathbf{p}) u^{s\dagger}_\beta(\mathbf{q}) e^{i(\mathbf{p}\cdot\mathbf{x} - \mathbf{q}\cdot\mathbf{y})} \right).
+\end{align*}
+Using $\left\{b^r_{\mathbf{p}}, b^{s\dagger}_{\mathbf{q}}\right\} = (2\pi)^3 \delta^{rs} \delta^{(3)}(\mathbf{p} - \mathbf{q})$, this becomes:
+\begin{align*}
+    \bigints\frac{d^3p}{(2\pi)^3} \frac{1}{2E_{\mathbf{p}}} u^r_\alpha(\mathbf{p}) u^{r\dagger}_\beta(\mathbf{p}) e^{i\mathbf{p}\cdot(\mathbf{x} - \mathbf{y})}.
+\end{align*}
+The sum over spins $r$ gives the completeness relation for the spinors:
+\begin{align*}
+    \sum_r u^r_\alpha(\mathbf{p}) u^{r\dagger}_\beta(\mathbf{p}) = \delta_{\alpha\beta}.
+\end{align*}
+Thus, we are left with:
+\begin{align*}
+    \left\{\psi_\alpha(\mathbf{x}), \psi^\dagger_\beta(\mathbf{y})\right\} = \delta_{\alpha\beta} \bigints\frac{d^3p}{(2\pi)^3} \frac{1}{2E_{\mathbf{p}}} e^{i\mathbf{p}\cdot(\mathbf{x} - \mathbf{y})}.
+\end{align*}
+The remaining integral is the Fourier transform of $\displaystyle\frac{1}{2E_{\mathbf{p}}}$, which gives the delta function:
+\begin{align*}
+    \bigints\frac{d^3p}{(2\pi)^3} \frac{1}{2E_{\mathbf{p}}} e^{i\mathbf{p}\cdot(\mathbf{x} - \mathbf{y})} = \delta^{(3)}(\mathbf{x} - \mathbf{y}).
+\end{align*}
+Thus, we have:
+\begin{align}
+    \left\{\psi_\alpha(\mathbf{x}), \psi^\dagger_\beta(\mathbf{y})\right\} = \delta_{\alpha\beta} \delta^{(3)}(\mathbf{x} - \mathbf{y}).~~~~~\text{(\bf Showed)}
+\end{align}
+This proves the desired anticommutation relations.
+
+We now move on to the second part of the question. From the Lagrangian for the Dirac field,
+\begin{align}
+    \mathcal{L}=\Bar{\psi}\left(i\gamma^\mu\partial_\mu-m\right)\psi,
+\end{align}
+the momenta conjugate to $\psi$ and $\Bar{\psi}$ are found to be
+\begin{align}
+    \pi_\psi&=\frac{\partial\mathcal{L}}{\partial\left(\partial_t\psi\right)}=i\Bar{\psi}\gamma^0=i\psi^\dagger,\\
+    \pi_{\Bar{\psi}}&=\frac{\partial\mathcal{L}}{\partial\left(\partial_t\Bar{\psi}\right)}=0.
+\end{align}
+Setting $\pi=\pi_\psi$, the Hamiltonian density is therefore
+\begin{align}
+    \mathcal{H}=\pi\Dot{\psi}-\mathcal{L}&=i\psi^\dagger\Dot{\psi}-\Bar{\psi}\left(i\gamma^0\Dot{\psi}+i\gamma^i\partial_i\psi-m\psi\right)\notag\\
+    &=-i\Bar{\psi}\gamma^i\partial_i\psi+m\Bar{\psi}\psi\notag\\
+    &=i\psi^\dagger\gamma^0\left(-\gamma^i\partial_i-im\right)\psi\notag\\
+    &=\pi\gamma^0\left(-\gamma^i\partial_i-im\right)\psi,
+\end{align}
+so that the classical Hamiltonian is
+\begin{align}
+    H\left[\psi,\pi\right]=\bigints d^3x\pi\gamma^0\left(-\gamma^i\partial_i-im\right)\psi.
+\end{align}
+We evaluate this expressing modal expansion in the Heisenberg picture,
+\begin{align*}
+    \psi(x)&=\sum_{s=1}^2\bigints\frac{d^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_\mathbf{p}}}\bigg[u^s(\mathbf{p})b_\mathbf{p}^se^{+i\mathbf{p}\cdot\mathbf{x}}+v^s(\mathbf{p})c_\mathbf{p}^{s\dagger}e^{-i\mathbf{p}\cdot\mathbf{x}}\bigg]_{p^0=E_\mathbf{p}},\\
+    \psi^\dagger(x)&=\sum_{s=1}^2i\bigints\frac{d^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_\mathbf{p}}}\bigg[u^{s}(\mathbf{p})^\dagger b_\mathbf{p}^{s\dagger}e^{-i\mathbf{p}\cdot\mathbf{x}}+v^s(\mathbf{p})^\dagger c_\mathbf{p}^{s}e^{+i\mathbf{p}\cdot\mathbf{x}}\bigg]_{p^0=E_\mathbf{p}}
+\end{align*}
+As the fields are on shell here, we have
+\begin{align}
+    \gamma^i\partial_i\psi(x)=im\psi(x)+\gamma^0\Dot{\psi}(x),
+\end{align}
+So that,
+\begin{align*}
+    H&=\bigints d^3x\psi^\dagger(x)\Dot{\psi}(x)\notag\\
+    &=\bigints d^3x\left\{\sum_{s=1}^2i\bigints\frac{d^3p}{(2\pi)^3}\frac{1}{\sqrt{2E_\mathbf{p}}}\bigg[u^{s}(\mathbf{p})^\dagger b_\mathbf{p}^{s\dagger}e^{-i\mathbf{p}\cdot\mathbf{x}}+v^s(\mathbf{p})^\dagger c_\mathbf{p}^{s}e^{+i\mathbf{p}\cdot\mathbf{x}}\bigg]_{p^0=E_\mathbf{p}}\right\}\notag\\
+    &\qquad~~~~~\left\{\sum_{r=1}^2\bigints\frac{d^3p}{(2\pi)^3}\frac{-E_\mathbf{q}}{\sqrt{2E_\mathbf{p}}}\bigg[u^r(\mathbf{q})b_\mathbf{q}^re^{+i\mathbf{q}\cdot\mathbf{x}}-v^r(\mathbf{q})c_\mathbf{q}^{r\dagger}e^{-i\mathbf{q}\cdot\mathbf{x}}\bigg]_{q^0=E_\mathbf{q}}\right\}\notag\\
+    &=\sum_{r,s}\bigints d^3x\bigints\frac{d^3p}{(2\pi)^3} \bigints\frac{d^3q}{(2\pi)^3}\frac{E_\mathbf{q}}{\sqrt{4E_\mathbf{p}E_\mathbf{q}}}\bigg[b_\mathbf{p}^{s\dagger}b_\mathbf{q}^{r}u^{s\dagger}(\mathbf{p})u^r(\mathbf{q})e^{ix\cdot(p-q)}+b_\mathbf{p}^sb_\mathbf{q}^{r\dagger}(\mathbf{p})u^r(\mathbf{q})e^{-ix\cdot(p+q)}\notag\\
+    &\qquad~~~~~+b_\mathbf{p}^{s\dagger}c_\mathbf{q}^{r\dagger}u^{s\dagger}(\mathbf{p})v^r(\mathbf{q})e^{ix\cdot(p+q)}+c_\mathbf{p}^{r}c_\mathbf{q}^{r\dagger}v^{s\dagger}(\mathbf{p})v^r(\mathbf{q})e^{-ix\cdot(p-q)}\bigg]_{p^0=E_\mathbf{p},\,q^0=E_\mathbf{q}}
+\end{align*}
+Performing the spatial integral and evaluating the resulting delta functions, and then using the identities given in ()
+\begin{align*}
+    u_s(\mathbf{p})^\dagger u_r(\mathbf{p})=2E_\mathbf{p}\delta_{rs},&\qquad~~~v_s(\mathbf{p})^\dagger u_r(-\mathbf{p})=0\notag\\
+    v_s(\mathbf{p})^\dagger v_r(\mathbf{p})=2E_\mathbf{p}\delta_{rs},&\qquad~~~u_s(\mathbf{p})^\dagger v_r(-\mathbf{p})=0.
+\end{align*}
+We have 
+\begin{align}
+    H&=\sum_{r,s}\bigints\frac{d^3p}{(2\pi)^3}\frac{1}{2}\bigg[b_\mathbf{p}^{s\dagger}b_\mathbf{p}^{r}u^{s\dagger}(\mathbf{p})u^r(\mathbf{p})-b_{\mathbf{p}}^sb_{-\mathbf{p}}^rv_s(\mathbf{p})^\dagger u_r(-\mathbf{p})e^{-2ix^0E_\mathbf{p}}\notag\\
+    &\qquad~~~~~+b_\mathbf{p}^{s\dagger}c_{-\mathbf{p}}^{r\dagger}u^{s}(\mathbf{p})^\dagger v^r(-\mathbf{p})e^{2ix^0E_\mathbf{p}}-c_\mathbf{p}^{s}c_{\mathbf{p}}^{r\dagger}v^{s}(\mathbf{p})^\dagger v^r(\mathbf{p})\bigg]\notag\\
+    &=\sum_s\bigints\frac{d^3p}{(2\pi)^3}E_\mathbf{p}\bigg[b_\mathbf{p}^{s\dagger}b_\mathbf{p}^s-c_\mathbf{p}^sc_\mathbf{p}^{s\dagger}\bigg]\label{eq:hamilton-step}\\
+    &=\sum_s\bigints\frac{d^3p}{(2\pi)^3}E_\mathbf{p}\bigg[b_\mathbf{p}^{s\dagger}b_\mathbf{p}^s+c_\mathbf{p}^{s\dagger}c_\mathbf{p}^s-(2\pi)^3\delta^{(3)}(\mathbf{0})\bigg]\notag.
+\end{align}
+Upon normal ordering, we obtain
+\begin{align}
+    :H:=\sum_{s=1}^2\bigints\frac{d^3p}{(2\pi)^3}E_\mathbf{p}\bigg[b_\mathbf{p}^{s\dagger}b_\mathbf{p}^s+c_\mathbf{p}^{s\dagger}c_\mathbf{p}^s\bigg]~~~~~\text{(\bf Showed)}
+\end{align}

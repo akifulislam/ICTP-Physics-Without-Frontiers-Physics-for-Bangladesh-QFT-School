@@ -1,0 +1,146 @@
+\allowdisplaybreaks
+\begin{center}
+	\hrule
+	\vspace{.4cm}
+ \begin{tabular*}{\textwidth}{@{}l@{}|@{\extracolsep{0.6in}}r@{}}%
+\parbox{4.25in}{\raggedright{\includegraphics[width=.9\linewidth]{ictp-pwf.pdf}}} &
+\parbox[c][]{4in}{{\Large\textbf{Md Akiful Islam Zawad} \par}
+                    { Brac University \par}
+                    { KHA 224, Progati Sarani, Merul Badda, \par}
+                    { Dhaka 1212, Bangladesh \par}
+                    { \href{ext.akiful.islam@bracu.ac.bd}{ext.akiful.islam@bracu.ac.bd}} \par}
+\end{tabular*}\vspace{.3in}
+\definecolor{ceruleanblue}{rgb}{0.16, 0.32, 0.6}
+	\LARGE\scshape\textbf{\textcolor{ceruleanblue}{Physics For Bangladesh: School On Quantum Field Theory}}
+\end{center}
+\hrule\vspace{.25in}
+{\large\textbf{Problem Sheet:}\ \textsc{1} \hspace{\hfill} \large\textbf{Submission Date:} \today\\
+	\hline\hline
+ %----------------------------
+\paragraph*{Problem Set 3} %\hfill \newline
+\\
+Verify Wick's theorem for
+    \begin{enumerate}
+        \item The product of three scalars:
+        \begin{align*}
+            T(\phi(x_1) \phi(x_2) \phi(x_3)) = : \phi(x_1) \phi(x_2) \phi(x_3) : + \phi(x_1) \Delta_F(x_2 - x_3)
+        + \phi(x_2) \Delta_F(x_3 - x_1) + \phi(x_3) \Delta_F(x_1 - x_2)
+        \end{align*}
+        \item The product of four scalars:
+        \begin{align*}
+            T(\phi(x_1) \phi(x_2) \phi(x_3) \phi(x_4))    
+        \end{align*}
+    \end{enumerate}
+
+\bigskip\bigskip\hline\hline\bigskip
+\section*{Solution}
+Wick's theorem states that the time-ordered product of a set of fields can be expressed as a sum of normal-ordered products with contractions. For scalar fields, the contraction between two fields is defined as the Feynman propagator $\Delta_F(x - y)$.
+
+Wick’s Theorem states that for $n$ field operators, the time-ordered product can be written as a sum over all possible ways of contracting the operators. 
+
+For two scalar fields $\phi(x_1)\equiv\phi_1$ and $\phi(x_2)\equiv\phi_2$, the theorem is:
+
+\begin{align}
+    T \{\phi_1\phi_2\} &= :\phi_1\phi_2: + \overbrace{\phi_1,\phi_2}
+\end{align}
+The time-ordered product of two scalar field is defined as
+\begin{align*}
+    T \{\phi_1\phi_2\} &= \begin{cases}
+      \phi_1\phi_2; & x_1^0 > x_2^0\\
+      \phi_2\phi_1; & x_2^0 > x_1^0
+    \end{cases}
+\end{align*}
+or \begin{align*}
+    T \{\phi_1\phi_2\}=\theta\left(x_1^0-x_2^0\right)\phi_1\phi_2+\theta\left(x_2^0-x_1^0\right)\phi_2\phi_1,
+\end{align*}
+from which it is clear that $T \{\phi_1\phi_2\}$ is symmetric in $x_1$ and $x_2$.
+
+The normal-ordered product of two fields is defined as
+\begin{align*}
+    :\phi_1\phi_2:=:\left(\phi_1^++\phi_1^-\right)+\left(\phi_2^-+\phi_2^-\right):=\phi_1^+\phi_2^++\phi_2^-\phi_1^++\phi_1^-\phi_2^++\phi_1^-\phi_2^-
+\end{align*}
+The Feynmann propagator may be written as
+\begin{align}
+    \Delta_F\left(x_1-x_2\right)=T\{\phi_1\phi_2\}-:\phi_1\phi_2:
+\end{align}
+We now attempt to check Wick's theorem fir the time-ordered product of three scalar fields. First, consider the case, $x_1^0>x_2^0>x_3^0$:
+\begin{align}
+    T\left\{\phi_1\phi_2\phi_3\right\}&=\phi_1\phi_2\phi_3=\left(\phi_1^++\phi_1^-\right)\left(\phi_2^++\phi_2^-\right)\left(\phi_3^++\phi_3^-\right)\notag\\
+    &=\phi_1^+\phi_2^+\phi_3^++\phi_1^+\phi_2^+\phi_3^-+\phi_1^+\phi_2^-\phi_3^++\phi_1^+\phi_2^-\phi_3^-+\phi_1^-\phi_2^+\phi_3^++\phi_1^-\phi_2^+\phi_3^-+\phi_1^-\phi_2^-\phi_3^++\phi_1^-\phi_2^-\phi_3^-\notag\\
+    &=\phi_1^+\phi_2^+\phi_3^+\left(\phi_3^-\phi_1^+\phi_2^++\left[\phi_1^+,\phi_3^-\right]\phi_2^++\phi_1^+\left[\phi_2^+,\phi_3^-\right]\right)+\left(\phi_2^-\phi_2^+\phi_3^++\left[\phi_1^+,\phi_2^-\right]\phi_3^+\right)\notag\\
+    &\hspace{20pt}\left(\phi_2^-\phi_3^-\phi_1^++\phi_2^-\left[\phi_1^+,\phi_3^-\right]+\left[\phi_1^+,\phi_2^-\right]\phi_3^-\right)+\phi_1^-\phi_2^+\phi_3^+\notag\\
+    &\hspace{40pt}\left(\phi_1^-\phi_2^+\phi_3^-+\phi_1^-\left[\phi_1^+,\phi_3^-\right]\right)+\phi_1^-\phi_3^+\phi_2^-+\phi_1^-\phi_2^-\phi_3^-\notag\\
+    &=:\phi_1\phi_2\phi_3:+\left[\phi_1^+,\phi_3^-\right]\phi_2+\left[\phi_2^+,\phi_3^-\right]\phi_1+\left[\phi_1^+,\phi_3^-\right]\phi_3\notag\\
+    &=:\phi_1\phi_2\phi_3:+\Delta_F\left(x_1-x_3\right)\phi_2+\Delta_F\left(x_2-x_3\right)\phi_1+\Delta_F\left(x_1-x_2\right)\phi_3\notag
+\end{align}
+As a re-ordering of $x_1^0>x_2^0>x_3^0$ corresponds to a different choice of labels and since $\Delta_F$ and normal ordered products are symmetric, this calculation suffices to prove Wick’s theorem.
+
+Thus, Wick's theorem is verified for the product of three scalar fields.
+
+Now, we verify Wick's theorem for the product of four scalar fields:
+\begin{align}
+    T\left\{\phi_1 \phi_2 \phi_3 \phi_4\right\} &= \left(\phi_1^+ + \phi_1^-\right)\left(\phi_2^+ + \phi_2^-\right)\left(\phi_3^+ + \phi_3^-\right)\left(\phi_4^+ + \phi_4^-\right) \notag \\
+    &= \phi_1^+ \phi_2^+ \phi_3^+ \phi_4^+ + \phi_1^+ \phi_2^+ \phi_3^+ \phi_4^- + \phi_1^+ \phi_2^+ \phi_3^- \phi_4^+ + \phi_1^+ \phi_2^+ \phi_3^- \phi_4^- \notag \\
+    &\quad + \phi_1^+ \phi_2^- \phi_3^+ \phi_4^+ + \phi_1^+ \phi_2^- \phi_3^+ \phi_4^- + \phi_1^+ \phi_2^- \phi_3^- \phi_4^+ + \phi_1^+ \phi_2^- \phi_3^- \phi_4^- \notag \\
+    &\quad + \phi_1^- \phi_2^+ \phi_3^+ \phi_4^+ + \phi_1^- \phi_2^+ \phi_3^+ \phi_4^- + \phi_1^- \phi_2^+ \phi_3^- \phi_4^+ + \phi_1^- \phi_2^+ \phi_3^- \phi_4^- \notag \\
+    &\quad + \phi_1^- \phi_2^- \phi_3^+ \phi_4^+ + \phi_1^- \phi_2^- \phi_3^+ \phi_4^- + \phi_1^- \phi_2^- \phi_3^- \phi_4^+ + \phi_1^- \phi_2^- \phi_3^- \phi_4^- \notag \\
+    &= :\phi_1 \phi_2 \phi_3 \phi_4: \notag \\
+    &\quad + \left(\phi_1^+ \phi_2^+ \left[\phi_3^-, \phi_4^+\right] + \phi_1^+ \left[\phi_2^+, \phi_4^-\right] \phi_3^+ + \left[\phi_1^+, \phi_3^-\right] \phi_2^+ \phi_4^+ \right) \notag \\
+    &\quad + \left(\phi_2^+ \phi_3^+ \left[\phi_1^-, \phi_4^+\right] + \phi_2^+ \left[\phi_1^+, \phi_4^-\right] \phi_3^+ + \left[\phi_2^+, \phi_3^-\right] \phi_1^+ \phi_4^+ \right) \notag \\
+    &\quad + \left(\phi_3^+ \phi_4^+ \left[\phi_1^-, \phi_2^+\right] + \phi_3^+ \left[\phi_1^+, \phi_2^-\right] \phi_4^+ + \left[\phi_1^+, \phi_4^-\right] \phi_2^+ \phi_3^+ \right) \notag \\
+    &\quad + \left(\phi_1^- \phi_2^- \left[\phi_3^+, \phi_4^-\right] + \phi_1^- \left[\phi_2^-, \phi_4^+\right] \phi_3^- + \left[\phi_1^-, \phi_3^+\right] \phi_2^- \phi_4^- \right) \notag \\
+    &\quad + \left(\phi_2^- \phi_3^- \left[\phi_1^+, \phi_4^-\right] + \phi_2^- \left[\phi_1^-, \phi_4^+\right] \phi_3^- + \left[\phi_2^-, \phi_3^+\right] \phi_1^- \phi_4^- \right) \notag \\
+    &\quad + \left(\phi_3^- \phi_4^- \left[\phi_1^+, \phi_2^-\right] + \phi_3^- \left[\phi_1^-, \phi_2^+\right] \phi_4^- + \left[\phi_1^-, \phi_4^+\right] \phi_2^- \phi_3^- \right)
+\end{align}
+We now attempt to check Wick's theorem for the time-ordered product of four scalar fields. First, consider the case, $x_1^0>x_2^0>x_3^0x^4>0$:
+
+Start with the product:
+\begin{align}
+    \phi_1 \phi_2 \phi_3 \phi_4 &= \left(\phi_1^+ + \phi_1^-\right)\left(\phi_2^+ + \phi_2^-\right)\left(\phi_3^+ + \phi_3^-\right)\left(\phi_4^+ + \phi_4^-\right) \notag \\
+    &= \phi_1^+ \phi_2^+ \phi_3^+ \phi_4^++ \phi_1^+ \phi_2^+ \phi_3^+ \phi_4^-+ \phi_1^+ \phi_2^+ \phi_3^- \phi_4^++ \phi_1^+ \phi_2^+ \phi_3^- \phi_4^- \notag \\
+    &\quad + \phi_1^+ \phi_2^- \phi_3^+ \phi_4^++\phi_1^+ \phi_2^- \phi_3^+ \phi_4^-+ \phi_1^+ \phi_2^- \phi_3^- \phi_4^++ \phi_1^+ \phi_2^- \phi_3^- \phi_4^-+ \notag\\ &\quad +\phi_1^- \phi_2^+ \phi_3^+ \phi_4^++ \phi_1^- \phi_2^+ \phi_3^+ \phi_4^-+ \phi_1^- \phi_2^+ \phi_3^- \phi_4^++ \phi_1^- \phi_2^+ \phi_3^- \phi_4^- \notag \\
+    &\quad + \phi_1^- \phi_2^- \phi_3^+ \phi_4^++ \phi_1^- \phi_2^- \phi_3^+ \phi_4^-+ \phi_1^- \phi_2^- \phi_3^- \phi_4^+ + \phi_1^- \phi_2^- \phi_3^- \phi_4^- \notag
+\end{align}
+
+% Now, apply the time-ordering operator \( T \) and use commutation relations to correct each term:
+
+% \begin{align}
+%     T\left\{\phi_1 \phi_2 \phi_3 \phi_4\right\} &= \phi_1^+ \phi_2^+ \phi_3^+ \phi_4^+ \notag \\
+%     &\quad + T\left\{\phi_1^+ \phi_2^+ \phi_3^+ \phi_4^-\right\} \notag \\
+%     &\quad + T\left\{\phi_1^+ \phi_2^+ \phi_3^- \phi_4^+\right\} \notag \\
+%     &\quad + T\left\{\phi_1^+ \phi_2^+ \phi_3^- \phi_4^-\right\} \notag \\
+%     &\quad + T\left\{\phi_1^+ \phi_2^- \phi_3^+ \phi_4^+\right\} \notag \\
+%     &\quad + T\left\{\phi_1^+ \phi_2^- \phi_3^+ \phi_4^-\right\} \notag \\
+%     &\quad + T\left\{\phi_1^+ \phi_2^- \phi_3^- \phi_4^+\right\} \notag \\
+%     &\quad + T\left\{\phi_1^+ \phi_2^- \phi_3^- \phi_4^-\right\} \notag \\
+%     &\quad + T\left\{\phi_1^- \phi_2^+ \phi_3^+ \phi_4^+\right\} \notag \\
+%     &\quad + T\left\{\phi_1^- \phi_2^+ \phi_3^+ \phi_4^-\right\} \notag \\
+%     &\quad + T\left\{\phi_1^- \phi_2^+ \phi_3^- \phi_4^+ \right\} \notag \\
+%     &\quad + T\left\{\phi_1^- \phi_2^+ \phi_3^- \phi_4^- \right\} \notag \\
+%     &\quad + T\left\{\phi_1^- \phi_2^- \phi_3^+ \phi_4^+ \right\} \notag \\
+%     &\quad + T\left\{\phi_1^- \phi_2^- \phi_3^+ \phi_4^- \right\} \notag \\
+%     &\quad + T\left\{\phi_1^- \phi_2^- \phi_3^- \phi_4^+ \right\} \notag \\
+%     &\quad + T\left\{\phi_1^- \phi_2^- \phi_3^- \phi_4^- \right\} \notag
+% \end{align}
+Now expand and correct each time-ordered product term by term:
+    \begin{align*}
+        T\left\{\phi_1 \phi_2 \phi_3 \phi_4\right\} &= \phi_1^+ \phi_2^+ \phi_3^+ \phi_4^+\\[5pt]
+        &\hspace{5pt}+\phi_1^+ \phi_2^+ \phi_3^+ \phi_4^-+ \left[\phi_4^-, \phi_1^+\right] \phi_2^+ \phi_3^++ \left[\phi_4^-, \phi_2^+\right] \phi_1^+ \phi_3^++ \left[\phi_4^-, \phi_3^+\right] \phi_1^+ \phi_2^+\\[5pt]
+        &\hspace{10pt}+\phi_1^+ \phi_2^+ \phi_3^- \phi_4^++ \left[\phi_3^-, \phi_4^+\right] \phi_1^+ \phi_2^++ \left[\phi_1^+, \phi_3^- \right] \phi_2^+ \phi_4^++ \left[\phi_2^+, \phi_3^- \right] \phi_1^+ \phi_4^+\\[5pt]
+        &\hspace{15pt}+\phi_1^+ \phi_2^+ \phi_3^- \phi_4^-+ \left[\phi_4^-, \phi_1^+\right] \phi_2^+ \phi_3^-+ \left[\phi_3^-, \phi_1^+\right] \phi_2^+ \phi_4^-+ \left[\phi_3^-, \phi_2^+\right] \phi_1^+ \phi_4^-\\[5pt]
+        &\hspace{20pt}+\phi_1^+ \phi_2^- \phi_3^+ \phi_4^++ \left[\phi_2^-, \phi_3^+\right] \phi_1^+ \phi_4^++ \left[\phi_1^+, \phi_2^-\right] \phi_3^+ \phi_4^++ \left[\phi_1^+, \phi_4^+\right] \phi_2^- \phi_3^+\\[5pt]
+        &\hspace{25pt}+\phi_1^+ \phi_2^- \phi_3^+ \phi_4^-+ \left[\phi_4^-, \phi_2^-\right] \phi_1^+ \phi_3^++ \left[\phi_3^+, \phi_2^-\right] \phi_1^+ \phi_4^-+ \left[\phi_1^+, \phi_2^-\right] \phi_3^+ \phi_4^-\\[5pt]
+        &\hspace{30pt}+\phi_1^+ \phi_2^- \phi_3^- \phi_4^++\left[\phi_3^-, \phi_4^+\right] \phi_1^+ \phi_2^-+\left[\phi_2^-, \phi_4^+\right] \phi_1^+ \phi_3^-+\left[\phi_2^-, \phi_3^- \right] \phi_1^+ \phi_4^+\\[5pt]
+        &\hspace{35pt}+\phi_1^+ \phi_2^- \phi_3^- \phi_4^-+\left[\phi_3^-, \phi_4^-\right] \phi_1^+ \phi_2^-+\left[\phi_2^-, \phi_4^-\right] \phi_1^+ \phi_3^-+\left[\phi_2^-, \phi_3^- \right] \phi_1^+ \phi_4^-\\[5pt]
+        &\hspace{40pt}+\phi_1^- \phi_2^+ \phi_3^+ \phi_4^+ +\left[\phi_1^-, \phi_4^+\right] \phi_2^+ \phi_3^++\left[\phi_1^-, \phi_3^+\right] \phi_2^+ \phi_4^++\left[\phi_1^-, \phi_2^+\right] \phi_3^+ \phi_4^+\\[5pt]
+        &\hspace{45pt}+\phi_1^- \phi_2^+ \phi_3^+ \phi_4^-+\left[\phi_4^-, \phi_1^-\right] \phi_2^+ \phi_3^++\left[\phi_3^+, \phi_1^-\right] \phi_2^+ \phi_4^-+\left[\phi_2^+, \phi_1^-\right] \phi_3^+ \phi_4^-\\[5pt]
+        &\hspace{50pt}+\phi_1^- \phi_2^+ \phi_3^- \phi_4^++ \left[\phi_3^-, \phi_4^+\right] \phi_1^- \phi_2^++ \left[\phi_2^+, \phi_3^-\right] \phi_1^- \phi_4^++ \left[\phi_1^-, \phi_3^-\right] \phi_2^+ \phi_4^+\\[5pt]
+        &\hspace{55pt}+\phi_1^- \phi_2^+ \phi_3^- \phi_4^-+ \left[\phi_3^-, \phi_4^-\right] \phi_1^- \phi_2^++ \left[\phi_2^+, \phi_4^-\right] \phi_1^- \phi_3^-+ \left[\phi_2^+, \phi_3^- \right] \phi_1^- \phi_4^-\\[5pt]
+        &\hspace{60pt}+\phi_1^- \phi_2^- \phi_3^+ \phi_4^++ \left[\phi_3^+, \phi_4^+\right] \phi_1^- \phi_2^-+ \left[\phi_2^-, \phi_3^+\right] \phi_1^- \phi_4^++ \left[\phi_1^-, \phi_3^+\right] \phi_2^- \phi_4^+\\[5pt]
+        &\hspace{65pt}+\phi_1^- \phi_2^- \phi_3^+ \phi_4^-+ \left[\phi_4^-, \phi_2^-\right] \phi_1^- \phi_3^++ \left[\phi_3^+, \phi_2^-\right] \phi_1^- \phi_4^-+ \left[\phi_1^-, \phi_2^-\right] \phi_3^+ \phi_4^-\notag\\[5pt]
+        &\hspace{70pt}+\phi_1^- \phi_2^- \phi_3^- \phi_4^++ \left[\phi_3^-, \phi_4^+\right] \phi_1^- \phi_2^-+ \left[\phi_2^-, \phi_4^+\right] \phi_1^- \phi_3^-+ \left[\phi_2^-, \phi_3^- \right] \phi_1^- \phi_4^++\phi_1^- \phi_2^- \phi_3^- \phi_4^-\notag\\[5pt]
+        &= :\phi_1 \phi_2 \phi_3 \phi_4: + \Delta_F(x_1 - x_2) \Delta_F(x_3 - x_4) + \Delta_F(x_1 - x_3) \Delta_F(x_2 - x_4) + \Delta_F(x_1 - x_4) \Delta_F(x_2 - x_3)
+    \end{align*}
+As a re-ordering of $x_1^0>x_2^0>x_3^0>x_4^0$ corresponds to a different choice of labels and since $\Delta_F$ and normal ordered products are symmetric, this calculation suffices to prove Wick’s theorem.
+
+Thus, Wick's theorem is verified for the product of four scalar fields.

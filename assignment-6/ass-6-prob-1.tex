@@ -1,0 +1,93 @@
+\allowdisplaybreaks
+\begin{center}
+	\hrule
+	\vspace{.4cm}
+ \begin{tabular*}{\textwidth}{@{}l@{}|@{\extracolsep{0.6in}}r@{}}%
+\parbox{4.25in}{\raggedright{\includegraphics[width=.9\linewidth]{ictp-pwf.pdf}}} &
+\parbox[c][]{4in}{{\Large\textbf{Md Akiful Islam Zawad} \par}
+                    { Brac University \par}
+                    { KHA 224, Progati Sarani, Merul Badda, \par}
+                    { Dhaka 1212, Bangladesh \par}
+                    { \href{ext.akiful.islam@bracu.ac.bd}{ext.akiful.islam@bracu.ac.bd}} \par}
+\end{tabular*}\vspace{.3in}
+\definecolor{ceruleanblue}{rgb}{0.16, 0.32, 0.6}
+	\LARGE\scshape\textbf{\textcolor{ceruleanblue}{Physics for Bangladesh QFT School}}
+\end{center}
+\hrule\vspace{.25in}
+{\large\textbf{Problem Sheet:}\ \textsc{6} \hspace{\hfill} \large\textbf{Due Date:} \today\\
+	\hrule}
+ %----------------------------
+\paragraph*{Problem Set 1} %\hfill \newline
+\\
+In this question, you will prove Goldstone’s theorem: any system with Spontaneous Symmetry Breaking (SSB) of a continuous global symmetry has a massless state (Goldstone boson). The proof has two steps.
+
+\begin{itemize}
+    \item Prove that SSB implies the existence of a state $|G\rangle \sim j_0(x)|0\rangle$ which is not the vacuum, i.e. $\langle G|0\rangle = 0$. Here $j_0(x)$ is the time component of the conserved current $j^\mu(x)$ predicted by Noether’s theorem.
+
+    \textit{Hint: Recall SSB requires $\langle 0|[Q, \varphi]|0\rangle \neq 0$. Relate $Q$ to $j$ and insert a complete set of states between $\varphi$ and $j_0$ to find that the matrix element must be nonzero.}
+    
+    \item Prove that this state is massless, using $\langle \partial_\mu j^\mu \rangle = 0$.
+\end{itemize}
+\bigskip\bigskip\hline\hline\bigskip
+\subsection*{Solution}
+\begin{itemize}
+    \item We begin by recalling the condition for spontaneous symmetry breaking (SSB) of a continuous global symmetry. This implies that the vacuum is not invariant under the action of the conserved charge $Q$ corresponding to the symmetry. In other words, we have:
+\begin{align}
+    \langle 0 | [Q, \varphi] | 0 \rangle \neq 0
+\end{align}
+Here, $\varphi$ is some field operator that transforms non-trivially under the symmetry, and $Q$ is the conserved charge associated with the symmetry.
+
+From Noether's theorem, we know that the conserved charge $Q$ can be written in terms of the conserved current $j^\mu(x)$ as:
+\begin{align}
+    Q &= \bigints d^3 x \, j_0(x)
+\end{align}
+where $j_0(x)$ is the time component of the conserved current.
+
+Now, using the completeness relation for the identity operator, we can insert a complete set of intermediate states $|n\rangle$ between the field $\varphi$ and the current $j_0$:
+\begin{align}
+    \langle 0 | [Q, \varphi(0)] | 0 \rangle &= \bigints d^3 x \langle 0 | [j_0(x), \varphi(0)] | 0 \rangle \\
+    &= \bigints d^3 x \sum_n \left( \langle 0 | j_0(x) | n \rangle \langle n | \varphi(0) | 0 \rangle - \langle 0 | \varphi(0) | n \rangle \langle n | j_0(x) | 0 \rangle \right)
+\end{align}
+We are given that $\langle 0 | [Q, \varphi(0)] | 0 \rangle \neq 0$, which implies that there must be at least one state $|G\rangle$ such that:
+\begin{align}
+    \langle G | 0 \rangle = 0 \quad \text{and} \quad \langle 0 | j_0(x) | G \rangle \neq 0
+\end{align}
+
+Thus, we have proven that spontaneous symmetry breaking implies the existence of a state $|G\rangle \sim j_0(x) | 0 \rangle$ which is not the vacuum, i.e., $\langle G | 0 \rangle = 0$.
+
+\item We now try to show that the state $|G\rangle$ is massless, which is the Goldstone boson.
+
+First, we use the conservation of the current $j^\mu(x)$, which implies:
+\begin{align}
+    \partial_\mu j^\mu(x) = 0
+\end{align}
+Taking the vacuum expectation value of this equation gives:
+\begin{align}
+    \langle 0 | \partial_\mu j^\mu(x) | G \rangle = 0
+\end{align}
+
+Using the definition of the current $j^\mu(x)$ and the Fourier transform, the conserved current can be expressed as:
+\begin{align}
+    j^\mu(x) &= \bigints\frac{d^3 p}{(2\pi)^3} \frac{1}{2E_p} \left( a^\mu(p) e^{-ip \cdot x} + a^{\mu \dagger}(p) e^{ip \cdot x} \right)
+\end{align}
+We now apply the conservation condition $\partial_\mu j^\mu(x) = 0$. Acting with the derivative on the Fourier expansion, we get:
+\begin{align}
+    \partial_\mu j^\mu(x) &= \partial_\mu \bigints\frac{d^3 p}{(2\pi)^3} \frac{1}{2E_p} \left( a^\mu(p) e^{-ip \cdot x} + a^{\mu \dagger}(p) e^{ip \cdot x} \right)\notag\\
+    &= \bigints\frac{d^3 p}{(2\pi)^3} \frac{1}{2E_p} \left[ (-ip_\mu a^\mu(p)) e^{-ip \cdot x} + (ip_\mu a^{\mu \dagger}(p)) e^{ip \cdot x} \right]
+\end{align}
+
+For the current conservation condition to hold, we must have:
+\begin{align}
+    p_\mu a^\mu(p) &= 0
+\end{align}
+This tells us that the annihilation operator $a^\mu(p)$, which creates states associated with the current $j^\mu(x)$, must satisfy the condition that the four-momentum $p_\mu$ contracted with the operator $a^\mu(p)$ vanishes.
+
+The equation $p_\mu a^\mu(p) = 0$ is reminiscent of the condition that arises for a massless particle in quantum field theory. For a massless particle, the four-momentum $p_\mu$ satisfies the equation:
+\begin{align}
+    p_\mu p^\mu = 0
+\end{align}
+This condition implies that the particle's rest mass is zero, as $p_\mu p^\mu = m^2$ for any particle with mass $m$.
+
+In our case, $p_\mu a^\mu(p) = 0$ means that the operator $a^\mu(p)$, which creates excitations corresponding to the spontaneously broken symmetry, must create massless excitations. The excitation corresponding to the operator $a^\mu(p)$ is thus a massless Goldstone boson.
+\end{itemize}
+\bigskip\bigskip\hline\hline\bigskip

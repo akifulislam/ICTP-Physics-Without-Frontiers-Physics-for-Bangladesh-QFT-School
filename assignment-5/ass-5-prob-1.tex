@@ -1,0 +1,80 @@
+\allowdisplaybreaks
+\begin{center}
+	\hrule
+	\vspace{.4cm}
+ \begin{tabular*}{\textwidth}{@{}l@{}|@{\extracolsep{0.6in}}r@{}}%
+\parbox{4.25in}{\raggedright{\includegraphics[width=.9\linewidth]{ictp-pwf.pdf}}} &
+\parbox[c][]{4in}{{\Large\textbf{Md Akiful Islam Zawad} \par}
+                    { Brac University \par}
+                    { KHA 224, Progati Sarani, Merul Badda, \par}
+                    { Dhaka 1212, Bangladesh \par}
+                    { \href{ext.akiful.islam@bracu.ac.bd}{ext.akiful.islam@bracu.ac.bd}} \par}
+\end{tabular*}\vspace{.3in}
+\definecolor{ceruleanblue}{rgb}{0.16, 0.32, 0.6}
+	\LARGE\scshape\textbf{\textcolor{ceruleanblue}{Physics for Bangladesh QFT School}}
+\end{center}
+\hrule\vspace{.25in}
+{\large\textbf{Problem Sheet:}\ \textsc{5} \hspace{\hfill} \large\textbf{Due Date:} \today\\
+	\hrule}
+ %----------------------------
+\paragraph*{Problem Set 1} %\hfill \newline
+\\
+Prove the \textbf{Fundamental Theorem of Quantum Field Theory}: if $A$ is
+an $N \times N$ matrix, and $J$ an $N$-component vector, then
+\begin{align}
+    \bigints \prod_{i=1}^{N} dx_i e^{\displaystyle \left( -\frac{1}{2} x^T A x + J^T x \right)}
+    = (2\pi)^{\displaystyle\frac{N}{2}} \sqrt{\det A} e^{\displaystyle \left( \frac{1}{2} J^T A^{-1} J \right)}
+\end{align}
+
+\noindent
+\textit{Hint}: diagonalize $A$ to reduce the problem into a series of one-dimensional integrals.
+\bigskip\bigskip\hline\hline\bigskip
+\subsection*{Solution}
+The exponent in the integrand is given by:
+\begin{align*}
+    -\frac{1}{2} x^T A x + J^T x&=-\frac{1}{2} \left( x^T A x - 2 J^T x \right)
+\end{align*}
+Let us express it in a more convenient form by completing the square. Note that the term $x^T A x$ is quadratic in $x$, and the term $J^T x$ is linear in $x$. The expression can be completed into a perfect square:
+\begin{align}
+    -\frac{1}{2} \left( x^T A x - 2 J^T x \right) &= -\frac{1}{2} \left( x - A^{-1} J \right)^T A \left( x - A^{-1} J \right) + \frac{1}{2} J^T A^{-1} J.
+\end{align}
+To simplify the integral, perform a change of variables. Define a new variable:
+\begin{align*}
+    y = x - A^{-1} J.
+\end{align*}
+In terms of $y$, the integral over $x$ becomes an integral over $y$, and the Jacobian of the transformation is 1, since this is a simple translation of coordinates.
+
+Substituting this into the original integral, we get:
+\begin{align}
+    \bigints \prod_{i=1}^{N} dx_i e^{\displaystyle \left( -\frac{1}{2} x^T A x + J^T x \right)}
+    = \bigints \prod_{i=1}^{N} dy_i e^{\displaystyle \left( -\frac{1}{2} y^T A y \right)} e^{\displaystyle \left( \frac{1}{2} J^T A^{-1} J \right)}.
+\end{align}
+To evaluate the integral, it is useful to diagonalize the matrix $A$. Since $A$ is a symmetric positive-definite matrix, we can diagonalize it via an orthogonal transformation. 
+
+Let $A = O \Lambda O^T$, where $O$ is an orthogonal matrix and $\Lambda$ is a diagonal matrix containing the eigenvalues of $A$.
+
+Under this diagonalization, the quadratic form $y^T A y$ becomes:
+\begin{align}
+    y^T A y = y^T O \Lambda O^T y = z^T \Lambda z,
+\end{align}
+where $\displaystyle z = O^T y$. The measure $\displaystyle\prod_{i=1}^{N} dy_i$ transforms as $\displaystyle\prod_{i=1}^{N} dz_i$, with no change in the Jacobian since $O$ is an orthogonal matrix.
+
+Now, the integral becomes a product of independent Gaussian integrals:
+\begin{align}
+    \bigints \prod_{i=1}^{N} dz_i e^{\displaystyle \left( -\frac{1}{2} \sum_{i=1}^{N} \lambda_i z_i^2 \right)},
+\end{align}
+where $\lambda_i$ are the eigenvalues of $A$. 
+
+Each integral is of the Gaussian integral $\displaystyle\left(\bigints_{\infty}^{-\infty}e^{-ax^2} dx = \sqrt{\frac{\pi}{a}}\right)$ form:
+\begin{align}
+    \bigints_{-\infty}^{\infty} dz_i e^{\displaystyle \left( -\frac{1}{2} \lambda_i z_i^2 \right)} &= \sqrt{\frac{2\pi}{\lambda_i}} \notag\\
+    &= (2\pi)^{\displaystyle\frac{N}{2}} \prod_{i=1}^{N} \frac{1}{\sqrt{\lambda_i}} \notag\\
+    &= (2\pi)^{\displaystyle\frac{N}{2}} \frac{1}{\sqrt{\det A}}.
+\end{align}
+Put everything together:
+\begin{align}
+    \bigints \prod_{i=1}^{N} dx_i e^{\displaystyle \left( -\frac{1}{2} x^T A x + J^T x \right)}
+    = (2\pi)^{\displaystyle\frac{N}{2}} \frac{1}{\sqrt{\det A}} e^{\displaystyle \left( \frac{1}{2} J^T A^{-1} J \right)}.
+\end{align}
+This completes the proof of the fundamental theorem of quantum field theory.
+\bigskip\bigskip\hline\hline\bigskip

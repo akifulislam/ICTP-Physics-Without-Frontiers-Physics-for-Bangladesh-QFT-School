@@ -1,0 +1,135 @@
+\allowdisplaybreaks
+\begin{center}
+	\hrule
+	\vspace{.4cm}
+ \begin{tabular*}{\textwidth}{@{}l@{}|@{\extracolsep{0.6in}}r@{}}%
+\parbox{4.25in}{\raggedright{\includegraphics[width=.9\linewidth]{ictp-pwf.pdf}}} &
+\parbox[c][]{4in}{{\Large\textbf{Md Akiful Islam Zawad} \par}
+                    { Brac University \par}
+                    { KHA 224, Progati Sarani, Merul Badda, \par}
+                    { Dhaka 1212, Bangladesh \par}
+                    { \href{ext.akiful.islam@bracu.ac.bd}{ext.akiful.islam@bracu.ac.bd}} \par}
+\end{tabular*}\vspace{.3in}
+\definecolor{ceruleanblue}{rgb}{0.16, 0.32, 0.6}
+	\LARGE\scshape\textbf{\textcolor{ceruleanblue}{Physics for Bangladesh QFT School}}
+\end{center}
+\hrule\vspace{.25in}
+{\large\textbf{Problem Sheet:}\ \textsc{5} \hspace{\hfill} \large\textbf{Due Date:} \today\\
+	\hrule}
+ %----------------------------
+\paragraph*{Problem Set 3} %\hfill \newline
+\\
+Consider a real scalar field $\varphi(x)$ with the Lagrangian density:
+\begin{align}
+    L = \frac{1}{2} (\partial_\mu \varphi)(\partial^\mu \varphi) - \frac{1}{2} m^2 \varphi^2.
+\end{align}
+The path-integral expression for the generating functional $Z[J]$ in the presence of an external source $J(x)$ is:
+\begin{align}
+    Z[J] = \bigints D\varphi \, \exp \left( i \bigints d^4x \left[ \frac{1}{2} (\partial_\mu \varphi)(\partial^\mu \varphi) - \frac{1}{2} m^2 \varphi^2 + J \varphi \right] \right).
+\end{align}
+Compute the Feynman propagator $\langle 0 | T \{ \varphi(x) \varphi(y) \} | 0 \rangle$ by evaluating the path integral in the limit of $J(x) \to 0$. Use the result to derive the expression for the propagator in momentum space:
+\begin{align}
+    \Delta_F(x - y) = \bigints \frac{d^4 p}{(2\pi)^4} \frac{e^{-ip \cdot (x - y)}}{p^2 - m^2 + i\epsilon}.
+\end{align}
+Using the generating functional above, compute:
+\begin{align}
+    \langle 0 | T \{ \varphi(x_1) \varphi(x_2) \varphi(x_3) \varphi(x_4) \} | 0 \rangle.
+\end{align}
+\bigskip\bigskip\hline\hline\bigskip
+\subsection*{Solution}
+We begin with the generating functional for a scalar field in the presence of an external source $J(x)$. The action $S[\varphi]$ is given by:
+\begin{align}
+    S[\varphi] &= \bigints d^4x \left[ \frac{1}{2} (\partial_\mu \varphi)(\partial^\mu \varphi) - \frac{1}{2} m^2 \varphi^2 + J \varphi \right]\notag\\
+    &= \bigints d^4x \left[ \frac{1}{2} \varphi \left( -\partial_\mu \partial^\mu - m^2 \right) \varphi + J \varphi \right]\notag\\
+    &= \bigints d^4x \frac{1}{2} \varphi^T D \varphi + J^T \varphi,
+\end{align}
+where $D = \left( -\partial_\mu \partial^\mu - m^2 \right)$ is the differential operator acting on the field $\varphi(x)$.
+
+We complete the square to rewrite the exponent in a more convenient form. Recall that completing the square for a quadratic expression of the form $\displaystyle\frac{1}{2} \varphi^T D \varphi + J^T \varphi$ is done as follows:
+\begin{align*}
+    S[\varphi] = \frac{1}{2} \left( \varphi^T D \varphi + 2 J^T \varphi \right). 
+\end{align*}
+We now add and subtract the same term $\displaystyle\frac{1}{2} J^T D^{-1} J$ to complete the square:
+\begin{align}
+    S[\varphi] = \frac{1}{2} \left( \varphi + D^{-1} J \right)^T D \left( \varphi + D^{-1} J \right) - \frac{1}{2} J^T D^{-1} J. 
+\end{align}
+Now that the action is in a convenient form, the path integral over the field $\varphi(x)$ becomes:
+\begin{align}
+    Z[J] &= \bigints D\varphi \, \exp \left( i S[\varphi] \right) \notag \\
+    &= \bigints D\varphi \, \exp \left( \frac{i}{2} \left( \varphi + D^{-1} J \right)^T D \left( \varphi + D^{-1} J \right) - \frac{i}{2} J^T D^{-1} J \right). 
+\end{align}
+The term $\displaystyle\left( \varphi + D^{-1} J \right)^T D \left( \varphi + D^{-1} J \right)$ is a Gaussian integral in $\varphi$, and its evaluation follows the standard result for Gaussian integrals:
+\begin{align}
+    \bigints D\varphi \, \exp \left( \frac{i}{2} \varphi^T D \varphi \right) = \frac{1}{\sqrt{\text{det }D}}.
+\end{align}
+Thus, the path integral evaluates to:
+\begin{align}
+    Z[J] &= \frac{1}{\sqrt{\text{det }D}} \exp \left( \frac{i}{2} J^T D^{-1} J \right).
+\end{align}
+In the limit where the external source $J(x) \to 0$, the generating functional becomes:
+\begin{align}
+    Z[0] &= \bigints D\varphi \, \exp \left( \frac{i}{2} \varphi^T D \varphi \right) = \frac{1}{\sqrt{\text{det }D}},
+\end{align}
+which is the free generating functional without any external source.
+
+For the generating functional $Z[J]$, we have:
+\begin{align}
+    Z[J] = Z[0] \exp \left( \frac{i}{2} J^T D^{-1} J \right),\label{eq:Z[J]-generating-functional}
+\end{align}
+where $D^{-1}(x - y)$ is the inverse of the differential operator $D = \left( -\partial_\mu \partial^\mu - m^2 \right)$. This is simply the free generating functional without any external source.
+
+The two-point correlation function is defined as:
+\begin{align}
+    \langle 0 | T \{ \varphi(x) \varphi(y) \} | 0 \rangle = \frac{1}{Z[0]} \frac{\delta^2 Z[J]}{\delta J(x) \delta J(y)} \bigg|_{J=0}.
+\end{align}
+Taking the second derivative of (\ref{eq:Z[J]-generating-functional}) with respect to $J(x)$ and $J(y)$, we have:
+\begin{align*}
+    \frac{\delta^2 Z[J]}{\delta J(x) \delta J(y)} = Z[0]i D^{-1}(x - y). 
+\end{align*}
+Thus, the two-point correlation function becomes:
+\begin{align}
+    \langle 0 | T \{ \varphi(x) \varphi(y) \} | 0 \rangle = \frac{1}{Z[0]} \cdot Z[0] \cdot i D^{-1}(x - y) = i D^{-1}(x - y).
+\end{align}
+The differential operator in position space is given by:
+\begin{align*}
+    D = \left( -\partial_\mu \partial^\mu - m^2 \right).
+\end{align*}
+In momentum space, this becomes:
+\begin{align*}
+    D(p) = p^2 - m^2,
+\end{align*}
+where $p^2 = p_\mu p^\mu$ is the four-momentum squared.
+
+The inverse of $D(p)$ gives the propagator in momentum space:
+\begin{align}
+    D^{-1}(p) = \frac{1}{p^2 - m^2 + i\epsilon},
+\end{align}
+where the $i\epsilon$ prescription ensures the correct causal structure for the propagator.
+
+We perform the inverse Fourier transform of $D^{-1}(p)$. The propagator in position space is given by:
+\begin{align}
+    \Delta_F(x - y) &= \bigints \frac{d^4 p}{(2\pi)^4} \frac{e^{-ip \cdot (x - y)}}{p^2 - m^2 + i\epsilon}.\label{eq:feynmann-propagator-momentum-space}
+\end{align}
+To compute the four-point function $\langle 0 | T \{ \varphi(x_1) \varphi(x_2) \varphi(x_3) \varphi(x_4) \} | 0 \rangle$, we use Wick's theorem. 
+
+Wick's theorem allows us to express the time-ordered product of four scalar fields as a sum of all possible pairings (contractions) of the fields:
+\[
+T \{ \varphi(x_1) \varphi(x_2) \varphi(x_3) \varphi(x_4) \} = \langle 0 | T \{ \varphi(x_1) \varphi(x_2) \} | 0 \rangle \langle 0 | T \{ \varphi(x_3) \varphi(x_4) \} | 0 \rangle + \text{all possible contractions}.
+\]
+Explicitly, Wick's theorem gives us the sum of three possible pairings for the four-point function:
+\begin{align}
+    \langle 0 | T \{ \varphi(x_1) \varphi(x_2) \varphi(x_3) \varphi(x_4) \} | 0 \rangle &= \langle 0 | T \{ \varphi(x_1) \varphi(x_2) \} | 0 \rangle \langle 0 | T \{ \varphi(x_3) \varphi(x_4) \} | 0 \rangle \notag\\
+    &\hspace{10pt}+ \langle 0 | T \{ \varphi(x_1) \varphi(x_3) \} | 0 \rangle \langle 0 | T \{ \varphi(x_2) \varphi(x_4) \} | 0 \rangle \notag \\
+    &\hspace{20pt} + \langle 0 | T \{ \varphi(x_1) \varphi(x_4) \} | 0 \rangle \langle 0 | T \{ \varphi(x_2) \varphi(x_3) \} | 0 \rangle.
+\end{align}
+We substitute the Feynman propagators $\langle 0 | T \{ \varphi(x) \varphi(y) \} | 0 \rangle$ for each pairing. Using the position-space Feynman propagator $\Delta_F(x - y)$, the result becomes:
+\begin{align}
+    \langle 0 | T \{ \varphi(x_1) \varphi(x_2) \varphi(x_3) \varphi(x_4) \} | 0 \rangle &= \Delta_F(x_1 - x_2) \Delta_F(x_3 - x_4) + \Delta_F(x_1 - x_3) \Delta_F(x_2 - x_4) + \Delta_F(x_1 - x_4) \Delta_F(x_2 - x_3).
+\end{align}
+We can also express the result in momentum space (\ref{eq:feynmann-propagator-momentum-space}):
+\begin{align}
+    \langle 0 | T \{ \varphi(x_1) \varphi(x_2) \varphi(x_3) \varphi(x_4) \} | 0 \rangle &= \bigints \frac{d^4 p_1}{(2\pi)^4} \frac{e^{-ip_1 \cdot (x_1 - x_2)}}{p_1^2 - m^2 + i\epsilon} \bigints \frac{d^4 p_2}{(2\pi)^4} \frac{e^{-ip_2 \cdot (x_3 - x_4)}}{p_2^2 - m^2 + i\epsilon} \notag \\
+    &\quad + \bigints \frac{d^4 p_3}{(2\pi)^4} \frac{e^{-ip_3 \cdot (x_1 - x_3)}}{p_3^2 - m^2 + i\epsilon} \bigints \frac{d^4 p_4}{(2\pi)^4} \frac{e^{-ip_4 \cdot (x_2 - x_4)}}{p_4^2 - m^2 + i\epsilon} \notag \\
+    &\quad + \bigints \frac{d^4 p_5}{(2\pi)^4} \frac{e^{-ip_5 \cdot (x_1 - x_4)}}{p_5^2 - m^2 + i\epsilon} \bigints \frac{d^4 p_6}{(2\pi)^4} \frac{e^{-ip_6 \cdot (x_2 - x_3)}}{p_6^2 - m^2 + i\epsilon}.
+\end{align}
+\bigskip\bigskip\hline\hline\bigskip

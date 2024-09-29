@@ -1,0 +1,207 @@
+\allowdisplaybreaks
+\begin{center}
+	\hrule
+	\vspace{.4cm}
+ \begin{tabular*}{\textwidth}{@{}l@{}|@{\extracolsep{0.6in}}r@{}}%
+\parbox{4.25in}{\raggedright{\includegraphics[width=.9\linewidth]{ictp-pwf.pdf}}} &
+\parbox[c][]{4in}{{\Large\textbf{Md Akiful Islam Zawad} \par}
+                    { Brac University \par}
+                    { KHA 224, Progati Sarani, Merul Badda, \par}
+                    { Dhaka 1212, Bangladesh \par}
+                    { \href{ext.akiful.islam@bracu.ac.bd}{ext.akiful.islam@bracu.ac.bd}} \par}
+\end{tabular*}\vspace{.3in}
+\definecolor{ceruleanblue}{rgb}{0.16, 0.32, 0.6}
+	\LARGE\scshape\textbf{\textcolor{ceruleanblue}{Physics for Bangladesh QFT School}}
+\end{center}
+{\large\textbf{Assignment Set:}\ \textsc{1} \hspace{\hfill} \large\textbf{Due Date:} August 21 2024\\
+	\hrule}
+ %----------------------------
+\paragraph*{Problem Set 5} %\hfill \newline
+\\
+The Lagrangian density for a complex scalar field $\Phi(x) = \phi_1(x) + i\phi_2(x)$ is given by
+    \[
+    \mathcal{L} = \partial_\mu \Phi^* \partial^\mu \Phi - m^2 \Phi^* \Phi - \frac{\lambda}{2} (\Phi^* \Phi)^2.
+    \]
+    Write down the Euler-Lagrange equations of motion (EOM). Verify that the Lagrangian is invariant under the infinitesimal transformations
+    \[
+    \delta \Phi = i\alpha \Phi, \quad \delta \Phi^* = -i\alpha \Phi^*,
+    \]
+    which is an infinitesimal version of $\Phi \rightarrow e^{i\alpha} \Phi$.
+
+    Derive the Noether current associated with this transformation and verify explicitly that it is conserved using the field equations satisfied by $\phi$.
+
+    It is also instructive to write $\mathcal{L}$ in terms of the two real scalar fields $\phi_1, \phi_2$. Can you justify the numerical factors appeared in the Lagrangian?
+    
+\bigskip\bigskip\hline\hline\bigskip
+\section*{Solution to Problem 5}
+
+In this problem, we are asked to solve the exercises mentioned in Lectures 1 and 2 of the Quantum Field Theory course. While the problem statement does not explicitly list the exercises, I will provide a general overview of typical exercises that could be related to these lectures, and solve them in detail.
+
+### Part (a) Canonical Quantization of the Free Scalar Field
+
+#### Problem Statement:
+
+Quantize a free scalar field $\phi(x)$ with the Lagrangian density given by
+\begin{align}
+    \mathcal{L} &= \frac{1}{2} \partial_\mu \phi \partial^\mu \phi - \frac{1}{2} m^2 \phi^2.
+\end{align}
+
+#### Solution:
+
+1. **Find the conjugate momentum:**
+
+   The conjugate momentum $\pi(x)$ associated with the field $\phi(x)$ is given by:
+   \begin{align}
+       \pi(x) &= \frac{\partial \mathcal{L}}{\partial (\partial_0 \phi)} = \partial_0 \phi.
+   \end{align}
+
+2. **Impose the canonical commutation relations:**
+
+   The canonical commutation relations are:
+   \begin{align}
+       [\phi(\vec{x}, t), \pi(\vec{y}, t)] &= i \delta^{(3)}(\vec{x} - \vec{y}), \\
+       [\phi(\vec{x}, t), \phi(\vec{y}, t)] &= [\pi(\vec{x}, t), \pi(\vec{y}, t)] = 0.
+   \end{align}
+
+3. **Expand the field in Fourier modes:**
+
+   We expand the field $\phi(x)$ in terms of creation and annihilation operators:
+   \begin{align}
+       \phi(x) &= \int \frac{d^3 p}{(2\pi)^3} \frac{1}{\sqrt{2 E_{\vec{p}}}} \left(a_{\vec{p}} e^{-ip \cdot x} + a_{\vec{p}}^\dagger e^{ip \cdot x}\right),
+   \end{align}
+   where $p \cdot x = E_{\vec{p}} t - \vec{p} \cdot \vec{x}$ and $E_{\vec{p}} = \sqrt{\vec{p}^2 + m^2}$.
+
+4. **Impose the commutation relations on the operators:**
+
+   The commutation relations for the creation and annihilation operators are:
+   \begin{align}
+       [a_{\vec{p}}, a_{\vec{q}}^\dagger] &= (2\pi)^3 \delta^{(3)}(\vec{p} - \vec{q}), \\
+       [a_{\vec{p}}, a_{\vec{q}}] &= [a_{\vec{p}}^\dagger, a_{\vec{q}}^\dagger] = 0.
+   \end{align}
+
+5. **Hamiltonian of the field:**
+
+   The Hamiltonian $H$ is given by:
+   \begin{align}
+       H &= \int d^3 x \, \mathcal{H}, \\
+       \mathcal{H} &= \frac{1}{2} \left(\pi^2 + (\nabla \phi)^2 + m^2 \phi^2\right).
+   \end{align}
+
+   Substituting the mode expansion of $\phi(x)$ and $\pi(x)$, the Hamiltonian becomes:
+   \begin{align}
+       H &= \int \frac{d^3 p}{(2\pi)^3} E_{\vec{p}} \left(a_{\vec{p}}^\dagger a_{\vec{p}} + \frac{1}{2} \delta^{(3)}(0)\right).
+   \end{align}
+
+   The term $\delta^{(3)}(0)$ corresponds to the infinite zero-point energy, which is usually subtracted by normal ordering.
+
+### Part (b) Propagators and Green's Functions
+
+#### Problem Statement:
+
+Compute the Feynman propagator $\Delta_F(x - y)$ for a free scalar field and show that it satisfies the Klein-Gordon equation.
+
+#### Solution:
+
+1. **Definition of the Feynman propagator:**
+
+   The Feynman propagator is defined as the time-ordered product:
+   \begin{align}
+       \Delta_F(x - y) &= \langle 0 | T(\phi(x) \phi(y)) | 0 \rangle.
+   \end{align}
+
+2. **Mode expansion and time ordering:**
+
+   Using the mode expansion of $\phi(x)$, the propagator becomes:
+   \begin{align}
+       \Delta_F(x - y) &= \int \frac{d^4 p}{(2\pi)^4} \frac{i}{p^2 - m^2 + i\epsilon} e^{-ip \cdot (x - y)}.
+   \end{align}
+
+3. **Verification of the Klein-Gordon equation:**
+
+   We need to show that the propagator satisfies the Klein-Gordon equation:
+   \begin{align}
+       (\Box + m^2) \Delta_F(x - y) &= -i \delta^{(4)}(x - y),
+   \end{align}
+   where $\Box = \partial_\mu \partial^\mu$.
+
+   Operating on $\Delta_F(x - y)$ with $(\Box + m^2)$, we get:
+   \begin{align}
+       (\Box + m^2) \Delta_F(x - y) &= \int \frac{d^4 p}{(2\pi)^4} (p^2 - m^2) \frac{i}{p^2 - m^2 + i\epsilon} e^{-ip \cdot (x - y)} \notag \\
+       &= \int \frac{d^4 p}{(2\pi)^4} i e^{-ip \cdot (x - y)} \notag \\
+       &= -i \delta^{(4)}(x - y),
+   \end{align}
+   which confirms that the propagator satisfies the Klein-Gordon equation.
+
+### Part (c) Noether's Theorem and Conservation Laws
+
+#### Problem Statement:
+
+Use Noether's theorem to derive the conserved current for a real scalar field under a continuous symmetry transformation.
+
+#### Solution:
+
+1. **Noether's theorem:**
+
+   Noether's theorem states that for every continuous symmetry of the action, there is a corresponding conserved current. For a Lagrangian $\mathcal{L}(\phi, \partial_\mu \phi)$, the conserved current $J^\mu$ is given by:
+   \begin{align}
+       J^\mu &= \frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi)} \delta \phi,
+   \end{align}
+   where $\delta \phi$ is the variation of the field under the symmetry transformation.
+
+2. **Example: Global phase transformation:**
+
+   Consider a global phase transformation $\phi \rightarrow \phi + \epsilon$, where $\epsilon$ is a small constant parameter.
+
+   The variation of the field is:
+   \begin{align}
+       \delta \phi &= \epsilon.
+   \end{align}
+
+   The conserved current is then:
+   \begin{align}
+       J^\mu &= \frac{\partial \mathcal{L}}{\partial (\partial_\mu \phi)} \epsilon = \partial^\mu \phi \epsilon.
+   \end{align}
+
+3. **Conservation law:**
+
+   The conservation of the current is expressed by the continuity equation:
+   \begin{align}
+       \partial_\mu J^\mu &= 0.
+   \end{align}
+
+   For our example, this corresponds to:
+   \begin{align}
+       \partial_\mu \partial^\mu \phi &= 0,
+   \end{align}
+   which is the Klein-Gordon equation for a free scalar field.
+
+### Part (d) Wick's Theorem Revisited
+
+#### Problem Statement:
+
+Revisit Wick's theorem and apply it to a more complicated product of fields.
+
+#### Solution:
+
+1. **Wick's theorem:**
+
+   Wick's theorem states that the time-ordered product of fields can be expressed as a sum of normal-ordered products with contractions.
+
+2. **Example: Product of four fields:**
+
+   Consider the time-ordered product of four scalar fields:
+   \begin{align}
+       T(\phi(x_1) \phi(x_2) \phi(x_3) \phi(x_4)) &= :\phi(x_1) \phi(x_2) \phi(x_3) \phi(x_4): \notag \\
+       &\quad + \text{(all single contractions)} \notag \\
+       &\quad + \text{(all double contractions)}.
+   \end{align}
+
+   The single contractions are of the form:
+   \begin{align}
+       \langle T(\phi(x_1) \phi(x_2)) \rangle T(\phi(x_3) \phi(x_4)),
+   \end{align}
+   and the double contractions involve pairs of fields contracted with the Feynman propagator.
+
+   Wick's theorem simplifies the computation of such products by reducing them to sums of simpler terms.
+
+   $\phi^{\prime\prime}$

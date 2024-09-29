@@ -1,0 +1,121 @@
+\allowdisplaybreaks
+\begin{center}
+	\hrule
+	\vspace{.4cm}
+ \begin{tabular*}{\textwidth}{@{}l@{}|@{\extracolsep{0.6in}}r@{}}%
+\parbox{4.25in}{\raggedright{\includegraphics[width=.9\linewidth]{ictp-pwf.pdf}}} &
+\parbox[c][]{4in}{{\Large\textbf{Md Akiful Islam Zawad} \par}
+                    { Brac University \par}
+                    { KHA 224, Progati Sarani, Merul Badda, \par}
+                    { Dhaka 1212, Bangladesh \par}
+                    { \href{ext.akiful.islam@bracu.ac.bd}{ext.akiful.islam@bracu.ac.bd}} \par}
+\end{tabular*}\vspace{.3in}
+\definecolor{ceruleanblue}{rgb}{0.16, 0.32, 0.6}
+	\LARGE\scshape\textbf{\textcolor{ceruleanblue}{Physics for Bangladesh QFT School}}
+\end{center}
+\hrule\vspace{.25in}
+{\large\textbf{Problem Sheet:}\ \textsc{5} \hspace{\hfill} \large\textbf{Due Date:} \today\\
+	\hrule}
+ %----------------------------
+\paragraph*{Problem Set 4} %\hfill \newline
+\\
+Consider a Dirac field $\psi(x)$ with the Lagrangian density:
+\begin{align}
+    L = \bar{\psi} (i \gamma^\mu \partial_\mu - m) \psi. 
+\end{align}
+The path-integral expression for the generating functional $Z[J, \bar{J}]$ in the presence of external sources $J(x)$ and $\bar{J}(x)$ is:
+\begin{align}
+    Z[J, \bar{J}] = \bigints D\psi D\bar{\psi} \, \exp \left( i \bigints d^4x \left[ \bar{\psi} (i \gamma^\mu \partial_\mu - m) \psi + \bar{J} \psi + \bar{\psi} J \right] \right). \label{eq:}
+\end{align}
+Compute the Feynman propagator $\langle 0 | T \{ \psi(x) \bar{\psi}(y) \} | 0 \rangle$ by evaluating the path integral in the limit of $J(x) \to 0$ and $\bar{J}(x) \to 0$. Use the result to derive the expression for the propagator in momentum space:
+\begin{align}
+    S_F(x - y) = \bigints \frac{d^4 p}{(2\pi)^4} \frac{i (\fsl{p} + m)}{p^2 - m^2 + i\epsilon} e^{-ip \cdot (x - y)},
+\end{align}
+where $\fsl{p} = \gamma^\mu p_\mu$.
+
+Using the generating function above, compute:
+\begin{align}
+    \langle 0 | T \{ \psi(x_1) \bar{\psi}(x_2) \psi(x_3) \bar{\psi}(x_4) \} | 0 \rangle.
+\end{align}
+\bigskip\bigskip\hline\hline\bigskip
+\subsection*{Solution}
+The path integral involves fermionic fields $\psi$ and $\bar{\psi}$, and the exponent is quadratic in the fields. We can treat this as a Gaussian fermionic path integral.
+
+The action is:
+\begin{align}
+    S[\psi, \bar{\psi}] &= \bigints d^4x \left[ \bar{\psi} (i \gamma^\mu \partial_\mu - m) \psi + \bar{J} \psi + \bar{\psi} J \right].\notag\\
+    &= \bigints d^4x \, \bar{\psi} D \psi + \bar{J} \psi + \bar{\psi} J,
+\end{align}
+where $D = i \fsl{\partial} - m$ is the Dirac operator, and $\fsl{\partial} = \gamma^\mu \partial_\mu$.
+
+The path integral becomes:
+\begin{align}
+    Z[J, \bar{J}] = \bigints D\psi D\bar{\psi} \, \exp \left( i \left( \bar{\psi} D \psi + \bar{J} \psi + \bar{\psi} J \right) \right). \label{eq:path-integral}
+\end{align}
+The path integral over fermionic fields is known to result in a determinant and a term involving the inverse of the Dirac operator. For a Gaussian integral over fermionic fields, we have the result:
+\begin{align}
+    \bigints D\psi D\bar{\psi} \, \exp \left( i \bar{\psi} D \psi \right) = \det D.
+\end{align}
+Thus, the generating functional becomes:
+\begin{align}
+    Z[J, \bar{J}] = \det D \exp \left( i \bigints d^4x \, \bar{J} D^{-1} J \right).\label{eq:generating-functional}
+\end{align}
+In the limit $J(x) \to 0$ and $\bar{J}(x) \to 0$, the generating functional reduces to:
+\begin{align*}
+    Z[0, 0] = \det D.
+\end{align*}
+To compute the two-point correlation function (the Feynman propagator), we take the functional derivative of $Z[J, \bar{J}]$ with respect to $J(x)$ and $\bar{J}(y)$, and then set $J = 0$ and $\bar{J} = 0$:
+\begin{align*}
+    \langle 0 | T \{ \psi(x) \bar{\psi}(y) \} | 0 \rangle = \frac{1}{Z[0, 0]} \frac{\delta^2 Z[J, \bar{J}]}{\delta J(x) \delta \bar{J}(y)} \bigg|_{J = \bar{J} = 0}.
+\end{align*}
+Taking the second derivative of (\ref{eq:generating-functional}) with respect to $J(x)$ and $J(y)$, we have:
+\begin{align}
+    \frac{\delta^2 Z[J, \bar{J}]}{\delta J(x) \delta \bar{J}(y)} = i D^{-1}(x - y).
+\end{align}
+Thus, the Feynman propagator is:
+\begin{align*}
+    \langle 0 | T \{ \psi(x) \bar{\psi}(y) \} | 0 \rangle = i D^{-1}(x - y),
+\end{align*}
+where $D^{-1}(x - y)$ is the inverse of the Dirac operator $D$.
+
+In momentum space, the Dirac operator $D$ becomes:
+\begin{align*}
+    D(p) = \fsl{p} - m,
+\end{align*}
+where $\fsl{p} = \gamma^\mu p_\mu$. The inverse of $D(p)$ is given by:
+\begin{align*}
+    D^{-1}(p) = \frac{\fsl{p} + m}{p^2 - m^2 + i\epsilon}.
+\end{align*}
+Therefore, the Feynman propagator in momentum space is:
+\begin{align}
+    S_F(x - y) = \bigints \frac{d^4 p}{(2\pi)^4} \frac{i (\fsl{p} + m)}{p^2 - m^2 + i\epsilon} e^{-ip \cdot (x - y)}.\label{eq:feynmann-propagator-fermion}
+\end{align}
+To compute the four-point correlation function $\langle 0 | T \{ \psi(x_1) \bar{\psi}(x_2) \psi(x_3) \bar{\psi}(x_4) \} | 0 \rangle$, we use Wick’s theorem.
+
+The time-ordered product of fermionic fields is given by:
+\begin{align}
+    T \{ \psi(x_1) \bar{\psi}(x_2) \psi(x_3) \bar{\psi}(x_4) \} = \theta(t_1 - t_2) \theta(t_3 - t_4) \psi(x_1) \bar{\psi}(x_2) \psi(x_3) \bar{\psi}(x_4) + \dots
+\end{align}
+where $\theta(t_i - t_j)$ is the Heaviside step function that ensures proper time-ordering. However, instead of evaluating all possible time-orderings explicitly, we use Wick’s theorem to express the time-ordered product as a sum of normal-ordered products and contractions of pairs of fields.
+
+For four fermionic fields, the possible contractions are:
+\begin{align}
+    T \{ \psi(x_1) \bar{\psi}(x_2) \psi(x_3) \bar{\psi}(x_4) \} &= - \langle 0 | T \{ \psi(x_1) \bar{\psi}(x_2) \} | 0 \rangle \langle 0 | T \{ \psi(x_3) \bar{\psi}(x_4) \} | 0 \rangle \notag \\
+    &\qquad + \langle 0 | T \{ \psi(x_1) \bar{\psi}(x_4) \} | 0 \rangle \langle 0 | T \{ \psi(x_3) \bar{\psi}(x_2) \} | 0 \rangle.\label{fermion-possible-contractions}
+\end{align}
+The minus sign in front of the first term arises due to the anti-commuting nature of fermionic fields. For fermions, the fields satisfy the anti-commutation relations:
+\begin{align*}
+    \{ \psi(x), \psi(y) \} = 0, \quad \{ \psi(x), \bar{\psi}(y) \} = 0.
+\end{align*}
+Swapping the order of two fermionic fields introduces a minus sign. In the Wick expansion of the four-point function, this minus sign arises when performing the first contraction between $\psi(x_1)$ and $\bar{\psi}(x_2)$, and the second contraction between $\psi(x_3)$ and $\bar{\psi}(x_4)$.
+
+Each term in (\ref{fermion-possible-contractions}) represents a different way of contracting the fields in pairs. The first term corresponds to the contractions. In the first term, $\psi(x_1)$ is contracted with $\bar{\psi}(x_2)$, and $\psi(x_3)$ is contracted with $\bar{\psi}(x_4)$, while in the second term, $\psi(x_1)$ is contracted with $\bar{\psi}(x_4)$, and $\psi(x_3)$ is contracted with $\bar{\psi}(x_2)$.
+
+Now we substitute the Feynman propagator (\ref{eq:feynmann-propagator-fermion}) for each contraction. Substitute this into the four-point function expression:
+\begin{align}
+    \langle 0 | T \{ \psi(x_1) \bar{\psi}(x_2) \psi(x_3) \bar{\psi}(x_4) \} | 0 \rangle
+    &= S_F(x_1 - x_2) S_F(x_3 - x_4) - S_F(x_1 - x_4) S_F(x_3 - x_2)\notag\\
+    &= \bigints \frac{d^4 p_1}{(2\pi)^4} \frac{i (\fsl{p}_1 + m)}{p_1^2 - m^2 + i\epsilon} e^{-ip_1 \cdot (x_1 - x_2)}\cdot\bigints \frac{d^4 p_2}{(2\pi)^4} \frac{i (\fsl{p}_2 + m)}{p_2^2 - m^2 + i\epsilon} e^{-ip_2 \cdot (x_3 - x_4)}\notag\\
+    &\hspace{20pt}-\bigints \frac{d^4 p_3}{(2\pi)^4} \frac{i (\fsl{p}_3 + m)}{p_3^2 - m^2 + i\epsilon} e^{-ip_3 \cdot (x_1 - x_4)}\cdot\bigints \frac{d^4 p_4}{(2\pi)^4} \frac{i (\fsl{p}_4 + m)}{p_4^2 - m^2 + i\epsilon} e^{-ip_4 \cdot (x_3 - x_2)}.
+\end{align}
+\bigskip\bigskip\hline\hline\bigskip

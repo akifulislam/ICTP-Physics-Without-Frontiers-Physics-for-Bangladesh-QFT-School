@@ -1,0 +1,384 @@
+\allowdisplaybreaks
+\begin{center}
+	\hrule
+	\vspace{.4cm}
+ \begin{tabular*}{\textwidth}{@{}l@{}|@{\extracolsep{0.6in}}r@{}}%
+\parbox{4.25in}{\raggedright{\includegraphics[width=.9\linewidth]{ictp-pwf.pdf}}} &
+\parbox[c][]{4in}{{\Large\textbf{Md Akiful Islam Zawad} \par}
+                    { Brac University \par}
+                    { KHA 224, Progati Sarani, Merul Badda, \par}
+                    { Dhaka 1212, Bangladesh \par}
+                    { \href{ext.akiful.islam@bracu.ac.bd}{ext.akiful.islam@bracu.ac.bd}} \par}
+\end{tabular*}\vspace{.3in}
+\definecolor{ceruleanblue}{rgb}{0.16, 0.32, 0.6}
+	\LARGE\scshape\textbf{\textcolor{ceruleanblue}{Physics for Bangladesh QFT School}}
+\end{center}
+\hrule\vspace{.25in}
+{\large\textbf{Problem Sheet:}\ \textsc{3} \hspace{\hfill} \large\textbf{Due Date:} \today\\
+	\hrule}
+ %----------------------------
+\paragraph*{Problem Set 4} %\hfill \newline
+\\
+The free field Lagrangian for Maxwell’s theory is written as
+\begin{align}
+    L = -\frac{1}{4} F_{\mu\nu} F^{\mu\nu}.
+\end{align}
+
+\begin{itemize}
+    \item[(a)] Show that the conjugate momentum $\Pi_0$ and $\Pi_i$ corresponding to the fields $A_0$ and $A_i$ are
+    \begin{align}
+        \Pi_0 = 0 \quad \& \quad \Pi_i = -\dot{A}_i = E_i.
+    \end{align}
+    In the Coulomb gauge with $A_0 = 0$ and $\nabla \cdot \mathbf{A} = 0$, the theory can be quantized in terms of the two transverse polarizations. The mode expansion can be written as
+    \begin{align}
+        \mathbf{A}(\mathbf{x}, t) = \bigints\frac{d^3 \mathbf{p}}{(2\pi)^3 \sqrt{2|\mathbf{p}|}} \sum_{r=1}^2 \left[ \boldsymbol{\epsilon}_r(\mathbf{p}) a^r_{\mathbf{p}} e^{i p \cdot x} + \boldsymbol{\epsilon}_r(\mathbf{p}) a^{r\dagger}_{\mathbf{p}} e^{-i p \cdot x} \right], 
+    \end{align}
+    with $p_0 = |\mathbf{p}|$.
+
+    \item[(b)] Obtain an expression for the conjugate momentum $\boldsymbol{\Pi}$.
+
+    In this case, the consistent set of commutation relations are
+    \begin{align}
+        [A_i(\mathbf{x}), A_j(\mathbf{y})] &= [\Pi_i(\mathbf{x}), \Pi_j(\mathbf{y})] = 0, \label{eq:given-relation-for-A}\\
+        [A_i(\mathbf{x}), \Pi_j(\mathbf{y})] &= i \left( \delta_{ij} - \frac{\partial_i \partial_j}{\nabla^2} \right) \delta^{(3)}(\mathbf{x} - \mathbf{y}).\label{eq:given-relation-for-A-pi}
+    \end{align}
+    \item[(c)] Using the commutation relation on the fields, show that the commutation relations for the creation and annihilation operators follow
+    \begin{align}
+        [a^r_{\mathbf{p}}, a^s_{\mathbf{q}}] &= [a^{r\dagger}_{\mathbf{p}}, a^{s\dagger}_{\mathbf{q}}] = 0, \label{eq:given-relation-for-creation-operators-1}\\
+        \left[a^r_{\mathbf{p}}, a^{s\dagger}_{\mathbf{q}}\right] &= (2\pi)^3 \delta^{rs} \delta^{(3)}(\mathbf{p} - \mathbf{q})\label{eq:given-relation-for-creation-operators-2}. 
+    \end{align}
+    \item[(d)] Obtain the normal ordered Hamiltonian
+    \begin{align}
+        H = \bigints\frac{d^3 \mathbf{p}}{(2\pi)^3} |\mathbf{p}| \sum_{r=1}^2 a^{r\dagger}_{\mathbf{p}} a^r_{\mathbf{p}}.
+    \end{align}
+\end{itemize}
+
+We are tasked with solving the following problems related to the free field Lagrangian of Maxwell’s theory:
+\begin{align}
+    L = -\frac{1}{4} F_{\mu\nu} F^{\mu\nu},
+\end{align}
+where $F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu$ is the electromagnetic field strength tensor.
+\bigskip\bigskip\hline\hline\bigskip
+\subsection*{Solution:}
+\begin{enumerate}
+    \item [(a)] The conjugate momentum $\Pi_\mu$ associated with the field $A_\mu$ is defined by:
+\begin{align}
+    \Pi_\mu = \frac{\partial L}{\partial (\partial_0 A^\mu)}.
+\end{align}
+The Lagrangian is:
+\begin{align*}
+    L = -\frac{1}{4} F_{\mu\nu} F^{\mu\nu}.
+\end{align*}
+Substituting $F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu$ into the Lagrangian, we focus on the terms that involve $\partial_0 A_\mu$. Specifically:
+\begin{align*}
+    F_{0i} = \partial_0 A_i - \partial_i A_0.
+\end{align*}
+Thus, the Lagrangian involves terms of the form:
+\begin{align*}
+    F_{0i} F^{0i} = (\partial_0 A_i - \partial_i A_0)(\partial_0 A^i - \partial^i A_0).
+\end{align*}
+This gives rise to time derivatives of $A_i$ and $A_0$.
+
+Since $F_{0i} = \partial_0 A_i - \partial_i A_0$, the Lagrangian depends on $\partial_0 A_i$ but \emph{not} on $\partial_0 A_0$. Thus, the conjugate momentum for $A_0$ is:
+\begin{align}
+    \Pi_0 = \frac{\partial L}{\partial (\partial_0 A^0)} = 0.~~~~~\text{(\bf Showed)}
+\end{align}
+For $A_i$, we differentiate the Lagrangian with respect to $\partial_0 A_i$:
+\begin{align}
+    \Pi_i &= \frac{\partial L}{\partial (\partial_0 A^i)} = \frac{\partial}{\partial (\partial_0 A^i)} \left( \frac{1}{2} (\partial_0 A_i - \partial_i A_0)(\partial_0 A^i - \partial^i A_0) \right)\notag\\
+    &= -\partial_0 A_i = -\dot{A}_i. 
+\end{align}
+Recall that $\dot{A}_i$ represents the electric field components $E_i = -\dot{A}_i$. Thus, the conjugate momentum for $A_i$ is:
+\begin{align}
+    \Pi_i = E_i.~~~~~\text{(\bf Showed)}
+\end{align}
+\item [(b)] In the Coulomb gauge, we have the conditions:
+\begin{align*}
+    A_0 = 0 \quad \text{and} \quad \nabla \cdot \mathbf{A} = 0.
+\end{align*}
+The mode expansion for the vector potential $\mathbf{A}(\mathbf{x}, t)$ is given by:
+\begin{align*}
+    \mathbf{A}(\mathbf{x}, t) = \bigints\frac{d^3 \mathbf{p}}{(2\pi)^3 \sqrt{2|\mathbf{p}|}} \sum_{r=1}^2 \left[ \boldsymbol{\epsilon}_r(\mathbf{p}) a^r_{\mathbf{p}} e^{i p \cdot x} + \boldsymbol{\epsilon}_r(\mathbf{p}) a^{r\dagger}_{\mathbf{p}} e^{-i p \cdot x} \right],\label{eq:vector-potential-integral-def}
+\end{align*}
+with $p_0 = |\mathbf{p}|$.
+
+The conjugate momentum $\boldsymbol{\Pi}$ is given by:
+\begin{align}
+    \boldsymbol{\Pi} &= -\frac{\partial \mathbf{A}}{\partial t} = -\dot{\mathbf{A}}\notag\\
+    &= \bigints\frac{d^3 \mathbf{p}}{(2\pi)^3 \sqrt{2|\mathbf{p}|}} \sum_{r=1}^2 \left[ \epsilon_i^r(\mathbf{p}) (-i p_0) a^r_{\mathbf{p}} e^{i p \cdot x} + \epsilon_i^r(\mathbf{p}) (i p_0) a^{r\dagger}_{\mathbf{p}} e^{-i p \cdot x} \right],
+\end{align}
+where $p_0 = |\mathbf{p}|$.
+\item [(c)] 
+To extract $a^r_{\mathbf{p}}$ from $A_i(\mathbf{x})$, we apply the inverse Fourier transform. Taking the mode expansion for $A_i(\mathbf{x})$, we multiply both sides by $\epsilon_i^{r*}(\mathbf{p}) e^{-i p \cdot x}$ and integrate over $\mathbf{x}$:
+\begin{align}
+    a^r_{\mathbf{p}} &= \bigints d^3 \mathbf{x} \, e^{-i p \cdot x} \epsilon_i^{r*}(\mathbf{p}) A_i(\mathbf{x}),
+\end{align}
+where $A_i(\mathbf{x})$ is the mode expansion in (\ref{eq:vector-potential-integral-def}).
+
+Similarly, we can extract $a^{r\dagger}_{\mathbf{p}}$ by multiplying by $e^{i p \cdot x}$:
+\begin{align}
+    a^{r\dagger}_{\mathbf{p}} &= \bigints d^3 \mathbf{x} \, e^{i p \cdot x} \epsilon_i^{r*}(\mathbf{p}) A_i(\mathbf{x}).
+\end{align}
+Using the inverse Fourier transform, we now calculate the product $a^r_{\mathbf{p}} a^s_{\mathbf{q}}$:
+\begin{align*}
+    a^r_{\mathbf{p}} a^s_{\mathbf{q}} &= \left( \bigints d^3 \mathbf{x} \, e^{-i p \cdot x} \epsilon_i^{r*}(\mathbf{p}) A_i(\mathbf{x}) \right) \left( \bigints d^3 \mathbf{y} \, e^{-i q \cdot y} \epsilon_j^{s*}(\mathbf{q}) A_j(\mathbf{y}) \right) \nonumber \\
+    &= \bigints d^3 \mathbf{x} \bigints d^3 \mathbf{y} \, e^{-i (p \cdot x + q \cdot y)} \epsilon_i^{r*}(\mathbf{p}) \epsilon_j^{s*}(\mathbf{q}) A_i(\mathbf{x}) A_j(\mathbf{y}).
+\end{align*}
+Similarly, for $a^s_{\mathbf{q}} a^r_{\mathbf{p}}$, we have:
+\begin{align*}
+    a^s_{\mathbf{q}} a^r_{\mathbf{p}} &= \bigints d^3 \mathbf{x} \bigints d^3 \mathbf{y} \, e^{-i (q \cdot y + p \cdot x)} \epsilon_j^{s*}(\mathbf{q}) \epsilon_i^{r*}(\mathbf{p}) A_j(\mathbf{y}) A_i(\mathbf{x}).
+\end{align*}
+Now we calculate the commutator:
+\begin{align}
+    [a^r_{\mathbf{p}}, a^s_{\mathbf{q}}] &= a^r_{\mathbf{p}} a^s_{\mathbf{q}} - a^s_{\mathbf{q}} a^r_{\mathbf{p}} \nonumber \\
+    &= \bigints d^3 \mathbf{x} \bigints d^3 \mathbf{y} \, \epsilon_i^{r*}(\mathbf{p}) \epsilon_j^{s*}(\mathbf{q}) \left( e^{-i (p \cdot x + q \cdot y)} A_i(\mathbf{x}) A_j(\mathbf{y}) - e^{-i (q \cdot y + p \cdot x)} A_j(\mathbf{y}) A_i(\mathbf{x}) \right). 
+\end{align}
+
+From the commutation relation $[A_i(\mathbf{x}), A_j(\mathbf{y})] = 0$ (\ref{eq:given-relation-for-A}), we know that $A_i(\mathbf{x}) A_j(\mathbf{y}) = A_j(\mathbf{y}) A_i(\mathbf{x})$. Thus, the commutator $[a^r_{\mathbf{p}}, a^s_{\mathbf{q}}]$ vanishes:
+\begin{align}
+    [a^r_{\mathbf{p}}, a^s_{\mathbf{q}}] &= 0.~~~~~\text{(\bf Showed)}
+\end{align}
+Next, we calculate the commutator $[a^r_{\mathbf{p}}, a^{s\dagger}_{\mathbf{q}}]$. We use the inverse Fourier transform again to calculate both terms:
+\begin{align}
+    [a^r_{\mathbf{p}}, a^{s\dagger}_{\mathbf{q}}] &= \bigints d^3 \mathbf{x} \bigints d^3 \mathbf{y} \, \epsilon_i^{r*}(\mathbf{p}) \epsilon_j^{s*}(\mathbf{q}) \left( e^{-i p \cdot x} A_i(\mathbf{x}) \cdot e^{i q \cdot y} A_j(\mathbf{y}) \right) \nonumber \\
+    &\quad - \bigints d^3 \mathbf{x} \bigints d^3 \mathbf{y} \, \epsilon_j^{s*}(\mathbf{q}) \epsilon_i^{r*}(\mathbf{p}) \left( e^{i q \cdot y} A_j(\mathbf{y}) \cdot e^{-i p \cdot x} A_i(\mathbf{x}) \right). ~~~~~\text{(\bf Showed)}
+\end{align}
+Using the commutation relation $[A_i(\mathbf{x}), \Pi_j(\mathbf{y})]$ from (\ref{eq:given-relation-for-A-pi}), we find:
+\begin{align}
+    [a^r_{\mathbf{p}}, a^{s\dagger}_{\mathbf{q}}] &= (2\pi)^3 \delta^{rs} \delta^{(3)}(\mathbf{p} - \mathbf{q}). 
+\end{align}
+To extract $a^r_{\mathbf{p}}$ from $A_i(\mathbf{x})$, we apply the inverse Fourier transform. Multiplying both sides of the mode expansion for $A_i(\mathbf{x})$ by $\epsilon_i^{r*}(\mathbf{p}) e^{-i p \cdot x}$ and integrating over $\mathbf{x}$ gives:
+\begin{align}
+    a^r_{\mathbf{p}} &= \bigints d^3 \mathbf{x} \, e^{-i p \cdot x} \epsilon_i^{r*}(\mathbf{p}) A_i(\mathbf{x}). 
+\end{align}
+Similarly, multiplying by $e^{i p \cdot x}$ gives:
+\begin{align}
+    a^{r\dagger}_{\mathbf{p}} &= \bigints d^3 \mathbf{x} \, e^{i p \cdot x} \epsilon_i^{r*}(\mathbf{p}) A_i(\mathbf{x}). 
+\end{align}
+To find $a^{r\dagger}_{\mathbf{p}}$ and $a^s_{\mathbf{q}}$, we use the inverse Fourier transformation. For $A_i(\mathbf{x}, t)$, we have:
+\begin{align}
+    a^r_{\mathbf{p}} &= \bigints d^3 \mathbf{x} \, \frac{d^3 \mathbf{p}}{(2\pi)^3 \sqrt{2|\mathbf{p}|}} \sum_{r=1}^2 \epsilon_i^r(\mathbf{p}) A_i(\mathbf{x}, t) e^{-i p \cdot x}, \\
+    a^{r\dagger}_{\mathbf{p}} &= \bigints d^3 \mathbf{x} \, \frac{d^3 \mathbf{p}}{(2\pi)^3 \sqrt{2|\mathbf{p}|}} \sum_{r=1}^2 \epsilon_i^r(\mathbf{p}) A_i(\mathbf{x}, t) e^{i p \cdot x}.
+\end{align}
+Similarly, for $\Pi_j(\mathbf{y})$, we have:
+\begin{align}
+    a^s_{\mathbf{q}} &= \bigints d^3 \mathbf{y} \, \frac{d^3 \mathbf{q}}{(2\pi)^3 \sqrt{2|\mathbf{q}|}} \sum_{s=1}^2 \epsilon_j^s(\mathbf{q}) \frac{\Pi_j(\mathbf{y})}{-i q_0} e^{-i q \cdot y}, \\
+    a^{s\dagger}_{\mathbf{q}} &= \bigints d^3 \mathbf{y} \, \frac{d^3 \mathbf{q}}{(2\pi)^3 \sqrt{2|\mathbf{q}|}} \sum_{s=1}^2 \epsilon_j^s(\mathbf{q}) \frac{\Pi_j(\mathbf{y})}{i q_0} e^{i q \cdot y}.
+\end{align}
+First, we compute $a^{r\dagger}_{\mathbf{p}} a^{s\dagger}_{\mathbf{q}}$:
+\begin{align}
+    a^{r\dagger}_{\mathbf{p}} a^{s\dagger}_{\mathbf{q}} &= \left( \bigints d^3 \mathbf{x} \, \frac{d^3 \mathbf{p}}{(2\pi)^3 \sqrt{2|\mathbf{p}|}} \sum_{r=1}^2 \epsilon_i^r(\mathbf{p}) A_i(\mathbf{x}) e^{i p \cdot x} \right) \left( \bigints d^3 \mathbf{y} \, \frac{d^3 \mathbf{q}}{(2\pi)^3 \sqrt{2|\mathbf{q}|}} \sum_{s=1}^2 \epsilon_j^s(\mathbf{q}) A_j(\mathbf{y}) e^{i q \cdot y} \right) \notag\\
+    &= \bigints d^3 \mathbf{x} \, d^3 \mathbf{y} \, \frac{d^3 \mathbf{p}}{(2\pi)^3 \sqrt{2|\mathbf{p}|}} \frac{d^3 \mathbf{q}}{(2\pi)^3 \sqrt{2|\mathbf{q}|}} \sum_{r=1}^2 \sum_{s=1}^2 \epsilon_i^r(\mathbf{p}) \epsilon_j^s(\mathbf{q}) A_i(\mathbf{x}) A_j(\mathbf{y}) e^{i p \cdot x} e^{i q \cdot y}.
+\end{align}
+Next, we compute $a^{s\dagger}_{\mathbf{q}} a^{r\dagger}_{\mathbf{p}}$:
+\begin{align}
+    a^{s\dagger}_{\mathbf{q}} a^{r\dagger}_{\mathbf{p}} &= \left( \bigints d^3 \mathbf{y} \, \frac{d^3 \mathbf{q}}{(2\pi)^3 \sqrt{2|\mathbf{q}|}} \sum_{s=1}^2 \epsilon_j^s(\mathbf{q}) A_j(\mathbf{y}) e^{i q \cdot y} \right) \times \left( \bigints d^3 \mathbf{x} \, \frac{d^3 \mathbf{p}}{(2\pi)^3 \sqrt{2|\mathbf{p}|}} \sum_{r=1}^2 \epsilon_i^r(\mathbf{p}) A_i(\mathbf{x}) e^{i p \cdot x} \right) \notag\\
+    &= \bigints d^3 \mathbf{x} \, d^3 \mathbf{y} \, \frac{d^3 \mathbf{p}}{(2\pi)^3 \sqrt{2|\mathbf{p}|}} \frac{d^3 \mathbf{q}}{(2\pi)^3 \sqrt{2|\mathbf{q}|}} \sum_{s=1}^2 \sum_{r=1}^2 \epsilon_j^s(\mathbf{q}) \epsilon_i^r(\mathbf{p}) A_j(\mathbf{y}) A_i(\mathbf{x}) e^{i q \cdot y} e^{i p \cdot x}.
+\end{align}
+To find the commutation relation $[a^{r\dagger}_{\mathbf{p}}, a^{s\dagger}_{\mathbf{q}}]$, we compute:
+\begin{align}
+    [a^{r\dagger}_{\mathbf{p}}, a^{s\dagger}_{\mathbf{q}}] &= a^{r\dagger}_{\mathbf{p}} a^{s\dagger}_{\mathbf{q}} - a^{s\dagger}_{\mathbf{q}} a^{r\dagger}_{\mathbf{p}}\notag\\
+    &= \bigints d^3 \mathbf{x} \, d^3 \mathbf{y} \, \frac{d^3 \mathbf{p}}{(2\pi)^3 \sqrt{2|\mathbf{p}|}} \frac{d^3 \mathbf{q}}{(2\pi)^3 \sqrt{2|\mathbf{q}|}} \left( \epsilon_i^r(\mathbf{p}) \epsilon_j^s(\mathbf{q}) A_i(\mathbf{x}) A_j(\mathbf{y}) e^{i p \cdot x} e^{i q \cdot y} - \epsilon_j^s(\mathbf{q}) \epsilon_i^r(\mathbf{p}) A_j(\mathbf{y}) A_i(\mathbf{x}) e^{i q \cdot y} e^{i p \cdot x} \right).\\
+    &\hspace{6.5in}\text{(\bf Showed)}\notag
+\end{align}
+Since $A_i(\mathbf{x})$ and $A_j(\mathbf{y})$ commute, and using the properties of the exponential functions, we find that:
+\begin{align}
+    [a^{r\dagger}_{\mathbf{p}}, a^{s\dagger}_{\mathbf{q}}] &= 0.
+\end{align}
+For the sake of completeness, we can check the given commutation relations involving $\mathbf{A}$ and $\boldsymbol{\Pi}$, using the relations we just derived for the creation and annihilation operators.
+
+We start with the spatial components $A_i(\mathbf{x})$ and $A_j(\mathbf{y})$ follow from the above expansion (\ref{eq:vector-potential-integral-def}). For $A_i(\mathbf{x})$, we have:
+\begin{align}
+    A_i(\mathbf{x}) &= \bigints\frac{d^3 \mathbf{p}}{(2\pi)^3 \sqrt{2|\mathbf{p}|}} \sum_{r=1}^2 \left[ \epsilon_i^r(\mathbf{p}) a^r_{\mathbf{p}} e^{i p \cdot x} + \epsilon_i^r(\mathbf{p}) a^{r\dagger}_{\mathbf{p}} e^{-i p \cdot x} \right]. \label{eq:A_i(x)-form}
+\end{align}
+Similarly, for $A_j(\mathbf{y})$, we have:
+\begin{align}
+    A_j(\mathbf{y}) &= \bigints\frac{d^3 \mathbf{q}}{(2\pi)^3 \sqrt{2|\mathbf{q}|}} \sum_{s=1}^2 \left[ \epsilon_j^s(\mathbf{q}) a^s_{\mathbf{q}} e^{i q \cdot y} + \epsilon_j^s(\mathbf{q}) a^{s\dagger}_{\mathbf{q}} e^{-i q \cdot y} \right]. \label{eq:A_i(y)-form}
+\end{align}
+Now, let’s multiply $A_i(\mathbf{x})$ and $A_j(\mathbf{y})$. Start by writing out all terms:
+\begin{align}
+    A_i(\mathbf{x}) A_j(\mathbf{y}) &= \bigints\frac{d^3 \mathbf{p}}{(2\pi)^3 \sqrt{2|\mathbf{p}|}} \sum_{r=1}^2 \left[ \epsilon_i^r(\mathbf{p}) a^r_{\mathbf{p}} e^{i p \cdot x} + \epsilon_i^r(\mathbf{p}) a^{r\dagger}_{\mathbf{p}} e^{-i p \cdot x} \right]\cdot\bigints\frac{d^3 \mathbf{q}}{(2\pi)^3 \sqrt{2|\mathbf{q}|}} \sum_{s=1}^2 \left[ \epsilon_j^s(\mathbf{q}) a^s_{\mathbf{q}} e^{i q \cdot y} + \epsilon_j^s(\mathbf{q}) a^{s\dagger}_{\mathbf{q}} e^{-i q \cdot y} \right]\notag\\
+    &= \bigints\frac{d^3 \mathbf{p}}{(2\pi)^3 \sqrt{2|\mathbf{p}|}} \bigints\frac{d^3 \mathbf{q}}{(2\pi)^3 \sqrt{2|\mathbf{q}|}} \sum_{r,s} \Bigg[ \epsilon_i^r(\mathbf{p}) \epsilon_j^s(\mathbf{q}) a^r_{\mathbf{p}} a^s_{\mathbf{q}} e^{i (p \cdot x + q \cdot y)} + \epsilon_i^r(\mathbf{p}) \epsilon_j^s(\mathbf{q}) a^r_{\mathbf{p}} a^{s\dagger}_{\mathbf{q}} e^{i p \cdot x - i q \cdot y} \nonumber \\
+    &\hspace{50pt} + \epsilon_i^r(\mathbf{p}) \epsilon_j^s(\mathbf{q}) a^{r\dagger}_{\mathbf{p}} a^s_{\mathbf{q}} e^{-i p \cdot x + i q \cdot y} + \epsilon_i^r(\mathbf{p}) \epsilon_j^s(\mathbf{q}) a^{r\dagger}_{\mathbf{p}} a^{s\dagger}_{\mathbf{q}} e^{-i (p \cdot x + q \cdot y)} \Bigg]. 
+\end{align}
+Next, compute $A_j(\mathbf{y}) A_i(\mathbf{x})$. Following the same procedure, we get:
+\begin{align}
+    A_j(\mathbf{y}) A_i(\mathbf{x}) &= \bigints\frac{d^3 \mathbf{q}}{(2\pi)^3 \sqrt{2|\mathbf{q}|}} \bigints\frac{d^3 \mathbf{p}}{(2\pi)^3 \sqrt{2|\mathbf{p}|}} \sum_{r,s} \Bigg[ \epsilon_j^s(\mathbf{q}) \epsilon_i^r(\mathbf{p}) a^s_{\mathbf{q}} a^r_{\mathbf{p}} e^{i (q \cdot y + p \cdot x)} + \epsilon_j^s(\mathbf{q}) \epsilon_i^r(\mathbf{p}) a^s_{\mathbf{q}} a^{r\dagger}_{\mathbf{p}} e^{i q \cdot y - i p \cdot x} \nonumber \\
+    &\hspace{50pt} + \epsilon_j^s(\mathbf{q}) \epsilon_i^r(\mathbf{p}) a^{s\dagger}_{\mathbf{q}} a^r_{\mathbf{p}} e^{-i q \cdot y + i p \cdot x} + \epsilon_j^s(\mathbf{q}) \epsilon_i^r(\mathbf{p}) a^{s\dagger}_{\mathbf{q}} a^{r\dagger}_{\mathbf{p}} e^{-i (q \cdot y + p \cdot x)} \Bigg].
+\end{align}
+The commutator is given by:
+\begin{align}
+    [A_i(\mathbf{x}), A_j(\mathbf{y})] &= A_i(\    (\mathbf{x}) A_j(\mathbf{y}) - A_j(\mathbf{y}) A_i(\mathbf{x}) \nonumber \\
+    &= \bigints\frac{d^3 \mathbf{p}}{(2\pi)^3 \sqrt{2|\mathbf{p}|}} \bigints\frac{d^3 \mathbf{q}}{(2\pi)^3 \sqrt{2|\mathbf{q}|}} \sum_{r,s} \Bigg[ \epsilon_i^r(\mathbf{p}) \epsilon_j^s(\mathbf{q}) \Big( a^r_{\mathbf{p}} a^s_{\mathbf{q}} e^{i (p \cdot x + q \cdot y)} - a^s_{\mathbf{q}} a^r_{\mathbf{p}} e^{i (q \cdot y + p \cdot x)} \Big) \nonumber \\
+    &\quad + \epsilon_i^r(\mathbf{p}) \epsilon_j^s(\mathbf{q}) \Big( a^r_{\mathbf{p}} a^{s\dagger}_{\mathbf{q}} e^{i p \cdot x - i q \cdot y} - a^s_{\mathbf{q}} a^{r\dagger}_{\mathbf{p}} e^{i q \cdot y - i p \cdot x} \Big) + \epsilon_i^r(\mathbf{p}) \epsilon_j^s(\mathbf{q}) \Big( a^{r\dagger}_{\mathbf{p}} a^s_{\mathbf{q}} e^{-i p \cdot x + i q \cdot y} - a^{s\dagger}_{\mathbf{q}} a^r_{\mathbf{p}} e^{-i q \cdot y + i p \cdot x} \Big) \nonumber \\
+    &\quad + \epsilon_i^r(\mathbf{p}) \epsilon_j^s(\mathbf{q}) \Big( a^{r\dagger}_{\mathbf{p}} a^{s\dagger}_{\mathbf{q}} e^{-i (p \cdot x + q \cdot y)} - a^{s\dagger}_{\mathbf{q}} a^{r\dagger}_{\mathbf{p}} e^{-i (q \cdot y + p \cdot x)} \Big) \Bigg]. 
+\end{align}
+We now apply the commutation relations for the creation and annihilation operators (\ref{eq:given-relation-for-creation-operators-1}) and (\ref{eq:given-relation-for-creation-operators-2}):
+\begin{align*}
+    [a^r_{\mathbf{p}}, a^s_{\mathbf{q}}] = 0, \quad [a^{r\dagger}_{\mathbf{p}}, a^{s\dagger}_{\mathbf{q}}] = 0, \quad [a^r_{\mathbf{p}}, a^{s\dagger}_{\mathbf{q}}] = (2\pi)^3 \delta^{rs} \delta^{(3)}(\mathbf{p} - \mathbf{q}). 
+\end{align*}
+Using these relations, all terms that involve $a^r_{\mathbf{p}} a^s_{\mathbf{q}}$ and $a^{r\dagger}_{\mathbf{p}} a^{s\dagger}_{\mathbf{q}}$ commute, so they vanish. The non-zero terms come from the commutators involving $a^r_{\mathbf{p}}$ and $a^{s\dagger}_{\mathbf{q}}$. Substituting the commutator $[a^r_{\mathbf{p}}, a^{s\dagger}_{\mathbf{q}}] = (2\pi)^3 \delta^{rs} \delta^{(3)}(\mathbf{p} - \mathbf{q})$, we get:
+\begin{align}
+    [A_i(\mathbf{x}), A_j(\mathbf{y})] &= \bigints\frac{d^3 \mathbf{p}}{(2\pi)^3 2|\mathbf{p}|} \sum_{r=1}^2 \epsilon_i^r(\mathbf{p}) \epsilon_j^r(\mathbf{p}) \Big[ e^{i \mathbf{p} \cdot (\mathbf{x} - \mathbf{y})} - e^{-i \mathbf{p} \cdot (\mathbf{x} - \mathbf{y})} \Big] \nonumber \\
+    &= \bigints\frac{d^3 \mathbf{p}}{(2\pi)^3 2|\mathbf{p}|} \sum_{r=1}^2 \epsilon_i^r(\mathbf{p}) \epsilon_j^r(\mathbf{p}) \Big[ 2i \sin(\mathbf{p} \cdot (\mathbf{x} - \mathbf{y})) \Big]. 
+\end{align}
+Since the polarization vectors $\boldsymbol{\epsilon}_r(\mathbf{p})$ satisfy the orthonormality condition:
+\begin{align}
+    \sum_{r=1}^2 \epsilon_i^r(\mathbf{p}) \epsilon_j^r(\mathbf{p}) = \delta_{ij} - \frac{p_i p_j}{|\mathbf{p}|^2},
+\end{align}
+we can simplify the expression for the commutator:
+\begin{align}
+    [A_i(\mathbf{x}), A_j(\mathbf{y})] &= 2i \bigints\frac{d^3 \mathbf{p}}{(2\pi)^3 2|\mathbf{p}|} \left( \delta_{ij} - \frac{p_i p_j}{|\mathbf{p}|^2} \right) \sin(\mathbf{p} \cdot (\mathbf{x} - \mathbf{y})). 
+\end{align}
+Since the integrand is an odd function of $\mathbf{p}$, the integral over $d^3 \mathbf{p}$ vanishes. Thus, we conclude that:
+\begin{align}
+    [A_i(\mathbf{x}), A_j(\mathbf{y})] = 0. \label{eq:[A_i,A_j]-check}~~~~~\text{(\bf Showed)}
+\end{align}
+This proves that the commutator of the spatial components of the vector potential vanishes.
+
+The conjugate momentum $\boldsymbol{\Pi}$ is defined as:
+\begin{align*}
+    \boldsymbol{\Pi} = -\frac{\partial \mathbf{A}}{\partial t} = -\dot{\mathbf{A}}. 
+\end{align*}
+From the definition of $\mathbf{A}(\mathbf{x}, t)$, we can write out the spatial components of the conjugate momentum:
+\begin{align}
+    \Pi_i(\mathbf{x}) &= -\frac{\partial A_i(\mathbf{x}, t)}{\partial t} \nonumber \\
+    &= \bigints\frac{d^3 \mathbf{p}}{(2\pi)^3 \sqrt{2|\mathbf{p}|}} \sum_{r=1}^2 \left[ \epsilon_i^r(\mathbf{p}) (-i p_0) a^r_{\mathbf{p}} e^{i p \cdot x} + \epsilon_i^r(\mathbf{p}) (i p_0) a^{r\dagger}_{\mathbf{p}} e^{-i p \cdot x} \right],
+\end{align}
+where $p_0 = |\mathbf{p}|$.
+
+Similarly, for $\Pi_j(\mathbf{y})$:
+\begin{align}
+    \Pi_j(\mathbf{y}) &= \bigints\frac{d^3 \mathbf{q}}{(2\pi)^3 \sqrt{2|\mathbf{q}|}} \sum_{s=1}^2 \left[ \epsilon_j^s(\mathbf{q}) (-i q_0) a^s_{\mathbf{q}} e^{i q \cdot y} + \epsilon_j^s(\mathbf{q}) (i q_0) a^{s\dagger}_{\mathbf{q}} e^{-i q \cdot y} \right],
+\end{align}
+where $q_0 = |\mathbf{q}|$.
+
+Now, let’s multiply $\Pi_i(\mathbf{x})$ and $\Pi_j(\mathbf{y})$ to find $\Pi_i(\mathbf{x}) \Pi_j(\mathbf{y})$:
+\begin{align}
+    \Pi_i(\mathbf{x}) \Pi_j(\mathbf{y}) &= \bigints\frac{d^3 \mathbf{p}}{(2\pi)^3 \sqrt{2|\mathbf{p}|}} \sum_{r=1}^2 \left[ \epsilon_i^r(\mathbf{p}) (-i p_0) a^r_{\mathbf{p}} e^{i p \cdot x} + \epsilon_i^r(\mathbf{p}) (i p_0) a^{r\dagger}_{\mathbf{p}} e^{-i p \cdot x} \right] \notag \\
+    &\quad \cdot \bigints\frac{d^3 \mathbf{q}}{(2\pi)^3 \sqrt{2|\mathbf{q}|}} \sum_{s=1}^2 \left[ \epsilon_j^s(\mathbf{q}) (-i q_0) a^s_{\mathbf{q}} e^{i q \cdot y} + \epsilon_j^s(\mathbf{q}) (i q_0) a^{s\dagger}_{\mathbf{q}} e^{-i q \cdot y} \right].
+\end{align}
+Expanding this product gives:
+\begin{align}
+    \Pi_i(\mathbf{x}) \Pi_j(\mathbf{y}) &= \bigints\frac{d^3 \mathbf{p}}{(2\pi)^3 \sqrt{2|\mathbf{p}|}} \bigints\frac{d^3 \mathbf{q}}{(2\pi)^3 \sqrt{2|\mathbf{q}|}} \sum_{r,s} \Bigg[ \epsilon_i^r(\mathbf{p}) \epsilon_j^s(\mathbf{q}) (-i p_0) (-i q_0) a^r_{\mathbf{p}} a^s_{\mathbf{q}} e^{i (p \cdot x + q \cdot y)} \nonumber \\
+    &\quad + \epsilon_i^r(\mathbf{p}) \epsilon_j^s(\mathbf{q}) (-i p_0)(i q_0) a^r_{\mathbf{p}} a^{s\dagger}_{\mathbf{q}} e^{i p \cdot x - i q \cdot y} + \epsilon_i^r(\mathbf{p}) \epsilon_j^s(\mathbf{q}) (i p_0)(-i q_0) a^{r\dagger}_{\mathbf{p}} a^s_{\mathbf{q}} e^{-i p \cdot x + i q \cdot y} \nonumber \\
+    &\hspace{50pt} + \epsilon_i^r(\mathbf{p}) \epsilon_j^s(\mathbf{q}) (i p_0)(i q_0) a^{r\dagger}_{\mathbf{p}} a^{s\dagger}_{\mathbf{q}} e^{-i (p \cdot x + q \cdot y)} \Bigg].
+\end{align}
+Next, compute $\Pi_j(\mathbf{y}) \Pi_i(\mathbf{x})$. Following the same process as above, we have:
+\begin{align}
+    \Pi_j(\mathbf{y}) \Pi_i(\mathbf{x}) &= \bigints\frac{d^3 \mathbf{q}}{(2\pi)^3 \sqrt{2|\mathbf{q}|}} \bigints\frac{d^3 \mathbf{p}}{(2\pi)^3 \sqrt{2|\mathbf{p}|}} \sum_{r,s} \Bigg[ \epsilon_j^s(\mathbf{q}) \epsilon_i^r(\mathbf{p}) (-i q_0) (-i p_0) a^s_{\mathbf{q}} a^r_{\mathbf{p}} e^{i (q \cdot y + p \cdot x)} \nonumber \\
+    &\quad + \epsilon_j^s(\mathbf{q}) \epsilon_i^r(\mathbf{p}) (-i q_0)(i p_0) a^s_{\mathbf{q}} a^{r\dagger}_{\mathbf{p}} e^{i q \cdot y - i p \cdot x} + \epsilon_j^s(\mathbf{q}) \epsilon_i^r(\mathbf{p}) (i q_0)(-i p_0) a^{s\dagger}_{\mathbf{q}} a^r_{\mathbf{p}} e^{-i q \cdot y + i p \cdot x} \nonumber \\
+    &\quad + \epsilon_j^s(\mathbf{q}) \epsilon_i^r(\mathbf{p}) (i q_0)(i p_0) a^{s\dagger}_{\mathbf{q}} a^{r\dagger}_{\mathbf{p}} e^{-i (q \cdot y + p \cdot x)} \Bigg]. 
+\end{align}
+The commutator is given by:
+\begin{align}
+    [\Pi_i(\mathbf{x}), \Pi_j(\mathbf{y})] &= \Pi_i(\mathbf{x}) \Pi_j(\mathbf{y}) - \Pi_j(\mathbf{y}) \Pi_i(\mathbf{x}) \nonumber \\
+    &= \bigints\frac{d^3 \mathbf{p}}{(2\pi)^3 \sqrt{2|\mathbf{p}|}} \bigints\frac{d^3 \mathbf{q}}{(2\pi)^3 \sqrt{2|\mathbf{q}|}} \sum_{r,s} \Bigg[ \epsilon_i^r(\mathbf{p}) \epsilon_j^s(\mathbf{q}) (-i p_0)(-i q_0) \Big( a^r_{\mathbf{p}} a^s_{\mathbf{q}} e^{i (p \cdot x + q \cdot y)} - a^s_{\mathbf{q}} a^r_{\mathbf{p}} e^{i (q \cdot y + p \cdot x)} \Big) \nonumber \\
+    &\hspace{20pt} + \epsilon_i^r(\mathbf{p}) \epsilon_j^s(\mathbf{q}) (-i p_0)(i q_0) \Big( a^r_{\mathbf{p}} a^{s\dagger}_{\mathbf{q}} e^{i p \cdot x - i q \cdot y} - a^s_{\mathbf{q}} a^{r\dagger}_{\mathbf{p}} e^{i q \cdot y - i p \cdot x} \Big) \notag\\
+    &\hspace{50pt}+\epsilon_i^r(\mathbf{p}) \epsilon_j^s(\mathbf{q}) (i p_0)(-i q_0) \Big( a^{r\dagger}_{\mathbf{p}} a^s_{\mathbf{q}} e^{-i p \cdot x + i q \cdot y} - a^{s\dagger}_{\mathbf{q}} a^r_{\mathbf{p}} e^{-i q \cdot y + i p \cdot x} \Big) \nonumber \\
+    &\hspace{80pt} + \epsilon_i^r(\mathbf{p}) \epsilon_j^s(\mathbf{q}) (i p_0)(i q_0) \Big( a^{r\dagger}_{\mathbf{p}} a^{s\dagger}_{\mathbf{q}} e^{-i (p \cdot x + q \cdot y)} - a^{s\dagger}_{\mathbf{q}} a^{r\dagger}_{\mathbf{p}} e^{-i (q \cdot y + p \cdot x)} \Big) \Bigg].
+\end{align}
+Using the commutation relations for the creation and annihilation operators (\ref{eq:given-relation-for-creation-operators-1}) and (\ref{eq:given-relation-for-creation-operators-2}):
+\begin{align*}
+    [a^r_{\mathbf{p}}, a^s_{\mathbf{q}}] = 0, \quad [a^{r\dagger}_{\mathbf{p}}, a^{s\dagger}_{\mathbf{q}}] = 0, \quad [a^r_{\mathbf{p}}, a^{s\dagger}_{\mathbf{q}}] = (2\pi)^3 \delta^{rs} \delta^{(3)}(\mathbf{p} - \mathbf{q}), 
+\end{align}
+we find that all the commutators vanish, since either the terms commute or they cancel each other out.
+
+Thus, we conclude that:
+\begin{align}
+    [\Pi_i(\mathbf{x}), \Pi_j(\mathbf{y})] = 0. ~~~~~\text{(\bf Showed)}
+\end{align}
+Now, let’s multiply $\Pi_i(\mathbf{x})$ and $A_j(\mathbf{y})$ to find $\Pi_i(\mathbf{x}) A_j(\mathbf{y})$:
+\begin{align}
+    \Pi_i(\mathbf{x}) A_j(\mathbf{y}) &= \bigints\frac{d^3 \mathbf{p}}{(2\pi)^3 \sqrt{2|\mathbf{p}|}} \sum_{r=1}^2 \left[ \epsilon_i^r(\mathbf{p}) (-i p_0) a^r_{\mathbf{p}} e^{i p \cdot x} + \epsilon_i^r(\mathbf{p}) (i p_0) a^{r\dagger}_{\mathbf{p}} e^{-i p \cdot x} \right] \notag\\
+    &\hspace{60pt}\cdot \bigints\frac{d^3 \mathbf{q}}{(2\pi)^3 \sqrt{2|\mathbf{q}|}} \sum_{s=1}^2 \left[ \epsilon_j^s(\mathbf{q}) a^s_{\mathbf{q}} e^{i q \cdot y} + \epsilon_j^s(\mathbf{q}) a^{s\dagger}_{\mathbf{q}} e^{-i q \cdot y} \right].
+\end{align}
+
+Expanding this product yields four terms:
+\begin{align}
+    \Pi_i(\mathbf{x}) A_j(\mathbf{y}) &= \bigints\frac{d^3 \mathbf{p}}{(2\pi)^3 \sqrt{2|\mathbf{p}|}} \bigints\frac{d^3 \mathbf{q}}{(2\pi)^3 \sqrt{2|\mathbf{q}|}} \sum_{r,s} \Bigg[ \epsilon_i^r(\mathbf{p}) \epsilon_j^s(\mathbf{q}) (-i p_0) a^r_{\mathbf{p}} a^s_{\mathbf{q}} e^{i (p \cdot x + q \cdot y)} \nonumber \\
+    &\quad + \epsilon_i^r(\mathbf{p}) \epsilon_j^s(\mathbf{q}) (-i p_0) a^r_{\mathbf{p}} a^{s\dagger}_{\mathbf{q}} e^{i p \cdot x - i q \cdot y} + \epsilon_i^r(\mathbf{p}) \epsilon_j^s(\mathbf{q}) (i p_0) a^{r\dagger}_{\mathbf{p}} a^s_{\mathbf{q}} e^{-i p \cdot x + i q \cdot y} + \epsilon_i^r(\mathbf{p}) \epsilon_j^s(\mathbf{q}) (i p_0) a^{r\dagger}_{\mathbf{p}} a^{s\dagger}_{\mathbf{q}} e^{-i (p \cdot x + q \cdot y)} \Bigg].
+\end{align}
+Similarly, compute $A_j(\mathbf{y}) \Pi_i(\mathbf{x})$. Following the same process, we have:
+\begin{align}
+    A_j(\mathbf{y}) \Pi_i(\mathbf{x}) &= \bigints\frac{d^3 \mathbf{q}}{(2\pi)^3 \sqrt{2|\mathbf{q}|}} \sum_{s=1}^2 \left[ \epsilon_j^s(\mathbf{q}) a^s_{\mathbf{q}} e^{i q \cdot y} + \epsilon_j^s(\mathbf{q}) a^{s\dagger}_{\mathbf{q}} e^{-i q \cdot y} \right] \notag\\
+    &\hspace{50pt}\cdot\bigints\frac{d^3 \mathbf{p}}{(2\pi)^3 \sqrt{2|\mathbf{p}|}} \sum_{r=1}^2 \left[ \epsilon_i^r(\mathbf{p}) (-i p_0) a^r_{\mathbf{p}} e^{i p \cdot x} + \epsilon_i^r(\mathbf{p}) (i p_0) a^{r\dagger}_{\mathbf{p}} e^{-i p \cdot x} \right]\notag\\
+    &= \bigints\frac{d^3 \mathbf{p}}{(2\pi)^3 \sqrt{2|\mathbf{p}|}} \bigints\frac{d^3 \mathbf{q}}{(2\pi)^3 \sqrt{2|\mathbf{q}|}} \sum_{r,s} \Bigg[ \epsilon_j^s(\mathbf{q}) \epsilon_i^r(\mathbf{p}) (-i p_0) a^s_{\mathbf{q}} a^r_{\mathbf{p}} e^{i (q \cdot y + p \cdot x)} + \epsilon_j^s(\mathbf{q}) \epsilon_i^r(\mathbf{p}) (-i p_0) a^s_{\mathbf{q}} a^{r\dagger}_{\mathbf{p}} e^{i q \cdot y - i p \cdot x} \nonumber \\
+    &\quad + \epsilon_j^s(\mathbf{q}) \epsilon_i^r(\mathbf{p}) (i p_0) a^{s\dagger}_{\mathbf{q}} a^r_{\mathbf{p}} e^{-i q \cdot y + i p \cdot x} + \epsilon_j^s(\mathbf{q}) \epsilon_i^r(\mathbf{p}) (i p_0) a^{s\dagger}_{\mathbf{q}} a^{r\dagger}_{\mathbf{p}} e^{-i (q \cdot y + p \cdot x)} \Bigg]. 
+\end{align}
+The commutator is given by:
+\begin{align}
+    [A_i(\mathbf{x}), \Pi_j(\mathbf{y})] &= A_i(\mathbf{x}) \Pi_j(\mathbf{y}) - \Pi_j(\mathbf{y}) A_i(\mathbf{x}) \nonumber \\
+    &= \bigints\frac{d^3 \mathbf{p}}{(2\pi)^3 \sqrt{2|\mathbf{p}|}} \bigints\frac{d^3 \mathbf{q}}{(2\pi)^3 \sqrt{2|\mathbf{q}|}} \sum_{r,s} \Bigg[ \epsilon_i^r(\mathbf{p}) \epsilon_j^s(\mathbf{q}) (-i p_0) \Big( a^r_{\mathbf{p}} a^s_{\mathbf{q}} e^{i (p \cdot x + q \cdot y)} - a^s_{\mathbf{q}} a^r_{\mathbf{p}} e^{i (q \cdot y + p \cdot x)} \Big) \nonumber \\
+    &\quad + \epsilon_i^r(\mathbf{p}) \epsilon_j^s(\mathbf{q}) (-i p_0) \Big( a^r_{\mathbf{p}} a^{s\dagger}_{\mathbf{q}} e^{i p \cdot x - i q \cdot y} - a^s_{\mathbf{q}} a^{r\dagger}_{\mathbf{p}} e^{i q \cdot y - i p \cdot x} \Big) + \epsilon_i^r(\mathbf{p}) \epsilon_j^s(\mathbf{q}) (i p_0) \Big( a^{r\dagger}_{\mathbf{p}} a^s_{\mathbf{q}} e^{-i p \cdot x + i q \cdot y} - a^{s\dagger}_{\mathbf{q}} a^r_{\mathbf{p}} e^{-i q \cdot y + i p \cdot x} \Big) \nonumber \\
+    &\hspace{50pt} + \epsilon_i^r(\mathbf{p}) \epsilon_j^s(\mathbf{q}) (i p_0) \Big( a^{r\dagger}_{\mathbf{p}} a^{s\dagger}_{\mathbf{q}} e^{-i (p \cdot x + q \cdot y)} - a^{s\dagger}_{\mathbf{q}} a^{r\dagger}_{\mathbf{p}} e^{-i (q \cdot y + p \cdot x)} \Big) \Bigg].
+\end{align}
+Using the commutation relations:
+\begin{align*}
+    [a^r_{\mathbf{p}}, a^s_{\mathbf{q}}] = 0, \quad [a^{r\dagger}_{\mathbf{p}}, a^{s\dagger}_{\mathbf{q}}] = 0, \quad [a^r_{\mathbf{p}}, a^{s\dagger}_{\mathbf{q}}] = (2\pi)^3 \delta^{rs} \delta^{(3)}(\mathbf{p} - \mathbf{q}), 
+\end{align*}
+we can simplify the non-zero terms. Substituting the commutator $[a^r_{\mathbf{p}}, a^{s\dagger}_{\mathbf{q}}]$ into the appropriate terms, we find:
+\begin{align}
+    [A_i(\mathbf{x}), \Pi_j(\mathbf{y})] &= i \bigints\frac{d^3 \mathbf{p}}{(2\pi)^3 2|\mathbf{p}|} \sum_{r=1}^2 \epsilon_i^r(\mathbf{p}) \epsilon_j^r(\mathbf{p}) e^{i \mathbf{p} \cdot (\mathbf{x} - \mathbf{y})}. 
+\end{align}
+Since the polarization vectors satisfy the condition:
+\begin{align*}
+    \sum_{r=1}^2 \epsilon_i^r(\mathbf{p}) \epsilon_j^r(\mathbf{p}) = \delta_{ij} - \frac{p_i p_j}{|\mathbf{p}|^2}, 
+\end{align*}
+we can substitute this into the commutator expression:
+\begin{align*}
+    [A_i(\mathbf{x}), \Pi_j(\mathbf{y})] &= i \bigints\frac{d^3 \mathbf{p}}{(2\pi)^3 2|\mathbf{p}|} \left( \delta_{ij} - \frac{p_i p_j}{|\mathbf{p}|^2} \right) e^{i \mathbf{p} \cdot (\mathbf{x} - \mathbf{y})}.
+\end{align*}
+Performing the inverse Fourier transform, we find:
+\begin{align*}
+    [A_i(\mathbf{x}), \Pi_j(\mathbf{y})] = i \left( \delta_{ij} - \frac{\partial_i \partial_j}{\nabla^2} \right) \delta^{(3)}(\mathbf{x} - \mathbf{y}). \label{eq:[A_i,pi_j]-check}~~~~~\text{(\bf Showed)}
+\end{align*}
+\item [(d)] We start with the Hamiltonian:
+\begin{align}
+    H = \bigints d^3 \mathbf{x} \left( \frac{1}{2} \mathbf{E}^2 + \frac{1}{2} \mathbf{B}^2 \right).
+\end{align}
+The electric field $\mathbf{E}$ and magnetic field $\mathbf{B}$ are related to the vector potential $\mathbf{A}$ by:
+\begin{align*}
+    \mathbf{E} &= -\frac{\partial \mathbf{A}}{\partial t}, \\
+    \mathbf{B} &= \nabla \times \mathbf{A}.
+\end{align*}
+Using the mode expansion for $\mathbf{A}(\mathbf{x}, t)$ from (\ref{eq:vector-potential-integral-def}), we substitute this into the expressions for $\mathbf{E}$ and $\mathbf{B}$.
+
+The electric field $\mathbf{E}$ is:
+\begin{align}
+    \mathbf{E}(\mathbf{x}, t) &= -\frac{\partial \mathbf{A}(\mathbf{x}, t)}{\partial t} \notag\\
+    &= -\frac{\partial}{\partial t} \left[ \bigints\frac{d^3 \mathbf{p}}{(2\pi)^3 \sqrt{2|\mathbf{p}|}} \sum_{r=1}^2 \left( \epsilon_i^r(\mathbf{p}) a^r_{\mathbf{p}} e^{i p \cdot x} + \epsilon_i^r(\mathbf{p}) a^{r\dagger}_{\mathbf{p}} e^{-i p \cdot x} \right) \right] \notag\\
+    &= \bigints\frac{d^3 \mathbf{p}}{(2\pi)^3 \sqrt{2|\mathbf{p}|}} \sum_{r=1}^2 \left( -i p_0 \epsilon_i^r(\mathbf{p}) a^r_{\mathbf{p}} e^{i p \cdot x} + i p_0 \epsilon_i^r(\mathbf{p}) a^{r\dagger}_{\mathbf{p}} e^{-i p \cdot x} \right).
+\end{align}
+The magnetic field $\mathbf{B}$ is:
+\begin{align}
+    \mathbf{B}(\mathbf{x}, t) &= \nabla \times \mathbf{A}(\mathbf{x}, t) \notag\\
+    &= \nabla \times \left[ \bigints\frac{d^3 \mathbf{p}}{(2\pi)^3 \sqrt{2|\mathbf{p}|}} \sum_{r=1}^2 \left( \epsilon_i^r(\mathbf{p}) a^r_{\mathbf{p}} e^{i p \cdot x} + \epsilon_i^r(\mathbf{p}) a^{r\dagger}_{\mathbf{p}} e^{-i p \cdot x} \right) \right] \notag\\
+    &= \bigints\frac{d^3 \mathbf{p}}{(2\pi)^3 \sqrt{2|\mathbf{p}|}} \sum_{r=1}^2 \left( i \mathbf{p} \times \epsilon_i^r(\mathbf{p}) a^r_{\mathbf{p}} e^{i p \cdot x} - i \mathbf{p} \times \epsilon_i^r(\mathbf{p}) a^{r\dagger}_{\mathbf{p}} e^{-i p \cdot x} \right).
+\end{align}
+
+To find $\mathbf{E}^2$:
+\begin{align}
+    \mathbf{E}^2(\mathbf{x}, t) &= \left( \bigints\frac{d^3 \mathbf{p}}{(2\pi)^3 \sqrt{2|\mathbf{p}|}} \sum_{r=1}^2 \left( -i p_0 \epsilon_i^r(\mathbf{p}) a^r_{\mathbf{p}} e^{i p \cdot x} + i p_0 \epsilon_i^r(\mathbf{p}) a^{r\dagger}_{\mathbf{p}} e^{-i p \cdot x} \right) \cdot \left( -i p_0 \epsilon_j^s(\mathbf{q}) a^s_{\mathbf{q}} e^{i q \cdot x} + i p_0 \epsilon_j^s(\mathbf{q}) a^{s\dagger}_{\mathbf{q}} e^{-i q \cdot x} \right) \right).
+\end{align}
+Similarly, for $\mathbf{B}^2$:
+\begin{align}
+    \mathbf{B}^2(\mathbf{x}, t) &= \left( \bigints\frac{d^3 \mathbf{p}}{(2\pi)^3 \sqrt{2|\mathbf{p}|}} \sum_{r=1}^2 \left( i \mathbf{p} \times \epsilon_i^r(\mathbf{p}) a^r_{\mathbf{p}} e^{i p \cdot x} - i \mathbf{p} \times \epsilon_i^r(\mathbf{p}) a^{r\dagger}_{\mathbf{p}} e^{-i p \cdot x} \right) \cdot \left( i \mathbf{q} \times \epsilon_j^s(\mathbf{q}) a^s_{\mathbf{q}} e^{i q \cdot x} - i \mathbf{q} \times \epsilon_j^s(\mathbf{q}) a^{s\dagger}_{\mathbf{q}} e^{-i q \cdot x} \right) \right).
+\end{align}
+Using the orthogonality of the exponential functions:
+\begin{align}
+    \bigints d^3 \mathbf{x} \, e^{i (\mathbf{p} - \mathbf{q}) \cdot \mathbf{x}} &= (2\pi)^3 \delta^{(3)}(\mathbf{p} - \mathbf{q}).
+\end{align}
+
+Substituting and simplifying:
+\begin{align}
+    H &= \bigints d^3 \mathbf{x} \left( \frac{1}{2} \mathbf{E}^2 + \frac{1}{2} \mathbf{B}^2 \right)\notag \\
+    &= \bigints d^3 \mathbf{x} \bigg[\frac{1}{2} \left( \bigints\frac{d^3 \mathbf{p}}{(2\pi)^3 \sqrt{2|\mathbf{p}|}} \sum_{r=1}^2 \left( -i p_0 \epsilon_i^r(\mathbf{p}) a^r_{\mathbf{p}} e^{i p \cdot x} + i p_0 \epsilon_i^r(\mathbf{p}) a^{r\dagger}_{\mathbf{p}} e^{-i p \cdot x} \right) \cdot \left( -i p_0 \epsilon_j^s(\mathbf{q}) a^s_{\mathbf{q}} e^{i q \cdot x} + i p_0 \epsilon_j^s(\mathbf{q}) a^{s\dagger}_{\mathbf{q}} e^{-i q \cdot x} \right) \right) \notag\\
+    &\quad + \frac{1}{2} \left( \bigints\frac{d^3 \mathbf{p}}{(2\pi)^3 \sqrt{2|\mathbf{p}|}} \sum_{r=1}^2 \left( i \mathbf{p} \times \epsilon_i^r(\mathbf{p}) a^r_{\mathbf{p}} e^{i p \cdot x} - i \mathbf{p} \times \epsilon_i^r(\mathbf{p}) a^{r\dagger}_{\mathbf{p}} e^{-i p \cdot x} \right) \cdot \left( i \mathbf{q} \times \epsilon_j^s(\mathbf{q}) a^s_{\mathbf{q}} e^{i q \cdot x} - i \mathbf{q} \times \epsilon_j^s(\mathbf{q}) a^{s\dagger}_{\mathbf{q}} e^{-i q \cdot x} \right) \bigg]\right) \notag\\
+    &= \bigints\frac{d^3 \mathbf{p}}{(2\pi)^3} \sum_{r=1}^2 \left[ \frac{1}{2} \left( p_0^2 \left( a^{r\dagger}_{\mathbf{p}} a^r_{\mathbf{p}} + a^r_{\mathbf{p}} a^{r\dagger}_{\mathbf{p}} \right) \right) \right] \notag\\
+    &= \bigints\frac{d^3 \mathbf{p}}{(2\pi)^3} \sum_{r=1}^2 \left( \frac{1}{2} p_0 \left( a^{r\dagger}_{\mathbf{p}} a^r_{\mathbf{p}} + a^r_{\mathbf{p}} a^{r\dagger}_{\mathbf{p}} \right) \right) \notag\\
+    &= \bigints\frac{d^3 \mathbf{p}}{(2\pi)^3} \sum_{r=1}^2 p_0 \, a^{r\dagger}_{\mathbf{p}} a^r_{\mathbf{p}} \notag\\
+    &= \bigints\frac{d^3 \mathbf{p}}{(2\pi)^3} \sum_{r=1}^2 |\mathbf{p}| \, a^{r\dagger}_{\mathbf{p}} a^r_{\mathbf{p}}.
+\end{align}
+\end{enumerate}
+\bigskip\bigskip\hline\hline\bigskip

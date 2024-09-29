@@ -1,0 +1,152 @@
+\allowdisplaybreaks
+\begin{center}
+	\hrule
+	\vspace{.4cm}
+ \begin{tabular*}{\textwidth}{@{}l@{}|@{\extracolsep{0.6in}}r@{}}%
+\parbox{4.25in}{\raggedright{\includegraphics[width=.9\linewidth]{ictp-pwf.pdf}}} &
+\parbox[c][]{4in}{{\Large\textbf{Md Akiful Islam Zawad} \par}
+                    { Brac University \par}
+                    { KHA 224, Progati Sarani, Merul Badda, \par}
+                    { Dhaka 1212, Bangladesh \par}
+                    { \href{ext.akiful.islam@bracu.ac.bd}{ext.akiful.islam@bracu.ac.bd}} \par}
+\end{tabular*}\vspace{.3in}
+\definecolor{ceruleanblue}{rgb}{0.16, 0.32, 0.6}
+	\LARGE\scshape\textbf{\textcolor{ceruleanblue}{Physics for Bangladesh QFT School}}
+\end{center}
+\hrule\vspace{.25in}
+{\large\textbf{Problem Sheet:}\ \textsc{5} \hspace{\hfill} \large\textbf{Due Date:} \today\\
+	\hrule}
+ %----------------------------
+\paragraph*{Problem Set 2} %\hfill \newline
+\\
+Here we will study the simple harmonic oscillator at finite temperature by evaluating some functional determinants. We will study the quantum harmonic oscillator with Hamiltonian and Lagrangian:
+\begin{align}
+    H = \frac{p^2}{2} + \frac{1}{2} \omega^2 q^2, \quad L = \frac{1}{2} \dot{q}^2 - \frac{\omega^2}{2} q^2.
+\end{align}
+\begin{enumerate}
+    \item [(a)] The fundamental object in quantum statistical mechanics is the partition function, defined as
+\begin{align}
+    Z(\beta) = \text{Tr} \, \exp(-\beta H), \label{eq:partition-function-qm-def}
+\end{align}
+where $H$ is the Hamiltonian of the quantum mechanical system. Use properties of the path integral to convince yourself that the partition function can be computed by the following path integral over compact Euclidean time $\tau$:
+\begin{align}
+    Z(\beta) = \bigints_{q(0)=q(\beta)} [Dq] \exp \left[ -\bigints_{\,0}^{\beta} d\tau \left( \frac{1}{2} \left( \frac{dq}{d\tau} \right)^2 + \frac{\omega^2}{2} q^2 \right) \right]
+\end{align}
+where compact Euclidean time means that $\tau \in [0, \beta]$, and the field $q(\tau)$ satisfies periodic boundary conditions, i.e. $q(0) = q(\beta)$. Thus we are doing the functional integral over fields defined on a circle of length $\beta$.
+\item [(b)] This functional integral can be evaluated using the “fundamental theorem” above to be the functional determinant
+\begin{align}
+    Z(\beta) \propto \left[ \det \left( -\frac{d^2}{d\tau^2} + \omega^2 \right) \right]^{-1/2},
+\end{align}
+where I have omitted $\omega$-independent factors of $(2\pi)^\infty$. Evaluate this determinant and compute the $\omega$-dependence of the partition function. (Getting the $\beta$-dependence exactly right is tricky, but the $\omega$-dependence is unambiguous). You may find the identity
+\begin{align}
+    \sinh z = z \prod_{n=1}^{\infty} \left( 1 + \frac{z^2}{(n\pi)^2} \right)
+\end{align}
+useful.
+
+Compare your result to the usual partition function computed via canonical methods (i.e. by directly calculating the sum over the eigenstates of the simple harmonic oscillator in (\ref{eq:partition-function-qm-def}).
+\end{enumerate}
+\bigskip\bigskip\hline\hline\bigskip
+\subsection*{Solution}
+\begin{enumerate}
+    \item [(a)] The partition function $Z(\beta)$ in quantum statistical mechanics is defined as:
+    \begin{align}
+        Z(\beta) = \text{Tr} \, \exp(-\beta H),
+    \end{align}
+    where $H$ is the Hamiltonian of the quantum mechanical system and $\displaystyle\beta = \frac{1}{k_B T}$ represents the inverse temperature. The trace sums over all possible quantum states of the system. However, there is a deep connection between the Boltzmann factor $\exp(-\beta H)$ and time evolution in imaginary time.
+    
+    To see this, recall that in standard quantum mechanics, the time evolution of a state $| \psi(t) \rangle$ is governed by the Schrödinger equation:
+    \begin{align*}
+        | \psi(t) \rangle = \exp(-i H t) | \psi(0) \rangle.
+    \end{align*}
+    By replacing $t$ with imaginary time $\tau = i t$, the time evolution operator becomes $\exp(-H \tau)$. 
+    
+    In statistical mechanics, this imaginary time evolution occurs over an interval of length $\beta$, as $\beta$ plays the role of inverse temperature. Thus, the partition function is analogous to time evolution in imaginary (Euclidean) time over an interval $[0, \beta]$:
+    \begin{align}
+        Z(\beta) = \text{Tr} \, \exp(-\beta H) = \bigints_{\displaystyle q(0) = q(\beta)} [Dq] \exp \left[ - \bigints_{~~0}^{\beta} d\tau \, L_E \right],
+    \end{align}
+    where $L_E$ is the Euclidean Lagrangian.
+
+    Since the trace $\text{Tr}$ sums over all possible quantum states, it implies that the quantum system returns to its original state after time $\tau = \beta$. This is why the fields $q(\tau)$ must satisfy periodic boundary conditions:
+    \begin{align}
+        q(0) = q(\beta).
+    \end{align}
+    In other words, the field $q(\tau)$ evolves in imaginary time from $\tau = 0$ to $\tau = \beta$, and because of the trace operation, it “loops back” on itself at $\tau = \beta$, forming a closed path.
+    
+    The periodic boundary conditions imply that the quantum system evolves in Euclidean time as though it were propagating over a circle of length $\beta$. The interval $\tau \in [0, \beta]$ represents the circumference of the circle. The path integral, therefore, sums over all possible configurations of the field $q(\tau)$ that live on this circle. The circular nature of the path integral arises because the system returns to the same configuration after time $\tau = \beta$, forming a closed loop in imaginary time.
+    \begin{itemize}
+        \item Imagine a point moving on a straight line in real time. The point moves from some position at $t = 0$ to another position at $t = T$, where $T$ is a finite time.
+        \item Now, in imaginary time, instead of a straight line, the point moves on a \textit{loop} from $\tau = 0$ to $\tau = \beta$ and then returns to its original position because of the periodic boundary conditions.
+        \item The periodicity in $\tau$ effectively makes the system “wrap around,” creating a circle in imaginary time.
+    \end{itemize}
+    Thus, the propagation of the quantum system in imaginary time is akin to the system evolving on a circle, where the field configuration at $\tau = 0$ must match the configuration at $\tau = \beta$.
+    
+    With this understanding, the partition function is given by:
+    \begin{align}
+        Z(\beta) = \bigints_{\displaystyle q(0) = q(\beta)} [Dq] \exp \left[ -\bigints_{~~0}^{\beta} d\tau \left( \frac{1}{2} \left( \frac{dq}{d\tau} \right)^2 + \frac{\omega^2}{2} q^2 \right) \right].\label{eq:partition-function-def}
+    \end{align}
+    This path integral describes the propagation of the quantum harmonic oscillator over a \textit{circle} of length $\beta$, with periodic boundary conditions. We now proceed to evaluate this functional integral.
+    \item [(b)] The path integral in (\ref{eq:partition-function-def}) can be reduced to a functional determinant using the fundamental theorem of quantum field theory, which relates the Gaussian functional integrals to determinants of differential operators. In this case, the operator in the exponent is:
+    \[
+    -\frac{d^2}{d\tau^2} + \omega^2.
+    \]
+    Therefore, the partition function can be written as:
+    \begin{align}
+        Z(\beta) \propto \left[ \det \left( -\frac{d^2}{d\tau^2} + \omega^2 \right) \right]^{-1/2}.\label{eq:partition-function}
+    \end{align}
+    Next, we evaluate the determinant of the operator $\displaystyle-\frac{d^2}{d\tau^2} + \omega^2$. The eigenvalues of the differential operator $\displaystyle-\frac{d^2}{d\tau^2}$ with periodic boundary conditions $q(0) = q(\beta)$ are given by:
+    \[
+    \lambda_n = \left( \frac{2\pi n}{\beta} \right)^2 \quad \text{for} \quad n = 0, \pm 1, \pm 2, \dots
+    \]
+    Thus, the eigenvalues of $\displaystyle-\frac{d^2}{d\tau^2} + \omega^2$ are:
+    \[
+    \lambda_n = \left( \frac{2\pi n}{\beta} \right)^2 + \omega^2.
+    \]
+    The functional determinant can be written as the product over all eigenvalues:
+    \begin{align*}
+        \det \left( -\frac{d^2}{d\tau^2} + \omega^2 \right) = \prod_{n=-\infty}^{\infty} \bigg[\left( \frac{2\pi n}{\beta} \right)^2 + \omega^2\bigg].
+    \end{align*}
+    To compute the product, we use the following identity:
+    \begin{align*}
+        \sinh z = z \prod_{n=1}^{\infty} \left( 1 + \frac{z^2}{n^2 \pi^2} \right).
+    \end{align*}
+    This allows us to express the product over the eigenvalues as:
+    \begin{align*}
+        \prod_{n=-\infty}^{\infty} \bigg[\left( \frac{2\pi n}{\beta} \right)^2 + \omega^2 \bigg] = \frac{\displaystyle\sinh\left(\frac{\beta\omega}{2}\right)}{\displaystyle\frac{\beta\omega}{2}}.
+    \end{align*}
+    Therefore, the determinant becomes:
+    \begin{align*}
+        \det \left( -\frac{d^2}{d\tau^2} + \omega^2 \right) = \frac{\displaystyle\sinh\left(\frac{\beta\omega}{2}\right)}{\displaystyle\frac{\beta\omega}{2}}.
+    \end{align*}
+    Substituting the determinant into (\ref{eq:partition-function}), we find that the partition function $Z(\beta)$ is proportional to:
+    \begin{align*}
+        Z(\beta) \propto \left( \frac{\displaystyle\frac{\beta\omega}{2}}{\displaystyle\sinh\left(\frac{\beta\omega}{2}\right)} \right)^{1/2}.
+    \end{align*}
+    Thus, the $\omega$-dependence of the partition function is:
+    \begin{align}
+        Z(\beta) \propto \frac{1}{\displaystyle\sinh\left(\frac{\beta\omega}{2}\right)}.
+    \end{align}
+    This is the final form of the partition function for the quantum harmonic oscillator at finite temperature, where the $\beta$-dependence describes the inverse temperature, and the $\omega$-dependence is given explicitly.
+
+    Now, let us compute the partition function using the canonical approach, where we directly sum over the eigenstates of the simple harmonic oscillator.
+
+    The energy eigenvalues of the quantum harmonic oscillator are given by:
+    \begin{align}
+        E_n = \left( n + \frac{1}{2} \right) \omega, \quad n = 0, 1, 2, \dots
+    \end{align}
+    The partition function is then the sum over all energy eigenstates:
+    \begin{align}
+        Z(\beta) = \text{Tr} \, \exp(-\beta H) = \sum_{n=0}^{\infty} \exp\bigg[-\beta \left( n + \frac{1}{2} \right) \omega \bigg]. 
+    \end{align}
+    We can factor the exponentials as:
+    \begin{align}
+        Z(\beta) &= \sum_{n=0}^{\infty} \exp\left( -\beta n \omega \right) \exp\left( -\frac{\beta \omega}{2} \right) \notag \\
+        &= \exp\left( -\frac{\beta \omega}{2} \right)\left[\sum_{n=0}^{\infty} \exp\left( -\beta n \omega \right)\right]\notag\\
+        &= \exp\left(\displaystyle-\frac{\beta \omega}{2} \right)\cdot\frac{1}{1 - \exp(-\beta \omega)} \notag \\
+        &= \frac{\displaystyle\exp\left( -\frac{\beta \omega}{2} \right)}{1 - \exp(-\beta \omega)}\notag\\
+        &= \frac{\displaystyle\exp\left( -\frac{\beta \omega}{2} \right)}{\displaystyle2\sinh\left( \frac{\beta \omega}{2} \right) \exp\left( -\frac{\beta \omega}{2} \right)} \notag \\
+        &= \frac{1}{\displaystyle2\sinh\left( \frac{\displaystyle\beta \omega}{2} \right)}\notag\\
+        &\propto \frac{1}{\displaystyle\sinh\left(\frac{\beta\omega}{2}\right)}.
+    \end{align}
+    This result agrees with the $\omega$-dependence obtained from the path integral method, up to a constant factor, which was omitted in the path integral derivation. Both methods yield the same physical dependence on the inverse temperature $\beta$ and the oscillator frequency $\omega$.
+\end{enumerate}
+\bigskip\bigskip\hline\hline\bigskip

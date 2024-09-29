@@ -1,0 +1,261 @@
+\allowdisplaybreaks
+\begin{center}
+	\hrule
+	\vspace{.4cm}
+ \begin{tabular*}{\textwidth}{@{}l@{}|@{\extracolsep{0.6in}}r@{}}%
+\parbox{4.25in}{\raggedright{\includegraphics[width=.9\linewidth]{ictp-pwf.pdf}}} &
+\parbox[c][]{4in}{{\Large\textbf{Md Akiful Islam Zawad} \par}
+                    { Brac University \par}
+                    { KHA 224, Progati Sarani, Merul Badda, \par}
+                    { Dhaka 1212, Bangladesh \par}
+                    { \href{ext.akiful.islam@bracu.ac.bd}{ext.akiful.islam@bracu.ac.bd}} \par}
+\end{tabular*}\vspace{.3in}
+\definecolor{ceruleanblue}{rgb}{0.16, 0.32, 0.6}
+	\LARGE\scshape\textbf{\textcolor{ceruleanblue}{Physics For Bangladesh: School On Quantum Field Theory}}
+\end{center}
+\hrule\vspace{.25in}
+{\large\textbf{Problem Sheet:}\ \textsc{1} \hspace{\hfill} \large\textbf{Due Date:} \today\\
+	\hline\hline
+ %----------------------------
+\paragraph*{Problem Set 4} %\hfill \newline
+\\
+The Fourier decompositions of a real scalar field and its conjugate momentum are (note that they are at $t = 0$, as compared to the lectures)
+    \begin{align*}
+        \phi(\vec{x}) &= \bigints \frac{d^3p}{(2\pi)^3} \frac{1}{\sqrt{2E_{\mathbf{p}}}} \left[a_{\mathbf{p}} e^{i\mathbf{p} \cdot \vec{x}} + a^\dagger_{\mathbf{p}} e^{-i\mathbf{p} \cdot \vec{x}} \right]\\
+        \pi(\vec{x}) &= \bigints \frac{d^3p}{(2\pi)^3} (-i)\sqrt{\frac{E_{\mathbf{p}}}{2}} \left[a_{\mathbf{p}} e^{i\mathbf{p} \cdot \vec{x}} - a^\dagger_{\mathbf{p}} e^{-i\mathbf{p} \cdot \vec{x}} \right]
+    \end{align*}
+    with (equal time at $t = 0$) commutation relationships
+    \begin{align*}
+        [\phi(\vec{x}), \phi(\vec{y})] = [\pi(\vec{x}), \pi(\vec{y})] = 0 \quad \text{and} \quad [\phi(\vec{x}), \pi(\vec{y})] = i\delta^{(3)}(\vec{x} - \vec{y})
+    \end{align*}
+    implying
+    \begin{align*}
+        [a_{\mathbf{p}}, a_{\vec{q}}] = [a^\dagger_{\mathbf{p}}, a^\dagger_{\vec{q}}] = 0 \quad \text{and} \quad [a_{\mathbf{p}}, a^\dagger_{\vec{q}}] = (2\pi)^3 \delta^{(3)}(\mathbf{p} - \vec{q})
+    \end{align*}
+    \begin{enumerate}
+        \item Generalize above analysis for the complex scalar field whose Lagrangian is given in problem 2.
+        \item Compute the Feynman propagator for the complex scalar field defined by $\langle 0|T(\Phi(x) \Phi^\dagger(y))|0 \rangle$.
+        \item Use the mode expansion of the field and derive the propagator in momentum space.
+        \item Lastly, compute the time-ordered product $T(\Phi(x) \Phi^\dagger(y) \Phi(z))$.
+    \end{enumerate}
+\bigskip\bigskip\hline\hline\bigskip
+\section*{Solution}
+\subsection*{(a) Generalization to Complex Scalar Field}
+Consider a complex scalar field \(\Phi(\vec{x})\) with the Lagrangian density:
+\begin{align}
+    \mathcal{L} = \partial_\mu \Phi^* \partial^\mu \Phi - m^2 \Phi^* \Phi - \frac{\lambda}{2} (\Phi^* \Phi)^2.
+\end{align}
+For simplicity, we will first consider the free case, where \(\lambda = 0\):
+\begin{align}
+    \mathcal{L}_{\text{free}} = \partial_\mu \Phi^* \partial^\mu \Phi - m^2 \Phi^* \Phi.
+\end{align}
+The Euler-Lagrange equation for the field \(\Phi\) is given by:
+\begin{align}
+    \frac{\partial \mathcal{L}}{\partial \Phi^*} - \partial_\mu \left( \frac{\partial \mathcal{L}}{\partial (\partial_\mu \Phi^*)} \right) = 0.
+\end{align}
+For \(\Phi\), we have:
+\begin{align}
+    \frac{\partial \mathcal{L}}{\partial \Phi^*} &= -m^2 \Phi, \\
+    \frac{\partial \mathcal{L}}{\partial (\partial_\mu \Phi^*)} &= \partial^\mu \Phi.
+\end{align}
+Thus,
+\begin{align}
+    \partial_\mu \left( \frac{\partial \mathcal{L}}{\partial (\partial_\mu \Phi^*)} \right) &= \partial_\mu \left( \partial^\mu \Phi \right) = \Box \Phi,
+\end{align}
+where \(\Box = \partial_\mu \partial^\mu\) is the d'Alembertian operator. The equation of motion is:
+\begin{align}
+    (\Box + m^2) \Phi = 0.
+\end{align}
+The general solution to the Klein-Gordon equation can be expressed as a superposition of plane waves. We write the mode expansion for the field \(\Phi(\vec{x})\) as:
+\begin{align}
+    \Phi(\vec{x}) &= \bigints\frac{d^3p}{(2\pi)^3} \frac{1}{\sqrt{2E_{\mathbf{p}}}} \left( a_{\mathbf{p}} e^{i \mathbf{p} \cdot \vec{x}} + b^\dagger_{\mathbf{p}} e^{-i \mathbf{p} \cdot \vec{x}} \right),
+\end{align}
+where \(E_{\mathbf{p}} = \sqrt{\mathbf{p}^2 + m^2}\) is the energy of the particle.
+
+The conjugate momentum \(\pi(\vec{x})\) is defined as:
+\begin{align}
+    \pi(\vec{x}) = \frac{\partial \mathcal{L}}{\partial (\partial_0 \Phi^*)}.
+\end{align}
+For our Lagrangian density, we get:
+\begin{align}
+    \pi(\vec{x}) &= \frac{\partial}{\partial t} \Phi^*(\vec{x}).
+\end{align}
+To find \(\pi(\vec{x})\), we first need the mode expansion for \(\Phi^*(\vec{x})\). The complex conjugate of \(\Phi(\vec{x})\) is:
+\begin{align}
+    \Phi^*(\vec{x}) &= \bigints\frac{d^3p}{(2\pi)^3} \frac{1}{\sqrt{2E_{\mathbf{p}}}} \left( a^\dagger_{\mathbf{p}} e^{-i \mathbf{p} \cdot \vec{x}} + b_{\mathbf{p}} e^{i \mathbf{p} \cdot \vec{x}} \right).
+\end{align}
+Taking the time derivative:
+\begin{align}
+    \pi(\vec{x}) &= \frac{\partial}{\partial t} \Phi^*(\vec{x}) \\
+    &= \bigints\frac{d^3p}{(2\pi)^3} \frac{1}{\sqrt{2E_{\mathbf{p}}}} \left( -i E_{\mathbf{p}} a^\dagger_{\mathbf{p}} e^{-i \mathbf{p} \cdot \vec{x}} + i E_{\mathbf{p}} b_{\mathbf{p}} e^{i \mathbf{p} \cdot \vec{x}} \right) \\
+    &= \bigints\frac{d^3p}{(2\pi)^3} \left(-i \sqrt{\frac{E_{\mathbf{p}}}{2}} \left( a^\dagger_{\mathbf{p}} e^{-i \mathbf{p} \cdot \vec{x}} - b_{\mathbf{p}} e^{i \mathbf{p} \cdot \vec{x}} \right)\right).
+\end{align}
+The mode expansions for the field \(\Phi(\vec{x})\) and its conjugate momentum \(\pi(\vec{x})\) are:
+\begin{align}
+    \Phi(\vec{x}) &= \bigints\frac{d^3p}{(2\pi)^3} \frac{1}{\sqrt{2E_{\mathbf{p}}}} \left( a_{\mathbf{p}} e^{i \mathbf{p} \cdot \vec{x}} + b^\dagger_{\mathbf{p}} e^{-i \mathbf{p} \cdot \vec{x}} \right), \\
+    \pi(\vec{x}) &= \bigints\frac{d^3p}{(2\pi)^3} \left(-i \sqrt{\frac{E_{\mathbf{p}}}{2}} \left( a^\dagger_{\mathbf{p}} e^{-i \mathbf{p} \cdot \vec{x}} - b_{\mathbf{p}} e^{i \mathbf{p} \cdot \vec{x}} \right)\right).
+\end{align}
+We now want to check the commutation relation:
+\begin{align}
+    [\phi(\vec{x}), \phi(\vec{y})] &= [\pi(\vec{x}), \pi(\vec{y})].
+\end{align}
+\begin{align*}
+    [\phi(\vec{x}), \phi(\vec{y})] &= \left[ \bigints\frac{d^3p}{(2\pi)^3} \frac{1}{\sqrt{2E_{\mathbf{p}}}} \left(a_{\mathbf{p}} e^{i \mathbf{p} \cdot \vec{x}} + b^\dagger_{\mathbf{p}} e^{-i \mathbf{p} \cdot \vec{x}}\right) \bigints\frac{d^3p^\prime}{(2\pi)^3} \frac{1}{\sqrt{2E_{\mathbf{p}^\prime}}} \left(a_{\mathbf{p}^\prime} e^{i \mathbf{p}^\prime \cdot \vec{y}} + b^\dagger_{\mathbf{p}^\prime} e^{-i \mathbf{p}^\prime \cdot \vec{y}}\right) \right] \\
+    &= \bigints\frac{d^3p}{(2\pi)^3} \frac{d^3p^\prime}{(2\pi)^3}\left[\frac{1}{\sqrt{2E_{\mathbf{p}}}} \frac{1}{\sqrt{2E_{\mathbf{p}^\prime}}} \left[a_{\mathbf{p}}, a_{\mathbf{p}^\prime} \right] e^{i \mathbf{p} \cdot \vec{x}} e^{i \mathbf{p}^\prime \cdot \vec{y}}+ \frac{1}{\sqrt{2E_{\mathbf{p}}}} \frac{1}{\sqrt{2E_{\mathbf{p}^\prime}}} \left[a_{\mathbf{p}}, b^\dagger_{\mathbf{p}^\prime} \right] e^{i \mathbf{p} \cdot \vec{x}} e^{-i \mathbf{p}^\prime \cdot \vec{y}}\right] \\
+    & \quad + \bigints\frac{d^3p}{(2\pi)^3} \frac{d^3p^\prime}{(2\pi)^3}\left[\frac{1}{\sqrt{2E_{\mathbf{p}}}} \frac{1}{\sqrt{2E_{\mathbf{p}^\prime}}} \left[b^\dagger_{\mathbf{p}}, a_{\mathbf{p}^\prime} \right] e^{-i \mathbf{p} \cdot \vec{x}} e^{i \mathbf{p}^\prime \cdot \vec{y}} + \frac{1}{\sqrt{2E_{\mathbf{p}}}} \frac{1}{\sqrt{2E_{\mathbf{p}^\prime}}} \left[b^\dagger_{\mathbf{p}}, b^\dagger_{\mathbf{p}^\prime} \right] e^{-i \mathbf{p} \cdot \vec{x}} e^{-i \mathbf{p}^\prime \cdot \vec{y}} \right] \\
+    &= 0.
+\end{align*}
+\begin{align*}
+    [\pi(\vec{x}), \pi(\vec{y})] &= \left[ \bigints\frac{d^3p}{(2\pi)^3} \left(-i \sqrt{\frac{E_{\mathbf{p}}}{2}} \left(a^\dagger_{\mathbf{p}} e^{-i \mathbf{p} \cdot \vec{x}} - b_{\mathbf{p}} e^{i \mathbf{p} \cdot \vec{x}}\right)\right)\bigints\frac{d^3p^\prime}{(2\pi)^3} \left(-i \sqrt{\frac{E_{\mathbf{p}^\prime}}{2}} \left(a^\dagger_{\mathbf{p}^\prime} e^{-i \mathbf{p}^\prime \cdot \vec{y}} - b_{\mathbf{p}^\prime} e^{i \mathbf{p}^\prime \cdot \vec{y}}\right)\right) \right] \\
+    &= \bigints\frac{d^3p}{(2\pi)^3} \frac{d^3p^\prime}{(2\pi)^3} \left[\left(-i \sqrt{\frac{E_{\mathbf{p}}}{2}} \sqrt{\frac{E_{\mathbf{p}^\prime}}{2}}\right) \left[a^\dagger_{\mathbf{p}}, a_{\mathbf{p}^\prime}\right] e^{-i \mathbf{p} \cdot \vec{x}} e^{-i \mathbf{p}^\prime \cdot \vec{y}} + \left(-i \sqrt{\frac{E_{\mathbf{p}}}{2}} \sqrt{\frac{E_{\mathbf{p}^\prime}}{2}}\right) \left[a^\dagger_{\mathbf{p}}, b_{\mathbf{p}^\prime}\right] e^{-i \mathbf{p} \cdot \vec{x}} e^{i \mathbf{p}^\prime \cdot \vec{y}}\right] \\
+    & \quad + \bigints\frac{d^3p}{(2\pi)^3} \frac{d^3p^\prime}{(2\pi)^3} \left[\left(-i \sqrt{\frac{E_{\mathbf{p}}}{2}} \sqrt{\frac{E_{\mathbf{p}^\prime}}{2}}\right) \left[b_{\mathbf{p}}, a^\dagger_{\mathbf{p}^\prime}\right] e^{i \mathbf{p} \cdot \vec{x}} e^{-i \mathbf{p}^\prime \cdot \vec{y}} + \left(-i \sqrt{\frac{E_{\mathbf{p}}}{2}} \sqrt{\frac{E_{\mathbf{p}^\prime}}{2}}\right) \left[b_{\mathbf{p}}, b_{\mathbf{p}^\prime}\right] e^{i \mathbf{p} \cdot \vec{x}} e^{i \mathbf{p}^\prime \cdot \vec{y}}\right] \\
+    &= 0.
+\end{align*}
+with commutation relationships
+    \begin{align*}
+        [\phi(\vec{x}), \phi(\vec{y})] = [\pi(\vec{x}), \pi(\vec{y})] = 0 \quad \text{and} \quad [\phi(\vec{x}), \pi(\vec{y})] = i\delta^{(3)}(\vec{x} - \vec{y})
+    \end{align*}
+    implying
+    \begin{align*}
+        [a_{\mathbf{p}}, a_{\vec{q}}] = [a^\dagger_{\mathbf{p}}, a^\dagger_{\vec{q}}] = 0 \quad \text{and} \quad [a_{\mathbf{p}}, a^\dagger_{\vec{q}}] = (2\pi)^3 \delta^{(3)}(\mathbf{p} - \vec{q})
+    \end{align*}
+\subsection*{(b) Feynman Propagator for the Complex Scalar Field}
+The Feynman propagator is defined as:
+\begin{align}
+    \Delta_F(x - y) &= \langle 0 | T(\Phi(x) \Phi^\dagger(y)) | 0 \rangle.
+\end{align}
+To compute this, we use the field expansions:
+\begin{align}
+    \Phi(x) &= \bigints \frac{d^3p}{(2\pi)^3} \frac{1}{\sqrt{2E_{\mathbf{p}}}} \left[ a_{\mathbf{p}} e^{i \mathbf{p} \cdot \vec{x}} + b^\dagger_{\mathbf{p}} e^{-i \mathbf{p} \cdot \vec{x}} \right], \\
+    \Phi^\dagger(y) &= \bigints \frac{d^3p^\prime}{(2\pi)^3} \frac{1}{\sqrt{2E_{\mathbf{p}^\prime}}} \left[ a^\dagger_{\mathbf{p}^\prime} e^{-i \mathbf{p}^\prime \cdot \vec{y}} + b_{\mathbf{p}^\prime} e^{i \mathbf{p}^\prime \cdot \vec{y}} \right].
+\end{align}
+
+We then compute the vacuum expectation value:
+
+\begin{align}
+    \langle 0 | \Phi(x) \Phi^\dagger(y) | 0 \rangle &= \bigints \frac{d^3p}{(2\pi)^3} \frac{d^3p^\prime}{(2\pi)^3} \frac{1}{\sqrt{2E_{\mathbf{p}}}} \frac{1}{\sqrt{2E_{\mathbf{p}^\prime}}} \langle 0 | \left[ a_{\mathbf{p}} e^{i \mathbf{p} \cdot \vec{x}} + b^\dagger_{\mathbf{p}} e^{-i \mathbf{p} \cdot \vec{x}} \right] \left[ a^\dagger_{\mathbf{p}^\prime} e^{-i \mathbf{p}^\prime \cdot \vec{y}} + b_{\mathbf{p}^\prime} e^{i \mathbf{p}^\prime \cdot \vec{y}} \right] | 0 \rangle\notag\\
+    &= \bigints \frac{d^3p}{(2\pi)^3} \frac{d^3p^\prime}{(2\pi)^3} \frac{1}{\sqrt{2E_{\mathbf{p}}}} \frac{1}{\sqrt{2E_{\mathbf{p}^\prime}}} \Bigg[ \langle 0 | a_{\mathbf{p}} a^\dagger_{\mathbf{p}^\prime} | 0 \rangle e^{i \mathbf{p} \cdot \vec{x}} e^{-i \mathbf{p}^\prime \cdot \vec{y}} + \langle 0 | a_{\mathbf{p}} b_{\mathbf{p}^\prime} e^{i \mathbf{p} \cdot \vec{x}} e^{i \mathbf{p}^\prime \cdot \vec{y}} | 0 \rangle \notag\\
+    &\quad + \langle 0 | b^\dagger_{\mathbf{p}} a^\dagger_{\mathbf{p}^\prime} e^{-i \mathbf{p} \cdot \vec{x}} e^{-i \mathbf{p}^\prime \cdot \vec{y}} | 0 \rangle + \langle 0 | b^\dagger_{\mathbf{p}} b_{\mathbf{p}^\prime} e^{-i \mathbf{p} \cdot \vec{x}} e^{i \mathbf{p}^\prime \cdot \vec{y}} | 0 \rangle \Bigg].
+\end{align}
+Since \(\langle 0 | a_{\mathbf{p}} b_{\mathbf{p}^\prime} | 0 \rangle = \langle 0 | b^\dagger_{\mathbf{p}} a_{\mathbf{p}^\prime}^\dagger | 0 \rangle = 0\), the above equation simplifies to:
+\begin{align}
+    \langle 0 | \Phi(x) \Phi^\dagger(y) | 0 \rangle &= \bigints \frac{d^3p}{(2\pi)^3} \frac{d^3p^\prime}{(2\pi)^3} \frac{1}{\sqrt{2E_{\mathbf{p}}}} \frac{1}{\sqrt{2E_{\mathbf{p}^\prime}}} \Bigg[ \delta^3(\mathbf{p} - \mathbf{p}^\prime) e^{i \mathbf{p} \cdot \vec{x}} e^{-i \mathbf{p}^\prime \cdot \vec{y}} + \delta^3(\mathbf{p} - \mathbf{p}^\prime) e^{-i \mathbf{p} \cdot \vec{x}} e^{i \mathbf{p}^\prime \cdot \vec{y}} \Bigg]\notag\\
+    &= \bigints \frac{d^3p}{(2\pi)^3} \frac{1}{2E_{\mathbf{p}}} \left[ e^{i \mathbf{p} \cdot (\vec{x} - \vec{y})} + e^{-i \mathbf{p} \cdot (\vec{x} - \vec{y})} \right].
+\end{align}
+Thus, the Feynman propagator is:
+\begin{align}
+    \Delta_F(x - y) &= \bigints \frac{d^3p}{(2\pi)^3} \frac{1}{2E_{\mathbf{p}}} e^{-i \mathbf{p} \cdot (\vec{x} - \vec{y})}.
+\end{align}
+\subsection*{(c) Feynman Propagator in momentum space}
+The Feynman propagator (or two-point function) is:
+\begin{align}
+    \langle 0 | T\{\phi(x) \phi^\dagger(y)\} | 0 \rangle.
+\end{align}
+Expanding the fields using the mode expansions, we get:
+\begin{align*}
+    \langle 0 | T\{\phi(x) \phi^\dagger(y)\} | 0 \rangle &= \langle 0 \left| T \left\{ \left( \bigints\frac{d^3\mathbf{k}}{(2\pi)^{3/2}} \frac{1}{\sqrt{2E_k}} \left( a_{\mathbf{k}} e^{-ik \cdot x} + b^\dagger_{\mathbf{k}} e^{ik \cdot x} \right) \right) \left( \bigints\frac{d^3\mathbf{k}'}{(2\pi)^{3/2}} \frac{1}{\sqrt{2E_{k'}}} \left( b_{\mathbf{k}'} e^{-ik' \cdot y} + a^\dagger_{\mathbf{k}'} e^{ik' \cdot y} \right) \right) \right\} \right| 0 \rangle \\
+    &= \bigints\frac{d^3\mathbf{k}}{(2\pi)^{3/2}} \frac{1}{\sqrt{2E_k}} \bigints\frac{d^3\mathbf{k}'}{(2\pi)^{3/2}} \frac{1}{\sqrt{2E_{k'}}} \left\langle 0 \left| \left(a_{\mathbf{k}} e^{-ik \cdot x} + b^\dagger_{\mathbf{k}} e^{ik \cdot x} \right) \left(b_{\mathbf{k}'} e^{-ik' \cdot y} + a^\dagger_{\mathbf{k}'} e^{ik' \cdot y} \right) \right| 0 \right\rangle.
+\end{align*}
+To compute the time-ordered product, we consider two cases: \( t > t' \) and \( t < t' \).
+\paragraph{Case 1: \( t > t' \)}
+\begin{align*}
+    \langle 0 | \phi(x) \phi^\dagger(y) | 0 \rangle 
+    % &= \bigints\frac{d^3\mathbf{k}}{(2\pi)^{3/2}} \frac{1}{\sqrt{2E_k}} \bigints\frac{d^3\mathbf{k}'}{(2\pi)^{3/2}} \frac{1}{\sqrt{2E_{k'}}} \left\langle 0 \left| a_{\mathbf{k}} b_{\mathbf{k}'} e^{-ik \cdot x} e^{-ik' \cdot y} + a_{\mathbf{k}} a^\dagger_{\mathbf{k}'} e^{-ik \cdot x} e^{ik' \cdot y} \right\\
+    % &\qquad+ b^\dagger_{\mathbf{k}} b_{\mathbf{k}'} e^{ik \cdot x} e^{-ik' \cdot y} + b^\dagger_{\mathbf{k}} a^\dagger_{\mathbf{k}'} e^{ik \cdot x} e^{ik' \cdot y} \right| 0 \right\rangle \\
+    &= \bigints\frac{d^3\mathbf{k}}{(2\pi)^{3/2}} \frac{1}{\sqrt{2E_k}} \bigints\frac{d^3\mathbf{k}'}{(2\pi)^{3/2}} \frac{1}{\sqrt{2E_{k'}}} \left\langle 0 \left| a_{\mathbf{k}} a^\dagger_{\mathbf{k}'} e^{-ik \cdot x} e^{ik' \cdot y} + b^\dagger_{\mathbf{k}} b_{\mathbf{k}'} e^{ik \cdot x} e^{-ik' \cdot y} \right| 0 \right\rangle \\
+    &= \bigints\frac{d^3\mathbf{k}}{(2\pi)^{3/2}} \frac{1}{\sqrt{2E_k}} \bigints\frac{d^3\mathbf{k}'}{(2\pi)^{3/2}} \frac{1}{\sqrt{2E_{k'}}} \delta^3(\mathbf{k} - \mathbf{k'}) e^{-ik \cdot x} e^{ik \cdot y} \\
+    &= \bigints\frac{d^3\mathbf{k}}{(2\pi)^{3}} \frac{1}{2E_k} e^{-ik \cdot (x - y)}.
+\end{align*}
+
+\paragraph{Case 2: \( t < t' \)}
+
+\begin{align}
+    \langle 0 | \phi^\dagger(y) \phi(x) | 0 \rangle &= \bigints\frac{d^3\mathbf{k}}{(2\pi)^{3}} \frac{1}{2E_k} e^{-ik \cdot (y - x)}.
+\end{align}
+Combining the results for \( t > t' \) and \( t < t' \) using time-ordering:
+\begin{align}
+    \langle 0 | T\{\phi(x) \phi^\dagger(y)\} | 0 \rangle &= \bigints\frac{d^3\mathbf{k}}{(2\pi)^3} \frac{1}{2E_k} \left[ \theta(t - t') e^{-iE_k (t - t')} + \theta(t' - t) e^{iE_k (t - t')} \right] e^{-i\mathbf{k} \cdot (\mathbf{x} - \mathbf{y})}.
+\end{align}
+In momentum space, the Feynman propagator is:
+\begin{align}
+    \Delta_F(p) &= \frac{1}{p^2 - m^2 + i \epsilon},
+\end{align}
+where \( p^2 = E^2 - \mathbf{p}^2 \) and \( \epsilon \) is a small positive number that ensures the correct analytic properties of the propagator.
+\subsection*{(d) Time-Ordered Product}
+To compute the time-ordered product \( T(\phi(x) \phi^\dagger(y) \phi(z)) \) for a complex scalar field \(\phi\), we need to consider all possible orderings of the fields:
+
+\begin{align*}
+T(\phi(x) \phi^\dagger(y) \phi(z)) &= \theta(t_x - t_y) \theta(t_y - t_z) \phi(x) \phi^\dagger(y) \phi(z) \\
+&\quad + \theta(t_x - t_z) \theta(t_z - t_y) \phi(x) \phi(z) \phi^\dagger(y) \\
+&\quad + \theta(t_y - t_x) \theta(t_x - t_z) \phi^\dagger(y) \phi(x) \phi(z) \\
+&\quad + \theta(t_y - t_z) \theta(t_z - t_x) \phi^\dagger(y) \phi(z) \phi(x) \\
+&\quad + \theta(t_z - t_x) \theta(t_x - t_y) \phi(z) \phi(x) \phi^\dagger(y) \\
+&\quad + \theta(t_z - t_y) \theta(t_y - t_x) \phi(z) \phi^\dagger(y) \phi(x).
+\end{align*}
+
+We now evaluate each case where \( t_x \), \( t_y \), and \( t_z \) have different orderings.
+
+\subsection*{Case 1: \( t_x > t_y > t_z \)}
+
+\begin{align*}
+\langle 0 | T(\phi(x) \phi^\dagger(y) \phi(z)) | 0 \rangle &= \langle 0 | \phi(x) \phi^\dagger(y) \phi(z) | 0 \rangle \\
+&= \langle 0 | \phi(x) \phi^\dagger(y) | 0 \rangle \langle 0 | \phi(z) | 0 \rangle + \langle 0 | \phi(x) | 0 \rangle \langle 0 | \phi^\dagger(y) \phi(z) | 0 \rangle \\
+&= \Delta_F(x - y) \langle 0 | \phi(z) | 0 \rangle \\
+&= 0
+\end{align*}
+
+\subsection*{Case 2: \( t_x > t_z > t_y \)}
+
+\begin{align*}
+\langle 0 | T(\phi(x) \phi^\dagger(y) \phi(z)) | 0 \rangle &= \langle 0 | \phi(x) \phi(z) \phi^\dagger(y) | 0 \rangle \\
+&= \langle 0 | \phi(x) | 0 \rangle \langle 0 | \phi(z) \phi^\dagger(y) | 0 \rangle + \langle 0 | \phi(x) \phi(z) | 0 \rangle \langle 0 | \phi^\dagger(y) | 0 \rangle \\
+&= \Delta_F(z - y) \langle 0 | \phi(x) | 0 \rangle \\
+&= 0
+\end{align*}
+
+\subsection*{Case 3: \( t_y > t_x > t_z \)}
+
+\begin{align*}
+\langle 0 | T(\phi(x) \phi^\dagger(y) \phi(z)) | 0 \rangle &= \langle 0 | \phi^\dagger(y) \phi(x) \phi(z) | 0 \rangle \\
+&= \langle 0 | \phi^\dagger(y) | 0 \rangle \langle 0 | \phi(x) \phi(z) | 0 \rangle + \langle 0 | \phi^\dagger(y) \phi(x) | 0 \rangle \langle 0 | \phi(z) | 0 \rangle \\
+&= \Delta_F(y - x) \langle 0 | \phi(z) | 0 \rangle \\
+&= 0
+\end{align*}
+
+\subsection*{Case 4: \( t_y > t_z > t_x \)}
+
+\begin{align*}
+\langle 0 | T(\phi(x) \phi^\dagger(y) \phi(z)) | 0 \rangle &= \langle 0 | \phi^\dagger(y) \phi(z) \phi(x) | 0 \rangle \\
+&= \langle 0 | \phi^\dagger(y) \phi(z) | 0 \rangle \langle 0 | \phi(x) | 0 \rangle + \langle 0 | \phi^\dagger(y) | 0 \rangle \langle 0 | \phi(z) \phi(x) | 0 \rangle \\
+&= \Delta_F(z - x) \langle 0 | \phi^\dagger(y) | 0 \rangle \\
+&= \Delta_F(z - x) \langle 0 | \phi^\dagger(y) | 0 \rangle
+\end{align*}
+
+\subsection*{Case 5: \( t_z > t_x > t_y \)}
+
+\begin{align*}
+\langle 0 | T(\phi(x) \phi^\dagger(y) \phi(z)) | 0 \rangle &= \langle 0 | \phi(z) \phi(x) \phi^\dagger(y) | 0 \rangle \\
+&= \langle 0 | \phi(z) | 0 \rangle \langle 0 | \phi(x) \phi^\dagger(y) | 0 \rangle + \langle 0 | \phi(z) \phi(x) | 0 \rangle \langle 0 | \phi^\dagger(y) | 0 \rangle \\
+&= \Delta_F(x - y) \langle 0 | \phi(z) | 0 \rangle \\
+&= 0
+\end{align*}
+
+\subsection*{Case 6: \( t_z > t_y > t_x \)}
+
+\begin{align*}
+\langle 0 | T(\phi(x) \phi^\dagger(y) \phi(z)) | 0 \rangle &= \langle 0 | \phi(z) \phi^\dagger(y) \phi(x) | 0 \rangle \\
+&= \langle 0 | \phi(z) \phi^\dagger(y) | 0 \rangle \langle 0 | \phi(x) | 0 \rangle + \langle 0 | \phi(z) | 0 \rangle \langle 0 | \phi^\dagger(y) \phi(x) | 0 \rangle \\
+&= \Delta_F(y - x) \langle 0 | \phi(z) | 0 \rangle \\
+&= \Delta_F(y - x) \langle 0 | \phi(z) | 0 \rangle
+\end{align*}
+
+In summary, the time-ordered product \( T(\phi(x) \phi^\dagger(y) \phi(z)) \) is given by:
+
+\begin{align*}
+\langle 0 | T(\phi(x) \phi^\dagger(y) \phi(z)) | 0 \rangle &= \Delta_F(x - y) \langle 0 | \phi(z) | 0 \rangle \quad \text{for } t_x > t_y > t_z, \\
+\langle 0 | T(\phi(x) \phi^\dagger(y) \phi(z)) | 0 \rangle &= \Delta_F(z - y) \langle 0 | \phi(x) | 0 \rangle \quad \text{for } t_x > t_z > t_y, \\
+\langle 0 | T(\phi(x) \phi^\dagger(y) \phi(z)) | 0 \rangle &= \Delta_F(y - x) \langle 0 | \phi(z) | 0 \rangle \quad \text{for } t_y > t_x > t_z, \\
+\langle 0 | T(\phi(x) \phi^\dagger(y) \phi(z)) | 0 \rangle &= \Delta_F(z - x) \langle 0 | \phi^\dagger(y) | 0 \rangle \quad \text{for } t_y > t_z > t_x, \\
+\langle 0 | T(\phi(x) \phi^\dagger(y) \phi(z)) | 0 \rangle &= \Delta_F(x - y) \langle 0 | \phi(z) | 0 \rangle \quad \text{for } t_z > t_x > t_y, \\
+\langle 0 | T(\phi(x) \phi^\dagger(y) \phi(z)) | 0 \rangle &= \Delta_F(y - x) \langle 0 | \phi(z) | 0 \rangle \quad \text{for } t_z > t_y > t_x.
+\end{align*}

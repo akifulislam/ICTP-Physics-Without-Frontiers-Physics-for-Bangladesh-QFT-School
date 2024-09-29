@@ -1,0 +1,98 @@
+\allowdisplaybreaks
+\begin{center}
+	\hrule
+	\vspace{.4cm}
+ \begin{tabular*}{\textwidth}{@{}l@{}|@{\extracolsep{0.6in}}r@{}}%
+\parbox{4.25in}{\raggedright{\includegraphics[width=.9\linewidth]{ictp-pwf.pdf}}} &
+\parbox[c][]{4in}{{\Large\textbf{Md Akiful Islam Zawad} \par}
+                    { Brac University \par}
+                    { KHA 224, Progati Sarani, Merul Badda, \par}
+                    { Dhaka 1212, Bangladesh \par}
+                    { \href{ext.akiful.islam@bracu.ac.bd}{ext.akiful.islam@bracu.ac.bd}} \par}
+\end{tabular*}\vspace{.3in}
+\definecolor{ceruleanblue}{rgb}{0.16, 0.32, 0.6}
+	\LARGE\scshape\textbf{\textcolor{ceruleanblue}{Physics for Bangladesh QFT School}}
+\end{center}
+\hrule\vspace{.25in}
+{\large\textbf{Problem Sheet:}\ \textsc{3} \hspace{\hfill} \large\textbf{Due Date:} \today\\
+	\hrule}
+ %----------------------------
+\paragraph*{Problem Set 2} %\hfill \newline
+\\
+The other two Maxwell’s equations can be obtained from an identity present in the formulation of $F_{\mu\nu}$.
+\begin{itemize}
+    \item[(a)] Show that the electromagnetic field strength tensor satisfies the Bianchi identity
+    \begin{align}
+        \partial_\alpha F_{\beta\gamma} + \partial_\beta F_{\gamma\alpha} + \partial_\gamma F_{\alpha\beta} = 0.\label{eq:bianchi-identity}
+    \end{align}
+    \item[(b)] Obtain the two Maxwell’s equations from the Bianchi identity.
+\end{itemize}
+\bigskip\bigskip\hline\hline\bigskip
+\subsection*{Solution:}
+\begin{enumerate}
+    \item [(a)] We begin by recalling the definition of $F_{\mu\nu}$:
+\begin{align}
+    F_{\beta\gamma} = \partial_\beta A_\gamma - \partial_\gamma A_\beta, \quad F_{\gamma\alpha} = \partial_\gamma A_\alpha - \partial_\alpha A_\gamma, \quad F_{\alpha\beta} = \partial_\alpha A_\beta - \partial_\beta A_\alpha.
+\end{align}
+
+Now, substitute these expressions into (\ref{eq:bianchi-identity}):
+\begin{align*}
+    \partial_\alpha F_{\beta\gamma} + \partial_\beta F_{\gamma\alpha} + \partial_\gamma F_{\alpha\beta} &= \partial_\alpha (\partial_\beta A_\gamma - \partial_\gamma A_\beta) + \partial_\beta (\partial_\gamma A_\alpha - \partial_\alpha A_\gamma) + \partial_\gamma (\partial_\alpha A_\beta - \partial_\beta A_\alpha)\notag\\
+    &=\partial_\alpha \partial_\beta A_\gamma - \partial_\alpha \partial_\gamma A_\beta+\partial_\beta \partial_\gamma A_\alpha - \partial_\beta \partial_\alpha A_\gamma+\partial_\gamma \partial_\alpha A_\beta - \partial_\gamma \partial_\beta A_\alpha.
+\end{align*}
+Using the fact that partial derivatives commute, i.e., $\partial_\alpha \partial_\beta = \partial_\beta \partial_\alpha$, we can cancel out all the terms:
+\begin{align*}
+    \partial_\alpha \partial_\beta A_\gamma = \partial_\beta \partial_\alpha A_\gamma, \quad \partial_\alpha \partial_\gamma A_\beta = \partial_\gamma \partial_\alpha A_\beta, \quad \partial_\beta \partial_\gamma A_\alpha = \partial_\beta \partial_\gamma A_\alpha
+\end{align*}
+This confirms that the electromagnetic field strength tensor $F_{\mu\nu}$ satisfies the Bianchi identity:
+\begin{align}
+    \partial_\alpha F_{\beta\gamma} + \partial_\beta F_{\gamma\alpha} + \partial_\gamma F_{\alpha\beta} = 0.~~~~~\text{(\bf Showed)}
+\end{align}
+\item [(b)] We begin by decomposing the indices in the Bianchi identity. For simplicity, let’s choose $\alpha = 0$, $\beta = i$, and $\gamma = j$. The Bianchi identity then becomes:
+\begin{align}
+    \partial_0 F_{ij} + \partial_i F_{j0} + \partial_j F_{0i} = 0.\label{eq:bianchi-retold}
+\end{align}
+Recall the components of the field strength tensor (\ref{eq:e-field-components}) and (\ref{eq:b-field-components}):
+\begin{align*}
+    F_{0i} = E_i \quad \text{(electric field components)}, \quad F_{ij} = -\epsilon_{ijk} B_k \quad \text{(magnetic field components)}.
+\end{align*}
+Substituting these into (\ref{eq:bianchi-retold}), we get:
+\begin{align*}
+    \partial_0 (-\epsilon_{ijk} B_k) + \partial_i E_j - \partial_j E_i = 0.
+\end{align*}
+This simplifies to:
+\begin{align*}
+    -\epsilon_{ijk} \frac{\partial B_k}{\partial t} + \partial_i E_j - \partial_j E_i = 0.
+\end{align*}
+We can rewrite the above equation as:
+\begin{align*}
+    \epsilon_{ijk} \frac{\partial B_k}{\partial t} = \partial_i E_j - \partial_j E_i.
+\end{align*}
+Using the definition of the curl:
+\begin{align*}
+    (\nabla \times \mathbf{E})_k = \epsilon_{ijk} \partial_i E_j,
+\end{align*}
+this becomes:
+\begin{align}
+    \nabla \times \mathbf{E} = -\frac{\partial \mathbf{B}}{\partial t}.
+\end{align}
+This is Faraday’s law of induction, which is one of Maxwell’s equations.
+
+Next, we consider the special case where $\alpha = i$, $\beta = j$, and $\gamma = k$. The Bianchi identity becomes:
+\begin{align*}
+    \partial_i F_{jk} + \partial_j F_{ki} + \partial_k F_{ij} = 0.
+\end{align*}
+Substitute $F_{ij} = -\epsilon_{ijk} B_k$:
+\begin{align*}
+    \partial_i (-\epsilon_{jkl} B_l) + \partial_j (-\epsilon_{kil} B_l) + \partial_k (-\epsilon_{ijl} B_l) = 0.
+\end{align*}
+This simplifies to:
+\begin{align*}
+    -\epsilon_{jkl} \partial_i B_l - \epsilon_{kil} \partial_j B_l - \epsilon_{ijl} \partial_k B_l = 0.
+\end{align*}
+Since this holds for any indices $i$, $j$, and $k$, we conclude that the divergence of the magnetic field must vanish:
+\begin{align}
+\nabla \cdot \mathbf{B} = 0.
+\end{align}
+\end{enumerate}
+\bigskip\bigskip\hline\hline\bigskip
